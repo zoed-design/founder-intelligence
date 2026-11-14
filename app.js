@@ -1,6 +1,7 @@
 import { orchestrate, DEFAULT_POLICY } from './src/agents.js';
 import { decide, captureOverride, makeRule, resetDraftSeq, identify, canSee } from './src/engine.js';
 import { createMap } from './src/map.js';
+import { CREW, portrait, mascot } from './src/crew.js';
 
 const FILES = ['business', 'knowledge', 'inbox', 'agents', 'assumptions', 'photo-presets'];
 const KEY = 'founder-intelligence-app-v1';
@@ -13,6 +14,14 @@ const STEP_MS = 380;
 const TIER = { internal: 'Internal', 'customer-safe': 'Customer-safe', public: 'Public' };
 const tierBadge = (t) => `<span class="badge t-${t}">${TIER[t] || esc(t)}</span>`;
 const AGENT_SHORT = { capture: 'Capture', router: 'Router', curator: 'Curator', teamwork: 'Teamwork', commercial: 'Commercial', content: 'Content', founder: 'Founder', gate: 'Founder gate', source: 'Message' };
+
+const crewName = (id) => CREW[id]?.name || AGENT_SHORT[id] || id;
+const crewLabel = (id) => (CREW[id] ? `${CREW[id].name} · ${AGENT_SHORT[id]}` : AGENT_SHORT[id] || id);
+function ava(id, cls = '') {
+  const src = pics[id];
+  return src ? `<img class="ava ${cls}" src="${src}" alt="">` : `<span class="ava ${cls}" aria-hidden="true">${esc(crewName(id)[0])}</span>`;
+}
+const pick = (a) => a[Math.floor(Math.random() * a.length)];
 
 const OFFICE_PRESETS = {
   'bookkeeper-01': [['Unallocated docket HR-8821', 'Hi, I have an unallocated Harbour Readymix concrete invoice, docket HR-8821, $14,250 inc GST. Which job and cost code does this go to?'], ['New rule', 'FYI from now on every supplier invoice needs a PO number before it is paid.']],
@@ -28,6 +37,8 @@ let P;      // pristine data, never changed
 let S;      // persisted app state
 let data;   // working data: pristine plus learned knowledge
 let map;
+let pics = {};   // agent portraits
+let digger = { say() {}, dance() {}, setSound() {} };
 const ui = { tab: 'queue', filter: 'all', editing: null, openSrc: null, sitePerson: 'framer-01', officePerson: 'bookkeeper-01', photo: null, showHandled: false };
 
 // ---------- State ----------
@@ -60,7 +71,7 @@ function nextStep() {
   setTimeout(nextStep, reduceMotion() ? 40 : STEP_MS);
 }
 function traceLi(s) {
-  return `<li><span class="who ${esc(s.agent)}">${esc(AGENT_SHORT[s.agent] || s.agent)}</span> <span class="act">${esc(s.action)}</span> ${esc(s.detail)}</li>`;
+  return `<li><span class="who ${esc(s.agent)}">${esc(CREW[s.agent] ? crewLabel(s.agent) : AGENT_SHORT[s.agent] || s.agent)}</span> <span class="act">${esc(s.action)}</span> ${esc(s.detail)}</li>`;
 }
 function renderTrace() { $('#trace').innerHTML = S.trace.slice().reverse().map(traceLi).join('') || '<li>Send a message from any role to see the agents work.</li>'; }
 
@@ -76,6 +87,7 @@ function send(fromId, text, extra = {}) {
   S.seq.draft += out.drafts.length;
   out.drafts.forEach((d) => S.drafts.push({ ...d, from: fromId, question: text, img: extra.img }));
   S.stats.withheld += out.route.retrieval.withheld.length;
+  digger.say(introLine(out));
 
   const delay = reduceMotion() ? 200 : out.steps.length * STEP_MS + 200;
   setTimeout(() => {
@@ -85,12 +97,33 @@ function send(fromId, text, extra = {}) {
     if (!answeredNow && pending.length) thread(fromId).push({ who: 'wait', text: waitText(out, pending), t: now() });
     save(); render();
     const auto = out.drafts.filter((d) => d.status === 'auto-sent').length;
+    if (auto) digger.say(`Sorted! ${crewName(out.route.agent)} answered straight from approved knowledge.`, { dance: true });
+    else digger.say(outroLine(out, pending));
     toast(auto ? `${AGENT_SHORT[out.route.agent]} agent answered from approved knowledge` : `${pending.length} draft${pending.length === 1 ? '' : 's'} waiting for the founder`);
   }, delay);
 
   enqueue(out.steps);
   save(); render();
   return out;
+}
+
+function introLine(out) {
+  const r = out.route;
+  if (r.intent === 'site-photo') return 'Nice snap! Lyra’s reading it, Bower’s sorting it.';
+  if (r.intent === 'scope-change') return 'A change to the job? That one’s for the boss.';
+  if (r.best.outcome === 'withheld') return 'Hmm, that’s not for sharing. Checking who’s asking…';
+  if (r.intent === 'knowledge-update') return 'New info from site! Bower, take a look.';
+  return `On it. ${crewName(r.agent)} has this one.`;
+}
+function outroLine(out, pending) {
+  const r = out.route;
+  if (pending.some((d) => d.kind === 'gap')) return 'Haven’t got that one yet. I’ve asked the boss, and I’ll remember the answer.';
+  if (r.intent === 'site-photo') return r.escalate ? 'Too dark to read that one. Boss will have a look.' : `One photo, ${pending.length} jobs. Ready for the boss.`;
+  if (r.conflicts.length) return 'Hang on, that doesn’t match the drawings. Boss will check it first.';
+  if (r.best.outcome === 'withheld') return 'Pricing stays in the office. Passed it up to the boss.';
+  if (r.intent === 'knowledge-update') return 'Proposed as company knowledge. Waiting on the boss.';
+  if (r.intent === 'invoice-coding') return 'Money stuff always goes past the boss. Drafted and waiting.';
+  return 'Drafted and waiting for the boss.';
 }
 
 function waitText(out, pending) {
@@ -135,6 +168,9 @@ function apply(id, decision, edited, ruleTier) {
   ui.editing = null;
   enqueue(steps);
   save(); render();
+  if (decision === 'rejected') digger.say('No worries, binned it.');
+  else if (rule) digger.say('Learned something new! Next time I won’t need to ask.', { dance: true });
+  else digger.say(pick(['Ripper. Sent!', 'Done and dusted.', 'Bonza, that’s gone out.']));
   toast(decision === 'rejected' ? `${draft.id} rejected` : rule ? `Approved. New rule ${rule.id} saved; agents use it from now on.` : `${draft.id} approved and sent by ${draft.channel}`);
 }
 
@@ -152,9 +188,9 @@ function threadHtml(id, emptyText) {
   if (!msgs.length) return `<p class="empty small">${esc(emptyText)}</p>`;
   return msgs.map((m) => {
     if (m.who === 'me') return `<div class="msg me">${m.img ? `<img src="${m.img}" alt="Photo sent">` : ''}${esc(m.text)}<div class="meta">${esc(m.t)}</div></div>`;
-    if (m.who === 'wait') return `<div class="msg wait">${esc(m.text)}<div class="meta">Router · ${esc(m.t)}</div></div>`;
+    if (m.who === 'wait') return `<div class="msg wait">${ava('router')}<div><div class="who-line">Digger</div>${esc(m.text)}<div class="meta">${esc(m.t)}</div></div></div>`;
     const how = m.how === 'auto' ? '<span class="badge b-auto">Auto-sent: approved knowledge</span>' : '<span class="badge b-ok">Approved by founder</span>';
-    return `<div class="msg bot">${esc(m.text)}<div class="meta"><span class="agentchip ${esc(m.agent)}">${esc(AGENT_SHORT[m.agent] || m.agent)} agent</span>${how}${(m.cites || []).map((c) => `<span>${esc(c)}</span>`).join('')}<span>${esc(m.t)}</span></div></div>`;
+    return `<div class="msg bot">${ava(m.agent)}<div><div class="who-line">${esc(crewLabel(m.agent))}</div>${esc(m.text)}<div class="meta">${how}${(m.cites || []).map((c) => `<span>${esc(c)}</span>`).join('')}<span>${esc(m.t)}</span></div></div></div>`;
   }).join('');
 }
 
@@ -224,7 +260,7 @@ function draftCard(d) {
       <select data-ruletier="${d.id}">${['internal', 'customer-safe', 'public'].map((t) => `<option value="${t}" ${t === (d.ruleTier || 'internal') ? 'selected' : ''}>${TIER[t]}</option>`).join('')}</select></label>`;
   const src = ui.openSrc?.d === d.id ? data.knowledge.entries.find((e) => e.id === ui.openSrc.c) : null;
   return `<article class="draft ${d.status === 'pending' && d.escalated ? 'esc' : ''} ${d.status !== 'pending' ? 'done' : ''}">
-    <div class="top">${statusBadge} ${tierBadge(d.tier)} <span class="agentchip ${esc(d.agent)}">${esc(AGENT_SHORT[d.agent])} agent</span>${d.stream ? ` <span class="badge b-plain">${esc(d.stream)}</span>` : ''}</div>
+    <div class="top">${statusBadge} ${tierBadge(d.tier)} <span class="agentchip withpic ${esc(d.agent)}">${ava(d.agent)} ${esc(crewLabel(d.agent))}</span>${d.stream ? ` <span class="badge b-plain">${esc(d.stream)}</span>` : ''}</div>
     <div class="title">${esc(d.title)}</div>
     <div class="route">${esc(d.id)} · from ${esc(person(d.from)?.label || 'demo inbox')} · to ${esc(d.to)} by ${esc(d.channel)}${d.escalateReason && d.status === 'pending' ? ` · ${esc(d.escalateReason)}` : ''}</div>
     ${d.question && d.kind !== 'knowledge' && d.question !== 'Photo' ? `<div class="small muted" style="margin-top:6px">Asked: “${esc(d.question)}”</div>` : ''}
@@ -261,7 +297,7 @@ function agentsTab() {
       <span class="switch"><input type="checkbox" id="autoAnswer" ${S.policy.autoAnswer ? 'checked' : ''}><span></span></span>
       <label for="autoAnswer"><b>Let agents send answers that quote approved knowledge</b><br><span class="small">Only plain answers the person is allowed to see, with no conflict, at 0.9 confidence or higher. Posts, records, variations, new knowledge and anything escalated always come to you.</span></label>
     </div>
-    <div class="agentgrid">${data.agents.agents.map((a) => `<div class="agentcard"><h3>${esc(a.name)} ${counts[a.id] ? `<span class="badge b-plain">${counts[a.id]} handled</span>` : ''}</h3><dl>
+    <div class="agentgrid">${data.agents.agents.map((a) => `<div class="agentcard"><div class="ac-head">${ava(a.id, 'lg')}<div><h3>${esc(crewName(a.id))} ${counts[a.id] ? `<span class="badge b-plain">${counts[a.id]} handled</span>` : ''}</h3><div class="species">${esc(CREW[a.id] ? `The ${CREW[a.id].species} · ` : '')}${esc(a.name)}</div></div></div><dl>
       <dt>Purpose</dt><dd>${esc(a.purpose)}</dd><dt>Sources</dt><dd>${esc(a.sources.join(', '))}</dd><dt>Tier</dt><dd>${esc(a.tier)}</dd><dt>Autonomy</dt><dd>${esc(a.autonomy)}</dd><dt>Handover</dt><dd>${esc(a.handover)}</dd></dl></div>`).join('')}</div>`;
 }
 
@@ -276,7 +312,7 @@ function siteView() {
   return `<div class="hello"><div><h1>Site crew app</h1><p>What a carpenter or supervisor sees on their phone. Ask, send a photo, or tell the office something new.</p></div></div>
   <div class="phone-wrap">
     <div class="phone">
-      <div class="phone-head"><div class="t">SiteBrain</div><div class="s">Answers from the drawings, checked by the founder when it matters</div>
+      <div class="phone-head"><div class="who">${ava('teamwork', 'md')}<div><div class="t">SiteBrain</div><div class="s">Roo answers from the drawings; the founder checks when it matters</div></div></div>
         <label class="sr" for="sitePerson">You are</label>
         <select id="sitePerson" data-person="site"><option value="framer-01" ${id === 'framer-01' ? 'selected' : ''}>Framing carpenter (subcontractor)</option><option value="supervisor-01" ${isSup ? 'selected' : ''}>Site supervisor</option></select>
       </div>
@@ -324,7 +360,7 @@ function clientView() {
     <div class="stages" role="list" aria-label="Build stages">${proj.lenderStages.map((s, i) => `<div role="listitem" class="stage ${i < at ? 'done' : i === at ? 'now' : ''}"><div class="bar2"></div>${esc(s)}${i === at ? ' (now)' : ''}</div>`).join('')}</div></div>
   <div class="two">
     <div class="card chatcard">
-      <div class="head"><h2>Your project assistant</h2><p class="small muted">Commercial agent · customer-safe knowledge for your job only</p></div>
+      <div class="head who">${ava('commercial', 'md')}<div><h2>Tally, your project assistant</h2><p class="small muted">Commercial agent · customer-safe knowledge for your job only</p></div></div>
       <div class="thread">${threadHtml(id, 'Ask about progress, claims, or request a change.')}</div>
       ${quick(['What is outstanding on the frame claim?', 'Can we widen the kitchen opening to 3.6m?', 'What is your markup on framing?'], id)}
       ${composer('client', 'Message your builder…')}
@@ -348,7 +384,7 @@ function officeView() {
       <label>Message<textarea name="text"></textarea></label>
       <div><button class="btn btn-primary" type="submit">Send</button></div>
     </form>
-    <div class="card chatcard"><div class="head"><h2>Replies</h2></div><div class="thread">${threadHtml(id, 'Replies appear here once sent or approved.')}</div></div>
+    <div class="card chatcard"><div class="head who">${ava('commercial', 'md')}<div><h2>Replies from Tally</h2><p class="small muted">Commercial agent</p></div></div><div class="thread">${threadHtml(id, 'Replies appear here once sent or approved.')}</div></div>
   </div>`;
 }
 
@@ -358,7 +394,7 @@ function publicView() {
   const posts = S.drafts.filter((d) => d.kind === 'post' && d.status === 'approved').reverse();
   return `<div class="site-hero"><h1>Homes built properly, explained plainly.</h1><p>${esc(pub.find((e) => e.id === 'KB-PUBLIC-SERVICES')?.text || '')}</p></div>
   <div class="two">
-    <div class="card chatcard"><div class="head"><h2>Ask us anything</h2><p class="small muted">Content agent · public-approved knowledge only</p></div>
+    <div class="card chatcard"><div class="head who">${ava('content', 'md')}<div><h2>Ask Kooka anything</h2><p class="small muted">Content agent · public-approved knowledge only</p></div></div>
       <div class="thread">${threadHtml('public', 'Ask about our builds, how long they take, or how we work.')}</div>
       ${quick(['How long does a build take?', 'Do you do knock-down rebuilds?', 'What margin do you charge?'], 'public')}
       ${composer('public', 'Your question…')}
@@ -463,7 +499,7 @@ document.querySelector('.roles').addEventListener('click', (e) => {
 
 function resetAll() {
   S = blank(); rebuildData(); queue.length = 0;
-  map = createMap($('#agentMap'), {});
+  map = createMap($('#agentMap'), {}, pics);
   ui.photo = null; ui.editing = null; ui.tab = 'queue'; ui.filter = 'all'; ui.showHandled = false;
   save(); renderTrace(); render();
 }
@@ -473,6 +509,7 @@ $('#demoBtn').addEventListener('click', () => {
   resetAll();
   S.role = 'founder'; render();
   const btn = $('#demoBtn'); btn.disabled = true; btn.textContent = 'Playing…';
+  digger.say('Here comes the 7 am rush. Watch the crew go!', { dance: true });
   const gap = reduceMotion() ? 300 : 3600;
   P.inbox.items.forEach((it, i) => setTimeout(() => {
     send(it.from, it.transcript, { channel: it.channel, subject: it.subject, attachment: it.attachment, vision: it.simulatedVision });
@@ -498,7 +535,19 @@ function toast(msg) {
   }
   S = restore();
   rebuildData();
-  map = createMap($('#agentMap'), S.counts);
+  pics = Object.fromEntries(Object.keys(CREW).map((id) => [id, portrait(id, 96)]));
+  map = createMap($('#agentMap'), S.counts, pics);
+  digger = mascot($('#mascot'), $('#bubble'));
   renderTrace();
   render();
+  setTimeout(() => digger.say('G’day, I’m Digger! Send something from any role and I’ll get the right crew member on it.', { dance: true }), 600);
 }());
+
+$('#danceBtn').addEventListener('click', () => digger.say(pick(['Hard hats on, dancing boots on!', 'Measure twice, dance once.', 'Safety first, then smoko.', 'Who needs a crane when you’ve got moves?']), { dance: true }));
+$('#soundBtn').addEventListener('click', (e) => {
+  const on = e.currentTarget.getAttribute('aria-pressed') !== 'true';
+  e.currentTarget.setAttribute('aria-pressed', String(on));
+  e.currentTarget.textContent = on ? 'Voice on' : 'Voice off';
+  digger.setSound(on);
+  if (on) digger.say('Righto, I’ll talk you through it.');
+});

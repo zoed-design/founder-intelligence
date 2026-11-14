@@ -219,6 +219,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .map .edge.hot { stroke: #8fb0ff; }
 .map .node rect { fill: #1f2a45; stroke: #3d4b6e; stroke-width: 1.5; transition: fill .25s, stroke .25s; }
 .map .node text { fill: #e6eaf3; font: 600 13px Inter, sans-serif; }
+.map .node text.nm { font: 700 13px 'Space Grotesk', Inter, sans-serif; }
+.map .node text.rl { font: 500 10px Inter, sans-serif; fill: #aab4cc; }
+.map .node .ring { fill: #f3e2c4; stroke: #f0b429; stroke-width: 2; }
+.map .node.active .ring { stroke: #fff; }
 .map .node-human rect { fill: #3b2614; stroke: #a8692f; }
 .map .node-store rect { fill: #2b1e44; stroke: #7e55b8; }
 .map .node-io rect { fill: #17213a; stroke-dasharray: 4 3; }
@@ -254,3 +258,33 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   .phone { border-width: 6px; border-radius: 28px; height: 640px; }
   .site-hero h1 { font-size: 28px; }
 }
+
+/* ---------- Digger, the mascot ---------- */
+.mascot { position: relative; height: 240px; border-radius: 18px; overflow: hidden; margin-bottom: 14px; background: linear-gradient(#16213b, #3a4b78 55%, #d98a3f 82%, #f2b45c); }
+.mascot-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.mascot-bar { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 10px; background: linear-gradient(transparent, rgba(10, 14, 24, .78)); color: #fff; font-size: 13px; }
+.mascot-bar b { font-family: 'Space Grotesk', sans-serif; font-size: 16px; }
+.mascot-bar span { color: #d6dcea; }
+.mascot-btns { display: flex; gap: 6px; }
+.mascot-btns button { background: rgba(255,255,255,.14); color: #fff; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 4px 12px; min-height: 36px; font-size: 13px; font-weight: 600; }
+.mascot-btns button:hover { background: rgba(255,255,255,.26); }
+.mascot-btns button[aria-pressed="true"] { background: var(--accent); color: #2b1d00; border-color: var(--accent); }
+.bubble { position: absolute; top: 14px; left: 12px; max-width: 54%; z-index: 2; background: #fff; color: var(--ink); border-radius: 14px; padding: 9px 12px; font-size: 14px; font-weight: 500; box-shadow: 0 8px 20px -10px rgba(0,0,0,.5); opacity: 0; transform: translateY(-6px) scale(.98); transition: opacity .2s, transform .2s; pointer-events: none; }
+.bubble::after { content: ''; position: absolute; top: 18px; right: -8px; border: 8px solid transparent; border-left-color: #fff; border-right: 0; }
+.bubble.show { opacity: 1; transform: none; }
+
+/* Agent avatars */
+.ava { width: 28px; height: 28px; border-radius: 50%; background: #f3e2c4; border: 2px solid var(--accent); object-fit: cover; flex: none; display: inline-grid; place-items: center; font-weight: 700; font-size: 12px; color: var(--ink); vertical-align: middle; }
+.ava.lg { width: 64px; height: 64px; border-width: 3px; }
+.ava.md { width: 40px; height: 40px; }
+.msg.bot, .msg.wait { display: grid; grid-template-columns: auto 1fr; column-gap: 8px; }
+.msg.bot > .ava, .msg.wait > .ava { grid-row: span 2; align-self: start; }
+.who-line { font-size: 12px; font-weight: 700; color: var(--ink-2); margin-bottom: 2px; }
+.msg.wait .who-line { color: #6b3305; }
+.agentchip img.ava { width: 20px; height: 20px; border-width: 1.5px; }
+.agentchip.withpic::before { display: none; }
+.agentcard .ac-head { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; }
+.agentcard .ac-head h3 { margin: 0; }
+.agentcard .species { font-size: 12px; color: var(--muted); }
+.phone-head .who { display: flex; gap: 10px; align-items: center; }
+.chatcard .head .who { display: flex; gap: 10px; align-items: center; }

@@ -14,12 +14,12 @@ Message in → Capture → Router → Curator → Teamwork | Commercial | Conten
 
 | Agent | Does | Uses | May act alone? |
 |---|---|---|---|
-| **Capture** | Turns voice, photos and messages into text and facts | Transcripts and simulated vision in this prototype | Yes: nothing it produces leaves the system |
-| **Router** | Identifies the sender, locks their access tiers, classifies the request, escalates | Directory and role rules | Yes, and it escalates anything structural, contractual, restricted or under 0.9 confidence |
-| **Curator** | Binds the job, searches knowledge *as the sender*, checks for conflicts, proposes new knowledge | `search_knowledge` tool limited to the sender's tiers and jobs | No: proposals, photo records and conflicts go to the founder |
-| **Teamwork** | Answers crew questions from drawings and standards; drafts certifier records | Customer-safe and public knowledge | Only answers that quote approved knowledge the person may see |
-| **Commercial** | Claims, coding, variations, homeowner questions | Internal for coding; customer-safe for anything sent out | Only plain claim and progress answers; never money, scope or variations |
-| **Content** | Public questions; posts in the founder's voice | Public knowledge only | Only public answers; every post goes to the founder |
+| **Capture** (Lyra the lyrebird) | Turns voice, photos and messages into text and facts | Transcripts and simulated vision in this prototype | Yes: nothing it produces leaves the system |
+| **Router** (Digger the wombat) | Identifies the sender, locks their access tiers, classifies the request, escalates | Directory and role rules | Yes, and it escalates anything structural, contractual, restricted or under 0.9 confidence |
+| **Curator** (Bower the bowerbird) | Binds the job, searches knowledge *as the sender*, checks for conflicts, proposes new knowledge | `search_knowledge` tool limited to the sender's tiers and jobs | No: proposals, photo records and conflicts go to the founder |
+| **Teamwork** (Roo the kangaroo) | Answers crew questions from drawings and standards; drafts certifier records | Customer-safe and public knowledge | Only answers that quote approved knowledge the person may see |
+| **Commercial** (Tally the numbat) | Claims, coding, variations, homeowner questions | Internal for coding; customer-safe for anything sent out | Only plain claim and progress answers; never money, scope or variations |
+| **Content** (Kooka the kookaburra) | Public questions; posts in the founder's voice | Public knowledge only | Only public answers; every post goes to the founder |
 
 Role cards are in [`data/agents.json`](../data/agents.json). The runtime is [`src/agents.js`](../src/agents.js); each agent's rules are in [`src/engine.js`](../src/engine.js).
 

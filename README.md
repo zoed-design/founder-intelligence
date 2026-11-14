@@ -20,6 +20,19 @@ Switch roles from the top bar. Everything one role sends lands with the agents a
 
 **Play demo morning** replays the five 7:00 am inputs from the pitch. The **agent map** on the right animates every step.
 
+## Meet the crew
+
+Every agent is a low-poly Australian animal in a hard hat and hi-vis, in the same style as [SFIA Agent Studio](https://business-analyst-services.github.io/SFIA-agent-Studio/)'s menagerie.
+
+| Agent | Who | Why that animal |
+|---|---|---|
+| Router | **Digger** the wombat, in the foreman's white hat | Australia's champion digger runs the site. He talks you through each message and dances when the crew gets it right. Turn on **Voice** to hear him (browser speech, off by default). |
+| Capture | **Lyra** the lyrebird | Copies every sound it hears |
+| Curator | **Bower** the bowerbird | Collects and sorts the good stuff (and loves blue things) |
+| Teamwork | **Roo** the kangaroo | Tape measure in the pouch, answers the crew |
+| Commercial | **Tally** the numbat | Clipboard in hand, counts and codes |
+| Content | **Kooka** the kookaburra | Camera ready, tells the stories |
+
 ## How the agents work
 
 See **[docs/agents.md](docs/agents.md)**. In short: capture → router → curator → teamwork, commercial or content → sent or founder gate. The router locks each request to the sender's tiers and jobs; the curator searches knowledge *as the sender*; agents may only send answers that quote approved knowledge the person may see. Everything else waits for the founder. Founder answers and edits become rules the agents use next time.
@@ -33,7 +46,7 @@ npm start      # http://localhost:8080
 npm test       # 27 tests: tiers, routing, escalation, autonomy, review gate, learning loop
 ```
 
-No build step and no dependencies. Plain HTML, CSS and ES modules. App state is kept in the browser (localStorage); **Reset** clears it.
+No build step and no package dependencies (three.js is vendored). Plain HTML, CSS and ES modules. App state is kept in the browser (localStorage); **Reset** clears it.
 
 ## Layout
 
@@ -42,6 +55,8 @@ No build step and no dependencies. Plain HTML, CSS and ES modules. App state is 
 | `src/engine.js` | Each agent's rules: identify, bind job, tier-limited retrieval, classify, conflicts, drafting, review gate, learning |
 | `src/agents.js` | Agent runtime: runs the chain, records steps and handoffs, applies the autonomy rule |
 | `src/map.js` | The animated agent map |
+| `src/crew.js` | The crew: 3D characters, portraits and Digger the mascot (three.js) |
+| `vendor/three.min.js` | three.js r152, MIT licence (same build as SFIA Agent Studio) |
 | `app.js`, `index.html`, `styles.css` | The multi-role app |
 | `data/*.json` | Labelled dummy data and the role cards |
 | `tests/` | Node test runner, no dependencies |
@@ -60,5 +75,7 @@ Every push to `main` runs the tests; GitHub Pages deploys only if they pass.
 ## Credits
 
 Business Analyst Services, with the construction vertical brief by the team. Pattern follows [SFIA Agent Studio](https://business-analyst-services.github.io/SFIA-agent-Studio/): one front door, a roster of role agents, a visible trail of routing, checks and approvals.
+
+three.js © 2010-2023 three.js authors, MIT licence.
 
 All people, businesses, addresses and figures are fictional.

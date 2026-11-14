@@ -37,6 +37,16 @@
 <div class="layout">
   <main id="view" class="view" tabindex="-1"></main>
   <aside class="mapcol" aria-labelledby="mapTitle">
+    <div class="mascot" id="mascot">
+      <div class="bubble" id="bubble" aria-live="polite"></div>
+      <div class="mascot-bar">
+        <div><b>Digger</b> <span>the foreman</span></div>
+        <div class="mascot-btns">
+          <button id="danceBtn" type="button">Dance</button>
+          <button id="soundBtn" type="button" aria-pressed="false">Voice off</button>
+        </div>
+      </div>
+    </div>
     <div class="mapcard">
       <div class="map-head">
         <h2 id="mapTitle">Agents at work</h2>
@@ -51,6 +61,7 @@
 </div>
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="vendor/three.min.js"></script>
 <script type="module" src="app.js"></script>
 </body>
 </html>
