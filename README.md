@@ -8,17 +8,11 @@ This repository is a **hackathon prototype** (WSTI Festi 2026), built first for 
 
 ## Try it
 
-Switch roles from the top bar. Everything one role sends lands with the agents and, when needed, in the founder's queue; approvals land back in the sender's chat.
+1. Press **Play the 7 am rush**. Five messages arrive; the crew answers what it can.
+2. As the **Founder**, look at **Needs you**. For each reply, choose **Send**, **Change** or **Don't send**. Tap **Why is this here?** for the reason and the source.
+3. Use **See it as** to switch to **Site crew**, **Homeowner**, **Office** or **Public** and ask your own questions. Replies you send as the founder appear in their chats.
 
-| Role | What to try |
-|---|---|
-| **Founder** | Review queue, Knowledge, Audit trail, Agents and policy. Approve, edit or reject; answer knowledge gaps; switch auto-answers on or off. |
-| **Site crew** | A phone app. Ask about party-wall insulation (instant answer), studs at 600 (conflict flagged), markup (withheld), decking nails (knowledge gap). Send a photo. |
-| **Homeowner** | Project portal with build stages, shared documents and a project assistant. Ask about the frame claim or request a wider kitchen opening (escalated). |
-| **Office** | Bookkeeper and admin email. Code a docket (always to the founder) or send "FYI from now on…" (proposed as knowledge). |
-| **Public** | Website chat that can only reach public knowledge, plus posts the founder has approved. |
-
-**Play demo morning** replays the five 7:00 am inputs from the pitch. The **agent map** on the right animates every step.
+Things to try as the site crew: ask about party-wall insulation (Roo answers straight away), studs at 600 (doesn't match the drawings, so it comes to you), markup (private) and decking nails (nobody knows yet: answer it as the founder, then ask again).
 
 ## Meet the crew
 

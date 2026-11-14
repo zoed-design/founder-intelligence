@@ -3,16 +3,16 @@
 // equivalent for screen readers.
 
 const NODES = {
-  source:     { x: 180, y: 34,  label: 'Message in', kind: 'io' },
-  capture:    { x: 180, y: 102, label: 'Lyra', role: 'Capture', kind: 'agent' },
-  router:     { x: 180, y: 170, label: 'Digger', role: 'Router', kind: 'agent' },
-  curator:    { x: 180, y: 238, label: 'Bower', role: 'Curator', kind: 'agent' },
-  kb:         { x: 300, y: 238, label: 'Knowledge', kind: 'store' },
-  teamwork:   { x: 64,  y: 326, label: 'Roo', role: 'Teamwork', kind: 'agent' },
-  commercial: { x: 180, y: 326, label: 'Tally', role: 'Commercial', kind: 'agent' },
-  content:    { x: 296, y: 326, label: 'Kooka', role: 'Content', kind: 'agent' },
-  gate:       { x: 104, y: 418, label: 'Founder gate', kind: 'human' },
-  delivered:  { x: 260, y: 418, label: 'Delivered', kind: 'io' },
+  source:     { x: 180, y: 34,  label: 'New message', kind: 'io' },
+  capture:    { x: 180, y: 102, label: 'Lyra', role: 'Listens', kind: 'agent' },
+  router:     { x: 180, y: 170, label: 'Digger', role: 'Foreman', kind: 'agent' },
+  curator:    { x: 180, y: 238, label: 'Bower', role: 'Finds it', kind: 'agent' },
+  kb:         { x: 300, y: 238, label: 'What we know', kind: 'store' },
+  teamwork:   { x: 64,  y: 326, label: 'Roo', role: 'Site crew', kind: 'agent' },
+  commercial: { x: 180, y: 326, label: 'Tally', role: 'Money, clients', kind: 'agent' },
+  content:    { x: 296, y: 326, label: 'Kooka', role: 'Stories', kind: 'agent' },
+  gate:       { x: 104, y: 418, label: 'Needs you', kind: 'human' },
+  delivered:  { x: 260, y: 418, label: 'Sent', kind: 'io' },
 };
 
 const EDGES = [

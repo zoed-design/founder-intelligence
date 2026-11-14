@@ -16,27 +16,28 @@
       <span class="logo" aria-hidden="true"></span>
       <div>
         <div class="name">Founder Intelligence</div>
-        <div class="tag">Ridgeline Homes <span class="fict">(fictional)</span> · construction edition</div>
+        <div class="tag">The founder’s know-how, on tap for the whole crew</div>
       </div>
     </div>
-    <nav class="roles" aria-label="Switch role">
+    <nav class="roles" aria-label="See the app as">
+      <span class="roles-label">See it as</span>
       <button data-role="founder" class="role"><span class="av av-founder" aria-hidden="true">F</span>Founder</button>
       <button data-role="site" class="role"><span class="av av-site" aria-hidden="true">S</span>Site crew</button>
-      <button data-role="client" class="role"><span class="av av-client" aria-hidden="true">C</span>Homeowner</button>
+      <button data-role="client" class="role"><span class="av av-client" aria-hidden="true">H</span>Homeowner</button>
       <button data-role="office" class="role"><span class="av av-office" aria-hidden="true">O</span>Office</button>
       <button data-role="public" class="role"><span class="av av-public" aria-hidden="true">P</span>Public</button>
     </nav>
     <div class="bar-actions">
-      <button id="demoBtn" class="btn btn-accent">Play demo morning</button>
-      <button id="resetBtn" class="btn btn-quiet">Reset</button>
+      <button id="demoBtn" class="btn btn-accent">Play the 7 am rush</button>
+      <button id="resetBtn" class="btn btn-quiet">Start over</button>
     </div>
   </div>
-  <div class="dummy-strip">Demo app with labelled dummy data. The agents' reasoning is rule-based and simulated; access tiers, review and audit are real. <a href="https://github.com/Business-Analyst-Services/founder-intelligence/blob/main/docs/agents.md">How the agents work</a></div>
+  <div class="dummy-strip">Demo with a made-up building company. <a href="https://github.com/Business-Analyst-Services/founder-intelligence/blob/main/docs/agents.md">How it works</a></div>
 </header>
 
 <div class="layout">
   <main id="view" class="view" tabindex="-1"></main>
-  <aside class="mapcol" aria-labelledby="mapTitle">
+  <aside class="mapcol" aria-label="The crew at work">
     <div class="mascot" id="mascot">
       <div class="bubble" id="bubble" aria-live="polite"></div>
       <div class="mascot-bar">
@@ -49,13 +50,15 @@
     </div>
     <div class="mapcard">
       <div class="map-head">
-        <h2 id="mapTitle">Agents at work</h2>
+        <h2>The crew at work</h2>
         <span class="live-dot" aria-hidden="true"></span>
       </div>
-      <svg id="agentMap" class="map" role="img" aria-label="Agent map: messages flow from capture to router, curator and specialist agents, then to the founder gate or delivery. The step list below describes each move."></svg>
-      <div class="legend"><span class="lg lg-agent">Agent</span><span class="lg lg-human">Founder</span><span class="lg lg-store">Knowledge</span></div>
-      <h3 class="trace-title">Step by step</h3>
-      <ol id="trace" class="trace"></ol>
+      <p class="map-sub">Every message goes down the line. Most get answered; the rest come to you.</p>
+      <svg id="agentMap" class="map" role="img" aria-label="Messages pass from Lyra, who listens, to Digger, who checks who’s asking, to Bower, who finds the answer, then to Roo, Tally or Kooka. Answers go out, or wait for the founder."></svg>
+      <details class="steps">
+        <summary>Show each step</summary>
+        <ol id="trace" class="trace"></ol>
+      </details>
     </div>
   </aside>
 </div>
