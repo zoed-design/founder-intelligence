@@ -12,7 +12,12 @@ Hackathon rule: be clear about every source, what it is used for, and any dummy 
 | `knowledge.json` | 9 knowledge entries across three tiers | Dummy | Retrieval, citations, tier enforcement | Approved entries from the curator pipeline |
 | `inbox.json` | Five scripted 7:00 am inputs | Dummy; transcripts and vision output simulated | Morning triage demo | Live feeds from SMS, email, WhatsApp, camera uploads |
 | `agents.json` | Six role cards | Design, not data | Displaying and documenting agents | Unchanged, or extended per vertical |
+| `photo-presets.json` | Three photo types (waterproofing, frame, unclear) with simulated vision output | **Simulated vision** | Site crew photo uploads: the person picks what the photo shows | A vision model returning the same fields |
 | `assumptions.json` | Minutes per task, stand-down cost | **Illustrative, not measured** | Impact panel only | Founder interviews or time-and-motion data |
+
+## Data entered in the app
+
+Anything typed or uploaded in the live app stays in that browser's local storage (photos are shrunk to a small thumbnail first). It is never sent anywhere. **Reset** clears it. Don't enter real personal or client details.
 
 ## Method: from raw input to recommendation
 

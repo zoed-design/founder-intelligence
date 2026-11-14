@@ -1,64 +1,61 @@
 # Founder Intelligence
 
-A multi-agent knowledge platform for small businesses. It captures what the business learns every day, holds it in one knowledge base with three access tiers, and puts a front-door router in front of specialist agents for staff, customers and content. A founder review gate sits before anything leaves the building.
+A multi-agent knowledge platform for small businesses. It captures what the business learns every day, holds it in one knowledge base with three access tiers, and puts a router in front of specialist agents for crew, customers, office and content. The founder only sees what needs their judgement.
 
-This repository is a **hackathon prototype** (WSTI Festi 2026). The first vertical is **construction and contractors**, based on the team's architecture brief. **All data is labelled dummy data**; see [docs/DATA.md](docs/DATA.md).
+This repository is a **hackathon prototype** (WSTI Festi 2026), built first for **construction and contractors**. **All data is labelled dummy data**; see [docs/DATA.md](docs/DATA.md).
 
-**Live demo:** https://business-analyst-services.github.io/founder-intelligence/ (deployed by `.github/workflows/pages.yml` after the tests pass)
+**Live app:** https://business-analyst-services.github.io/founder-intelligence/
 
-## What the demo shows (3 minutes)
+## Try it
 
-1. **7:00 am inbox.** Five inputs arrive: a framer's voice note, a bookkeeper's docket query, an admin's claim question, an unlabelled site photo and a homeowner's change request.
-2. **Run morning triage.** The router identifies each sender, locks them to their access tier, binds the item to a job and hands it to an agent. The curator flags that the framer's "600mm like last job" conflicts with the approved 450mm schedule. The homeowner's structural change is escalated automatically.
-3. **One photo, three value streams.** The ensuite waterproofing photo becomes a certifier pre-screed record, claim evidence and a draft post in the founder's voice.
-4. **Founder review gate.** Approve, edit or reject each draft, or approve all routine drafts in one click; escalated items still wait. Every draft shows its sources.
-5. **Feedback loop.** Edit a draft and add a sentence: it becomes a founder rule in the internal tier, and the next answer uses it.
-6. **Ask as anyone.** The same question gets a different answer by role. A subcontractor asking about pricing is refused; the founder gets the answer.
-7. **Behind the scenes.** Routing, withheld records, conflicts, escalations and approvals are all logged.
+Switch roles from the top bar. Everything one role sends lands with the agents and, when needed, in the founder's queue; approvals land back in the sender's chat.
+
+| Role | What to try |
+|---|---|
+| **Founder** | Review queue, Knowledge, Audit trail, Agents and policy. Approve, edit or reject; answer knowledge gaps; switch auto-answers on or off. |
+| **Site crew** | A phone app. Ask about party-wall insulation (instant answer), studs at 600 (conflict flagged), markup (withheld), decking nails (knowledge gap). Send a photo. |
+| **Homeowner** | Project portal with build stages, shared documents and a project assistant. Ask about the frame claim or request a wider kitchen opening (escalated). |
+| **Office** | Bookkeeper and admin email. Code a docket (always to the founder) or send "FYI from now on…" (proposed as knowledge). |
+| **Public** | Website chat that can only reach public knowledge, plus posts the founder has approved. |
+
+**Play demo morning** replays the five 7:00 am inputs from the pitch. The **agent map** on the right animates every step.
+
+## How the agents work
+
+See **[docs/agents.md](docs/agents.md)**. In short: capture → router → curator → teamwork, commercial or content → sent or founder gate. The router locks each request to the sender's tiers and jobs; the curator searches knowledge *as the sender*; agents may only send answers that quote approved knowledge the person may see. Everything else waits for the founder. Founder answers and edits become rules the agents use next time.
+
+**What is real and what is simulated.** Real: the agent chain, tier enforcement, conflict check, autonomy rule, review gate, learning loop and audit trail. Simulated: speech-to-text, vision (you pick what a photo shows) and each agent's reasoning, which is rule-based rather than a language model.
 
 ## Run it
 
 ```bash
-npm start      # serves on http://localhost:8080 (python3 http.server)
-npm test       # 15 tests: tiers, routing, escalation, review gate, feedback loop
+npm start      # http://localhost:8080
+npm test       # 27 tests: tiers, routing, escalation, autonomy, review gate, learning loop
 ```
 
-No build step and no dependencies. Plain HTML, CSS and ES modules.
+No build step and no dependencies. Plain HTML, CSS and ES modules. App state is kept in the browser (localStorage); **Reset** clears it.
 
-## How it is built
+## Layout
 
 | Path | What it is |
 |---|---|
-| `src/engine.js` | Pure logic: identify, bind to job, retrieve with tier enforcement, classify, route, detect conflicts, draft, review gate, feedback loop, ask |
-| `data/*.json` | Labelled dummy data: business and roles, knowledge base, inbox, role cards, illustrative assumptions |
-| `index.html`, `app.js`, `styles.css` | The demo page |
-| `tests/engine.test.js` | Node test runner, no dependencies |
-| `docs/` | Five Ws, architecture, ADRs, glossary, data register, real-data guide |
+| `src/engine.js` | Each agent's rules: identify, bind job, tier-limited retrieval, classify, conflicts, drafting, review gate, learning |
+| `src/agents.js` | Agent runtime: runs the chain, records steps and handoffs, applies the autonomy rule |
+| `src/map.js` | The animated agent map |
+| `app.js`, `index.html`, `styles.css` | The multi-role app |
+| `data/*.json` | Labelled dummy data and the role cards |
+| `tests/` | Node test runner, no dependencies |
+| `docs/` | Five Ws, architecture, agents, data register, glossary, ADRs, real-data guide |
 
-### The governance rules the tests hold
-
-- A person sees only the tiers their role allows, and project-scoped roles see only their own jobs.
-- If the best match is a record the person may not see, the answer is withheld rather than taken from a weaker visible match.
-- An output may only cite knowledge at its own tier or a more open one.
-- Scope and structural changes always escalate; anything below 0.9 confidence escalates.
-- Every draft starts pending; an edited approval keeps the original and creates an internal founder rule.
-
-## What is real and what is simulated
-
-Real: routing, tier enforcement, conflict check, review gate, feedback loop, audit trail.
-Simulated: speech-to-text (transcripts are in the data), vision (the photo carries a `simulatedVision` block) and drafting (templates). [ADR 0002](docs/adr/0002-simulated-ai-steps.md) explains where a model plugs in.
-
-## Swapping in real data
-
-See [docs/real-data.md](docs/real-data.md). In short: replace the files in `data/` with the same shapes, keep the `_dummy` note honest, and log each source in `docs/DATA.md`.
+Every push to `main` runs the tests; GitHub Pages deploys only if they pass.
 
 ## Docs
 
+- [How the agents work](docs/agents.md)
 - [Five Ws: scope the problem](docs/five-ws.md)
 - [Architecture](docs/architecture.md)
-- [Data register](docs/DATA.md)
-- [Glossary](docs/glossary.md)
-- [ADRs](docs/adr/)
+- [Data register](docs/DATA.md) and [swapping in real data](docs/real-data.md)
+- [Glossary](docs/glossary.md) · [ADRs](docs/adr/)
 
 ## Credits
 

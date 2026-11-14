@@ -125,7 +125,8 @@ test('approval records who decided and keeps the original when edited', () => {
   assert.equal(draft.status, 'approved');
   assert.equal(draft.edited, true);
   assert.equal(draft.originalBody, d.body);
-  assert.equal(event.actor, 'Founder');
+  assert.equal(event.actor, 'founder');
+  assert.equal(draft.decidedBy, 'Founder');
 });
 
 test('a founder edit becomes an internal SOP candidate; an unedited approval does not', () => {

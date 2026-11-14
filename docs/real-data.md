@@ -8,7 +8,7 @@ The engine reads five JSON files. Keep their shapes and the demo works with new 
 2. **Replace a file at a time** in `data/`, starting with `knowledge.json` (most value, least risk).
 3. **Update the `_dummy` note** at the top of each file to say what is real, what is dummy and where it came from.
 4. **Log it in `docs/DATA.md`**: source, date range, coverage, method, licence.
-5. **Run `npm test`.** Tests reference a few dummy IDs (`KB-S04`, `KB-MARGIN`, `IN-01` to `IN-05`). If you replace those, update the tests to the new IDs; keep every rule they check.
+5. **Run `npm test`.** Tests reference a few dummy IDs (`KB-S04`, `KB-MARGIN`, `KB-CLAIM-ELM`, `IN-01` to `IN-05`, the directory IDs). If you replace those, update the tests to the new IDs; keep every rule they check.
 
 ## Shapes
 

@@ -1,0 +1,38 @@
+{
+  "_dummy": "SIMULATED VISION. Vision is not run in this app: the person picks what the photo shows and these fields stand in for a vision model's output.",
+  "presets": [
+    {
+      "id": "waterproofing",
+      "label": "Wet area waterproofing before screed",
+      "scene": "Wet area floor before screed",
+      "observed": ["liquid waterproofing membrane", "bond-breaker tape at wall-floor junction", "recessed puddle flange at floor waste"],
+      "standard": "AS 3740",
+      "kb": "KB-WP-STD",
+      "stage": "Fixing",
+      "confidence": 0.94,
+      "post": "Before a bathroom gets its tiles, we stop and photograph the bit you will never see: the membrane, the bond-breaker tape where wall meets floor, and the flange at the waste. The tape lets the joint move without tearing the membrane. That small step is why a shower stays dry for decades. #buildingright"
+    },
+    {
+      "id": "frame",
+      "label": "Timber frame, party wall",
+      "scene": "Timber frame at party wall junction",
+      "observed": ["staggered studs", "acoustic insulation between stud rows", "studs at 450mm centres"],
+      "standard": "AS 1684",
+      "kb": "KB-S04",
+      "stage": "Frame",
+      "confidence": 0.91,
+      "post": "Two rows of studs, staggered, with insulation woven between them. It looks like extra work because it is: it stops sound travelling through the wall between two homes. Quiet neighbours start at frame stage. #buildingright"
+    },
+    {
+      "id": "unclear",
+      "label": "Unclear or dark photo",
+      "scene": "Low light, subject unclear",
+      "observed": ["possible slab edge", "unidentified fixings"],
+      "standard": null,
+      "kb": null,
+      "stage": null,
+      "confidence": 0.55,
+      "post": null
+    }
+  ]
+}

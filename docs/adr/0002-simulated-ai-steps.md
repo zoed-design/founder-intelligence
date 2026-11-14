@@ -1,6 +1,6 @@
 # ADR 0002: Simulate the AI steps, keep the governance real
 
-**Status:** Accepted, 2026-11-14
+**Status:** Accepted, 2026-11-14. Reconfirmed 2026-11-14 for the multi-role app: the team chose simulated agents only (no model calls, no keys).
 
 ## Context
 

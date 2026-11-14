@@ -33,11 +33,15 @@
       "transcript": "[Unlabelled photo from camera roll, no caption]",
       "attachment": "photo-ensuite.jpg (placeholder)",
       "simulatedVision": {
+        "preset": "waterproofing",
         "scene": "Ensuite floor before screed",
         "observed": ["liquid waterproofing membrane", "bond-breaker tape at wall-floor junction", "recessed puddle flange at floor waste"],
         "projectHint": "Bayview",
         "standard": "AS 3740",
-        "confidence": 0.94
+        "kb": "KB-WP-STD",
+        "stage": "Fixing",
+        "confidence": 0.94,
+        "post": "Before a bathroom gets its tiles, we stop and photograph the bit you will never see: the membrane, the bond-breaker tape where wall meets floor, and the flange at the waste. The tape lets the joint move without tearing the membrane. That small step is why a shower stays dry for decades. #buildingright"
       }
     },
     {
