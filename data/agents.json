@@ -1,0 +1,59 @@
+{
+  "_note": "Role cards. Every agent is defined the same way: purpose, sources, tier, autonomy, handover. Adding an agent means adding a card here.",
+  "agents": [
+    {
+      "id": "router",
+      "name": "Router (front door)",
+      "purpose": "Identify who is asking, pick the agent, and lock the request to that person's access tiers.",
+      "sources": ["Directory of people and roles"],
+      "tier": "Reads no knowledge; sets the tier for others",
+      "autonomy": "Routes on its own. Escalates below the confidence threshold or on structural, contractual or dispute topics.",
+      "handover": "Founder, by urgent notification"
+    },
+    {
+      "id": "capture",
+      "name": "Capture agent",
+      "purpose": "Turn voice notes, photos, dockets and messages into text and candidate facts.",
+      "sources": ["SMS", "Voice notes", "Email", "WhatsApp", "Camera roll"],
+      "tier": "Writes candidates only; nothing is stored until approved",
+      "autonomy": "Full, because its output is never shown to anyone outside without review",
+      "handover": "Curator"
+    },
+    {
+      "id": "curator",
+      "name": "Curator agent",
+      "purpose": "Bind each item to a job, check it against the approved documents, flag conflicts, and draft knowledge updates.",
+      "sources": ["Knowledge base", "Project register"],
+      "tier": "All tiers, to compare; drafts carry the tier they belong to",
+      "autonomy": "Drafts only",
+      "handover": "Founder review gate"
+    },
+    {
+      "id": "teamwork",
+      "name": "Teamwork agent (SiteBrain)",
+      "purpose": "Give site staff and trades drawing-grounded answers and build certifier inspection packs.",
+      "sources": ["Drawings and schedules", "Company QA standards"],
+      "tier": "Customer-safe and public; never internal pricing",
+      "autonomy": "Drafts; sends after founder approval",
+      "handover": "Founder for any deviation from the drawings"
+    },
+    {
+      "id": "commercial",
+      "name": "Commercial agent (claims, variations, procurement)",
+      "purpose": "Prepare progress claim packs, draft written variations, and code supplier invoices.",
+      "sources": ["Purchase orders", "Lender stages", "Certifier certificates"],
+      "tier": "Internal for coding; customer-safe for anything sent to clients or lenders",
+      "autonomy": "Drafts; never commits money or scope",
+      "handover": "Founder for every variation and any amount it cannot match"
+    },
+    {
+      "id": "content",
+      "name": "Content agent",
+      "purpose": "Turn approved site moments into posts in the founder's voice.",
+      "sources": ["Public-approved knowledge", "Founder voice guide"],
+      "tier": "Public only",
+      "autonomy": "Drafts; founder signs off every post",
+      "handover": "Founder"
+    }
+  ]
+}

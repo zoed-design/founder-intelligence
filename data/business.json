@@ -1,0 +1,54 @@
+{
+  "_dummy": "DUMMY DATA. Fictional business, people, addresses and figures, written for the hackathon demo. No personal or real client data.",
+  "business": {
+    "name": "Ridgeline Homes (fictional)",
+    "sector": "Custom home builder, NSW",
+    "founder": "Founder / Managing Director"
+  },
+  "projects": [
+    {
+      "id": "JOB-24-ELM",
+      "name": "12 Elm Ridge Rd, Exampleville (fictional)",
+      "aliases": ["elm ridge", "elm", "lot 12", "24-elm", "job 24-elm"],
+      "stage": "Frame",
+      "lenderStages": ["Slab", "Frame", "Lock-up", "Fixing", "Handover"],
+      "costCodes": {
+        "concrete": "2100 Substructure – Concrete",
+        "framing": "3100 Frame – Timber",
+        "waterproofing": "5200 Wet areas – Waterproofing"
+      }
+    },
+    {
+      "id": "JOB-24-BAY",
+      "name": "7 Bayview Cl, Sampleton (fictional)",
+      "aliases": ["bayview", "bay", "24-bay", "job 24-bay"],
+      "stage": "Fixing",
+      "lenderStages": ["Slab", "Frame", "Lock-up", "Fixing", "Handover"],
+      "costCodes": {
+        "concrete": "2100 Substructure – Concrete",
+        "framing": "3100 Frame – Timber",
+        "waterproofing": "5200 Wet areas – Waterproofing"
+      }
+    }
+  ],
+  "directory": [
+    { "id": "founder", "label": "Founder", "role": "founder", "channels": ["app"] },
+    { "id": "framer-01", "label": "Framing carpenter (subcontractor)", "role": "subcontractor", "channels": ["sms", "voice"], "projects": ["JOB-24-ELM"] },
+    { "id": "supervisor-01", "label": "Site supervisor", "role": "supervisor", "channels": ["camera", "sms"], "projects": ["JOB-24-ELM", "JOB-24-BAY"] },
+    { "id": "bookkeeper-01", "label": "External bookkeeper", "role": "bookkeeper", "channels": ["email"] },
+    { "id": "admin-01", "label": "Office admin", "role": "admin", "channels": ["email"] },
+    { "id": "client-elm", "label": "Homeowner, Elm Ridge", "role": "client", "channels": ["whatsapp", "email"], "projects": ["JOB-24-ELM"] },
+    { "id": "certifier-01", "label": "Principal certifier (PCA)", "role": "certifier", "channels": ["email"], "projects": ["JOB-24-ELM", "JOB-24-BAY"] },
+    { "id": "public", "label": "Member of the public", "role": "public", "channels": ["web"] }
+  ],
+  "roles": {
+    "founder":       { "access": ["internal", "customer-safe", "public"], "projectScoped": false },
+    "bookkeeper":    { "access": ["internal", "customer-safe", "public"], "projectScoped": false, "note": "Finance only in a real build; simplified here" },
+    "admin":         { "access": ["internal", "customer-safe", "public"], "projectScoped": false },
+    "supervisor":    { "access": ["customer-safe", "public"], "projectScoped": true },
+    "subcontractor": { "access": ["customer-safe", "public"], "projectScoped": true },
+    "client":        { "access": ["customer-safe", "public"], "projectScoped": true },
+    "certifier":     { "access": ["customer-safe", "public"], "projectScoped": true },
+    "public":        { "access": ["public"], "projectScoped": false }
+  }
+}

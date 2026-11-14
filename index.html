@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Founder Intelligence: morning triage demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-row">
+    <div>
+      <h1>Founder Intelligence</h1>
+      <p class="sub">One knowledge base, one front door, a crew of specialist agents. Construction and contractors edition.</p>
+    </div>
+    <div class="top-meta">
+      <span class="badge dummy" title="See docs/DATA.md">Demo uses labelled dummy data</span>
+      <a href="https://github.com/Business-Analyst-Services/founder-intelligence#readme">Docs</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="step" aria-labelledby="s1">
+    <div class="step-head">
+      <h2 id="s1"><span class="n">1</span> 7:00 am inbox</h2>
+      <p>Five things land before the crews start. Today all of them would go to the founder's phone.</p>
+    </div>
+    <ul id="inbox" class="inbox"></ul>
+    <div class="actions">
+      <button id="run" class="primary">Run morning triage</button>
+      <button id="reset" class="ghost">Reset demo</button>
+    </div>
+  </section>
+
+  <div class="grid-2">
+    <section class="step" aria-labelledby="s2">
+      <div class="step-head">
+        <h2 id="s2"><span class="n">2</span> Founder review gate</h2>
+        <p>Nothing leaves without approval. Edit a draft and the change becomes a company rule.</p>
+      </div>
+      <div class="actions" id="bulk" hidden>
+        <button id="approveSafe" class="secondary">Approve all routine drafts</button>
+        <span class="hint" id="pendingCount"></span>
+      </div>
+      <div id="drafts" class="drafts"><p class="empty">Run the triage to see drafted actions.</p></div>
+    </section>
+
+    <aside class="step side" aria-labelledby="s3">
+      <div class="step-head">
+        <h2 id="s3"><span class="n">3</span> Behind the scenes</h2>
+        <p>Routing, tiers, conflicts, escalations and approvals, logged.</p>
+      </div>
+      <ol id="audit" class="audit"><li class="empty">The audit trail starts when triage runs.</li></ol>
+    </aside>
+  </div>
+
+  <section class="step" aria-labelledby="s4">
+    <div class="step-head">
+      <h2 id="s4"><span class="n">4</span> Ask as anyone</h2>
+      <p>The same question gets a different answer depending on who asks. Try pricing as a subcontractor.</p>
+    </div>
+    <form id="askForm" class="ask">
+      <label>Asking as
+        <select id="askAs"></select>
+      </label>
+      <label class="grow">Question
+        <input id="askQ" type="text" autocomplete="off" placeholder="e.g. stud spacing for the party wall at elm ridge">
+      </label>
+      <button class="primary" type="submit">Ask</button>
+    </form>
+    <div class="chips" id="chips"></div>
+    <div id="askOut" class="ask-out" aria-live="polite"></div>
+  </section>
+
+  <div class="grid-2">
+    <section class="step" aria-labelledby="s5">
+      <div class="step-head">
+        <h2 id="s5"><span class="n">5</span> Knowledge base</h2>
+        <p>Approved knowledge in three access tiers. Each entry keeps its source, owner and review date.</p>
+      </div>
+      <div id="kb" class="kb"></div>
+    </section>
+
+    <section class="step" aria-labelledby="s6">
+      <div class="step-head">
+        <h2 id="s6"><span class="n">6</span> Impact this morning</h2>
+        <p>Counts are from this run. Time and cost figures are <b>illustrative assumptions</b> (data/assumptions.json), not measurements.</p>
+      </div>
+      <div id="impact" class="impact"><p class="empty">Shown after triage.</p></div>
+      <h3 class="mini">Role cards</h3>
+      <div id="agents" class="agents"></div>
+    </section>
+  </div>
+</main>
+
+<footer class="wrap foot">
+  Hackathon prototype for WSTI Festi 2026 by Business Analyst Services. All people, businesses, addresses and figures are fictional. AI steps (speech-to-text, vision, drafting) are simulated; see docs/adr.
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

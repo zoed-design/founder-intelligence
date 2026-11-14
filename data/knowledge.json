@@ -1,0 +1,98 @@
+{
+  "_dummy": "DUMMY DATA. Every entry is invented for the demo. Standards are cited by name only; clause-level detail must be checked by a subject matter expert before any real use.",
+  "entries": [
+    {
+      "id": "KB-S04",
+      "tier": "customer-safe",
+      "project": "JOB-24-ELM",
+      "title": "Structural detail S-04: party wall junction",
+      "text": "Party wall junction S-04: 90mm staggered studs at 450mm centres, 75mm acoustic insulation between rows.",
+      "keywords": ["stud", "studs", "framing", "frame", "party", "wall", "s-04", "centres", "spacing", "acoustic"],
+      "source": "Structural engineering schedule, rev C (dummy)",
+      "owner": "Founder",
+      "reviewDate": "2026-12-01"
+    },
+    {
+      "id": "KB-STAGES",
+      "tier": "customer-safe",
+      "title": "Lender drawdown stages and evidence",
+      "text": "Lender stages: Slab, Frame, Lock-up, Fixing, Handover. A Frame claim needs the certifier's frame inspection certificate and dated photos. A Fixing claim needs the wet area waterproofing record and dated photos.",
+      "keywords": ["claim", "progress", "drawdown", "lender", "bank", "stage", "frame", "fixing", "slab", "status", "outstanding"],
+      "source": "Lender milestone schedule (dummy)",
+      "owner": "Office admin",
+      "reviewDate": "2026-12-01"
+    },
+    {
+      "id": "KB-CLAIM-ELM",
+      "tier": "customer-safe",
+      "project": "JOB-24-ELM",
+      "title": "Elm Ridge claim register",
+      "text": "Elm Ridge Frame claim: frame photos filed (14 dated photos); certifier frame inspection booked, certificate not yet received.",
+      "keywords": ["claim", "progress", "frame", "elm", "outstanding", "status", "certificate", "lender"],
+      "source": "Claim register (dummy)",
+      "owner": "Office admin",
+      "reviewDate": "2026-11-21"
+    },
+    {
+      "id": "KB-WP-STD",
+      "tier": "customer-safe",
+      "title": "Wet area waterproofing standard",
+      "text": "Wet areas follow AS 3740 (Waterproofing of domestic wet areas): liquid membrane, bond-breaker at wall-floor junctions, puddle flange at the floor waste. Photograph each before screed for the certifier.",
+      "keywords": ["waterproofing", "membrane", "bond", "breaker", "puddle", "flange", "ensuite", "bathroom", "wet", "as 3740"],
+      "source": "Company QA standard 05 (dummy), citing AS 3740",
+      "owner": "Founder",
+      "reviewDate": "2027-03-01"
+    },
+    {
+      "id": "KB-PO-CONC",
+      "tier": "internal",
+      "project": "JOB-24-ELM",
+      "title": "Purchase order PO-1187, concrete",
+      "text": "PO-1187: 18 m3 32MPa concrete for Elm Ridge slab, supplier Harbour Readymix (fictional). Code to 2100 Substructure – Concrete.",
+      "keywords": ["concrete", "docket", "readymix", "invoice", "po", "purchase", "order", "unallocated", "cost", "code"],
+      "source": "Purchase order register (dummy)",
+      "owner": "Bookkeeper",
+      "reviewDate": "2026-12-01"
+    },
+    {
+      "id": "KB-MARGIN",
+      "tier": "internal",
+      "title": "Trade buy-rates and markup",
+      "text": "Framing subcontract buy-rate and company markup percentages for 2026 (commercial in confidence).",
+      "keywords": ["rate", "rates", "price", "pricing", "markup", "margin", "cost", "framing", "charge"],
+      "source": "Estimating sheet 2026 (dummy)",
+      "owner": "Founder",
+      "reviewDate": "2026-12-31"
+    },
+    {
+      "id": "KB-VAR-RULE",
+      "tier": "internal",
+      "title": "Variation rule",
+      "text": "No change to scope starts on site until a written variation, with cost and time impact, is signed by the client. Structural changes go to the engineer first.",
+      "keywords": ["variation", "change", "scope", "widen", "move", "extra", "structural", "opening"],
+      "source": "Founder SOP 02 (dummy), reflecting the Home Building Act 1989 (NSW) requirement for written variations",
+      "owner": "Founder",
+      "reviewDate": "2027-01-01"
+    },
+    {
+      "id": "KB-STORY-VOICE",
+      "tier": "public",
+      "title": "Founder voice guide",
+      "text": "Plain, practical, proud of the trade. Explain why a step matters, never name clients, never show addresses or faces.",
+      "keywords": ["post", "content", "story", "voice", "tone", "social", "linkedin", "instagram"],
+      "source": "Founder onboarding interview (dummy)",
+      "owner": "Founder",
+      "reviewDate": "2027-06-01"
+    },
+    {
+      "id": "KB-PUBLIC-SERVICES",
+      "tier": "public",
+      "title": "What we build",
+      "text": "Custom homes and knock-down rebuilds in Western Sydney, typically 30 to 50 weeks from slab to handover.",
+      "keywords": ["build", "homes", "services", "how", "long", "weeks", "knock", "rebuild"],
+      "source": "Website copy (dummy)",
+      "owner": "Founder",
+      "reviewDate": "2027-06-01"
+    }
+  ]
+}

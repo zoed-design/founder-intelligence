@@ -1,0 +1,51 @@
+{
+  "_dummy": "DUMMY DATA. A scripted 7:00 am inbox for the demo. The photo's 'simulatedVision' block stands in for a vision model's output; no real image or model is used.",
+  "items": [
+    {
+      "id": "IN-01",
+      "time": "06:52",
+      "channel": "voice",
+      "from": "framer-01",
+      "transcript": "Morning, on Lot 12 at Elm Ridge, the party wall. Are we doing studs at 600 like the last job? Need to know before the crew starts at 7:30.",
+      "note": "Voice note, transcribed (simulated speech-to-text)"
+    },
+    {
+      "id": "IN-02",
+      "time": "06:58",
+      "channel": "email",
+      "from": "bookkeeper-01",
+      "subject": "Unallocated docket HR-8821",
+      "transcript": "Hi, I have an unallocated Harbour Readymix concrete invoice, docket HR-8821, $14,250 inc GST. Which job and cost code does this go to?"
+    },
+    {
+      "id": "IN-03",
+      "time": "07:04",
+      "channel": "email",
+      "from": "admin-01",
+      "subject": "Elm Ridge progress claim",
+      "transcript": "Where are we up to with the Elm Ridge frame progress claim? The lender has asked what is outstanding."
+    },
+    {
+      "id": "IN-04",
+      "time": "07:06",
+      "channel": "camera",
+      "from": "supervisor-01",
+      "transcript": "[Unlabelled photo from camera roll, no caption]",
+      "attachment": "photo-ensuite.jpg (placeholder)",
+      "simulatedVision": {
+        "scene": "Ensuite floor before screed",
+        "observed": ["liquid waterproofing membrane", "bond-breaker tape at wall-floor junction", "recessed puddle flange at floor waste"],
+        "projectHint": "Bayview",
+        "standard": "AS 3740",
+        "confidence": 0.94
+      }
+    },
+    {
+      "id": "IN-05",
+      "time": "07:11",
+      "channel": "whatsapp",
+      "from": "client-elm",
+      "transcript": "Hi! Could we widen the kitchen opening at Elm Ridge to 3.6m while the frame is going up? Can the guys just do it this week?"
+    }
+  ]
+}
