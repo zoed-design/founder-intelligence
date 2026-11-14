@@ -4,7 +4,7 @@ A multi-agent knowledge platform for small businesses. It captures what the busi
 
 This repository is a **hackathon prototype** (WSTI Festi 2026). The first vertical is **construction and contractors**, based on the team's architecture brief. **All data is labelled dummy data**; see [docs/DATA.md](docs/DATA.md).
 
-**Live demo:** GitHub Pages, once enabled (Settings → Pages → Deploy from branch `main`, folder `/`).
+**Live demo:** https://business-analyst-services.github.io/founder-intelligence/ (deployed by `.github/workflows/pages.yml` after the tests pass)
 
 ## What the demo shows (3 minutes)
 
