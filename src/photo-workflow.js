@@ -11,6 +11,8 @@ export const SOURCES = [
   { id: 'cdc', title: 'Example approval reference', file: 'DEMO-CDC-001', evidence: 'Fictional identifier only. No real approval document is bundled or verified. Confirm requirements before undertaking real work.' },
   { id: 'structure', title: 'Example structural reference', file: 'DEMO-STRUCT-001', evidence: 'Fictional reference for demonstrating a drawing-review action. No actual drawing numbers, dimensions or project revisions are used.' },
   { id: 'schedule', title: 'Example project sequence', file: 'DEMO-SCHEDULE', evidence: 'Generic sequence: report progress, confirm inspection readiness, review relevant documentation, and prepare the next communication. No appointment or completion date is assumed.' },
+  { id: 'progress', title: 'Client progress note', file: 'DEMO-PROGRESS', evidence: 'Fictional customer-safe note: framing progress has been reported. Inspection readiness, the appointment and the following milestones still need confirmation.' },
+  { id: 'claim', title: 'Example claim preparation note', file: 'DEMO-CLAIM', evidence: 'Fictional internal workflow: assemble progress photos and required supporting documents. Hold any claim submission until inspection sign-off and eligibility checks are complete.' },
   { id: 'public-roof', title: 'Public design note', file: 'DEMO-PUBLIC-NOTE', evidence: 'Generic public storytelling about careful framing and roof drainage. No private records or specific technical measurements are cited.' },
   { id: 'brief', title: 'Fictional presentation scenario', file: 'src/demo-config.js', evidence: 'All project aliases, customer and team names, engineering references, certifier and lender names are invented presentation fixtures.' },
 ];
@@ -31,29 +33,68 @@ export function publicIssues(text) {
 export function buildPhotoPack({ note = '', photoName = '', briefName = '', briefText = '' } = {}) {
   if (!photoName && !briefName) throw new Error('Add a site photo or Markdown brief first.');
   const c = CONTEXT;
-  const inputSources = [photoName ? 'photo' : null, 'chat', 'cdc', 'structure', 'schedule', 'brief'].filter(Boolean);
+  const inputSources = [photoName ? 'photo' : null, 'chat', 'cdc', 'structure', 'schedule', 'claim', 'brief'].filter(Boolean);
   const admin = `Hi ${c.admin},\n\nPlease coordinate the framing follow-up for ${c.address}. ${photoName ? 'A site photo accompanies this update.' : 'This update uses the attached reference note.'}\n\n1. Contact ${c.certifier} to confirm the relevant inspection requirements and request an available appointment. Confirm site readiness with the site manager before booking.\n\n2. Review the relevant wall, roof and drainage details against current issued drawings. Record any required professional confirmation before the work is covered.\n\n3. Prepare the next progress claim evidence pack for ${c.lender}: progress photos, the inspection report once available, and the required supporting documents. Hold submission pending sign-off and eligibility checks.\n\nSuggested schedule note: Framing progress reported — inspection readiness and sign-off to be confirmed.\n\nExample references: ${c.consent}; ${c.engineer}. No schedule, booking or lender system has been changed.${note.trim() ? `\n\nUser-provided note (unverified):\n${note.trim()}` : ''}${briefText.trim() ? `\n\nUser-provided reference (${briefName}; unverified):\n${briefText.trim()}` : ''}`;
   const client = `Hi ${c.client},\n\nThe latest site update reports framing progress at ${c.address}. This stage helps bring the future rooms and roof structure into focus.\n\nNext, the team will confirm inspection readiness and arrange the relevant certifier visit before the work is covered. We’ll confirm the appointment once it is booked.\n\nAfter the required sign-off and checks, we plan to prepare the next progress claim. We’ll keep you informed about the paperwork and following milestones.`;
   const social = `The details behind the build.\n\nA framing milestone at our ${c.publicName}. Careful structural work and thoughtful roof drainage are part of the design process from the start.\n\nGood craftsmanship means paying attention to the details behind the finished home.\n\n#${c.publicName.replace(/\s/g, '')} #TimberFraming #Craftsmanship`;
   const drafts = [
-    { id: 'admin', agent: 'teamwork', tier: 'internal', title: 'Construction admin', to: c.admin, channel: 'Email draft', body: admin, citations: inputSources, status: 'draft' },
-    { id: 'client', agent: 'commercial', tier: 'customer-safe', title: 'Client milestone update', to: c.client, channel: 'WhatsApp draft', body: client, citations: ['photo', 'brief'].filter(id => id !== 'photo' || photoName), status: 'draft' },
-    { id: 'social', agent: 'content', tier: 'public', title: 'Instagram story', to: c.publicName, channel: 'Instagram draft', body: social, citations: ['public-roof'], status: 'draft' },
+    { id: 'admin', agent: 'teamwork', tier: 'internal', title: 'Construction admin', to: c.admin, channel: 'Email draft', body: admin, citations: inputSources, status: 'draft', taskTitle: 'Coordinate inspection readiness', reminder: 'Follow up after the site manager confirms readiness.' },
+    { id: 'client', agent: 'commercial', tier: 'customer-safe', title: 'Client milestone update', to: c.client, channel: 'WhatsApp draft', body: client, citations: ['photo', 'progress', 'brief'].filter(id => id !== 'photo' || photoName), status: 'draft', taskTitle: 'Prepare the client progress update', reminder: 'Update the client once the inspection appointment is confirmed.' },
+    { id: 'social', agent: 'content', tier: 'public', title: 'Instagram story', to: c.publicName, channel: 'Instagram draft', body: social, citations: ['public-roof'], status: 'draft', taskTitle: 'Prepare the site story for review', reminder: 'Revisit the story after the site manager approves the public copy.' },
   ];
   const steps = [
     { agent: 'source', to: 'router', alsoTo: 'capture', detail: 'New input shared with both Digger and Lyra.' },
     { agent: 'capture', to: 'router', detail: 'Lyra shares the attachment and available context with Digger. Vision is simulated.' },
     { agent: 'router', to: 'capture', detail: 'Digger shares the coordination context with Lyra.' },
     { agent: 'capture', to: 'kb', detail: 'Lyra demonstrates collecting, labeling and organizing the input into Wiki knowledge. This demo does not write to an external Wiki.' },
-    { agent: 'router', to: 'questions', detail: 'Digger asks for the relevant workflow references for the team.' },
-    { agent: 'questions', to: 'curator', detail: 'Bower receives the information request.' },
+    { agent: 'router', to: 'curator', detail: 'Digger asks Bower for references and the team’s next actions.' },
     { agent: 'curator', to: 'kb', detail: 'Bower looks up the relevant fictional reference notes in the demo Wiki.' },
     { agent: 'kb', to: 'curator', detail: 'Bower filters the reference notes for the request and keeps unverified completion claims out of the drafts.' },
-    { agent: 'curator', to: 'result', detail: 'Bower returns relevant information with source references for review.' },
-    ...drafts.map(d => ({ agent: 'curator', to: d.agent, detail: `${d.title} prepared for ${d.to}` })),
-    { agent: 'content', to: 'gate', detail: 'Public text screened; one combined review pack is ready. Nothing sent.' },
+    { agent: 'curator', to: 'router', detail: 'Bower returns relevant information with source references to Digger.' },
+    ...drafts.map(d => ({ agent: 'curator', to: d.agent, detail: `Bower allocates ${d.taskTitle.toLowerCase()} and prepares a reminder draft.` })),
+    { agent: 'content', to: 'curator', detail: 'Kooka returns the public story for review. Tasks and reminder drafts stay in this session; nothing is sent or scheduled.' },
   ].map((s, i) => ({ ...s, action: 'prepared', itemId: 'PHOTO-PACK', t: String(i+1) }));
   return { drafts, steps, photoName, briefName, sourceNote: note, approved: false };
+}
+
+// Small, audience-scoped Wiki lookup for the demo, not a live model or connector.
+export function askBower({ question = '', audience = 'workspace', pack } = {}) {
+  if (!['workspace', 'admin', 'client', 'social'].includes(audience)) throw new Error('Unknown Bower audience.');
+  const actor = {workspace:'router',admin:'teamwork',client:'commercial',social:'content'}[audience];
+  const itemId = `QUESTION-${audience}-${question}`;
+  const steps = [
+    {agent:actor,to:'curator'}, {agent:'curator',to:'kb'},
+    {agent:'kb',to:'curator'}, {agent:'curator',to:actor},
+  ].map(s=>({...s,itemId}));
+  const result = (text, citations=[]) => ({text,citations,steps});
+  if (!pack) return result('Share the latest site photo first. I’ll use the demo Wiki to find references and prepare the team’s tasks and reminder drafts for your review.');
+  const internal = audience === 'workspace' || audience === 'admin';
+  if (!internal && /price|margin|markup|supplier|profit|internal|quote|cost|lender|bank|contract/i.test(question)) {
+    return result(audience === 'client' ? 'I can help with your progress and next steps. For pricing or contract questions, I’ll refer you to your project contact.' : 'I don’t have a public-approved reference for that request. Please ask the site manager to review it.');
+  }
+  let text, citations;
+  if (/\b(?:when|date|inspect\w*|certif\w*|readiness)\b/i.test(question)) {
+    if (audience === 'social') return result('There is no public-approved inspection update in the demo Wiki. Ask the site manager to review any inspection claim before using it in a story.');
+    text = 'The team will confirm inspection readiness and arrange the certifier’s visit. The appointment is not confirmed yet; we’ll let you know once it is booked.';
+    citations = internal ? ['schedule','cdc'] : ['progress'];
+  } else if (/drawing|roof|pitch|drain|structure/i.test(question)) {
+    text = 'Review the roof, wall and drainage details against the applicable current drawings. Required professional confirmation is still pending.';
+    citations = internal ? ['structure','roof'] : audience === 'social' ? ['public-roof'] : ['progress'];
+    if (!internal) text = audience === 'social' ? 'The public design note supports a story about careful framing and roof drainage, without technical measurements or private project details.' : 'The customer-safe note reports framing progress. It does not confirm roof measurements or inspection sign-off.';
+  } else if (internal && /claim|lender|bank/i.test(question)) {
+    text = 'Prepare progress photos and the required claim documents. Hold submission until inspection sign-off and eligibility checks are complete.';
+    citations = ['claim'];
+  } else if (/task|remind|next|action|follow|todo/i.test(question) && !/source|evidence|basis|why|reference|wiki/i.test(question)) {
+    const tasks = pack.drafts.filter(d=>internal || d.id===audience);
+    text = tasks.map(d=>`${{admin:'Roo',client:'Tally',social:'Kooka'}[d.id]}: ${d.taskTitle}. Reminder draft: ${d.reminder}`).join('\n\n')+'\n\nThese are drafts for review; no reminder has been scheduled.';
+    citations = internal ? ['schedule'] : audience === 'social' ? ['public-roof'] : ['progress'];
+  } else if (/source|evidence|basis|why|reference|wiki|progress|story|caption/i.test(question)) {
+    citations = internal ? ['chat','schedule','structure'] : audience === 'social' ? ['public-roof'] : ['progress'];
+    text = 'Here are the relevant demo Wiki references. These are fictional example notes; the attached photo has not been analyzed or independently verified.';
+  } else return result('I couldn’t find a relevant answer in the demo Wiki. Try asking about inspection readiness, roof details, next actions or source references.');
+  // Public stories only cite public-approved material, irrespective of intent.
+  if (audience === 'social') citations = citations.filter(id=>id==='public-roof');
+  return result(text,citations);
 }
 
 export function approvePack(pack) {

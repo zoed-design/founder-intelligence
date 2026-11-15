@@ -8,28 +8,25 @@
    picker. Preparation starts automatically; there is no manual run button.
 3. Review the Team, Client and Instagram updates side by side below the
    conversation, then open any of the three corresponding role pages.
-4. Roo has an admin conversation and editable action pack. Tally has a separate
-   client conversation and a human mother/homeowner avatar, without PPE. Kooka
-   has an Instagram preview and editable public caption.
+4. Each role can **Talk to Bower** for audience-appropriate Wiki references. Roo has an editable admin action pack. Tally has a human mother/homeowner avatar without PPE. Kooka has an Instagram preview, editable public caption and a Bower conversation. Each receives an assigned task and a reminder draft.
 5. Return to Digger to approve the three drafts and download the pack. Approval
    and dispatch are local simulation; nothing is sent externally.
 
 No morning scenario runs. No unrelated questions, sample-photo controls, Markdown
 uploader, project-overview page or simulation banner appears in the main UI.
-The palette follows Digger's sunset scene: dusty lavender, sand, peach and ochre.
+The palette uses Digger's slate-blue sky with mist blue, sand, light brown and earth-colored borders.
 The original mascot retains continuous idle motion, Dance and optional Voice.
 
 ## Architecture
 
 The original `src/engine.js`, `orchestrate()` and role policies are preserved.
 `src/agents.js` also exports the focused `photo-workflow.js` scenario adapter.
-It runs the same capture → router → curator → specialist → review pattern and
-returns trace events for the original animated map and crew. The original broad
+New messages reach Digger and Lyra; Lyra collects and organizes the Wiki. Digger asks Bower for references and next actions, and Bower exchanges questions and task drafts with Roo, Tally and Kooka. The adapter returns trace events for the animated map and crew. The original broad
 UI remains in `app.js`; `index.html` now launches `demo.js`.
 
 The adapter uses entirely fictional reference notes and generic templates. It does not run a vision
 model or LLM, parse arbitrary PDF uploads, validate engineering, confirm site
-completion, update a schedule, connect WhatsApp or dispatch communications.
+completion, update a schedule, schedule reminders, connect WhatsApp or dispatch communications. Bower uses a small keyword-based, audience-scoped lookup of the fictional source notes; it is not live semantic retrieval.
 Markdown is preserved as quoted internal reference. It is not executable and
 cannot change permissions, recipients or public templates.
 

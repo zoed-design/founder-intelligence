@@ -6,8 +6,8 @@
 
 export const CREW = {
   router:     { name: 'Digger', species: 'wombat',     role: 'Site Manager', plan: 'quad', o: { base: 0x7d6a58, belly: 0xb3a28c, ears: 'stub', muzzle: 'broad', stocky: 1.25 }, hat: 0xf4f4ef, vest: 0xff7a1a },
-  capture:    { name: 'Lyra',   species: 'lyrebird',   role: 'Collects & organizes', plan: 'bird', o: { base: 0x6b5d52, belly: 0x9c8a76, beak: 0.3, tail: 'lyre' }, hat: 0xf2c14e, vest: 0xc6ef2a },
-  curator:    { name: 'Bower',  species: 'bowerbird',  role: 'Finds & references', plan: 'bird', o: { base: 0x3d55a8, belly: 0x5f79cc, beak: 0.32, tail: 'flat', blueBits: 1 }, hat: 0xf2c14e, vest: 0xff7a1a },
+  capture:    { name: 'Lyra',   species: 'lyrebird',   role: 'Collect & organize', plan: 'bird', o: { base: 0x6b5d52, belly: 0x9c8a76, beak: 0.3, tail: 'lyre' }, hat: 0xf2c14e, vest: 0xc6ef2a },
+  curator:    { name: 'Bower',  species: 'bowerbird',  role: 'Find, reference & allocate tasks', plan: 'bird', o: { base: 0x3d55a8, belly: 0x5f79cc, beak: 0.32, tail: 'flat', blueBits: 1 }, hat: 0xf2c14e, vest: 0xff7a1a },
   teamwork:   { name: 'Roo',    species: 'kangaroo',   role: 'Team', plan: 'roo', o: { base: 0xa97f52, belly: 0xdec09a, tape: 1 }, hat: 0xf2c14e, vest: 0xff7a1a },
   commercial: { name: 'Tally', species: 'mum', role: 'Client', plan: 'human', o: { base: 0xe3b08f, belly: 0xf3ccb1 }, hat: null, vest: null },
   content:    { name: 'Kooka',  species: 'kookaburra', role: 'Content · tells the stories', plan: 'bird', o: { base: 0x8a7a68, belly: 0xe8dcc8, beak: 0.5, headBig: 1, tail: 'flat', camera: 1 }, hat: 0xf2c14e, vest: 0xff7a1a },
@@ -212,6 +212,11 @@ export function mascot(container, bubble) {
     },
     dance() { if (!reduceMotion()) state.danceUntil = performance.now() + 2600; },
     setSound(on) { state.sound = on; if (!on && 'speechSynthesis' in window) window.speechSynthesis.cancel(); },
+    reset() {
+      clearTimeout(bubbleTimer); state.talkUntil = 0; state.danceUntil = 0;
+      if (bubble) { bubble.textContent = ''; bubble.classList.remove('show'); }
+      window.speechSynthesis?.cancel();
+    },
   };
   if (!THREE) return api;
 

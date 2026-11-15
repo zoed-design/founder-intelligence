@@ -1,6 +1,6 @@
 # How the agents work
 
-The current photo-led demo uses the simple [crew roles and information flow](crew-roles.md): messages reach Digger and Lyra, Lyra organizes the Wiki, and Bower finds information with references on request. The sections below document the preserved original general-purpose engine; they are not a description of live integrations in the photo demo.
+The current photo-led demo uses the simple [crew roles and information flow](crew-roles.md): messages reach Digger and Lyra; Lyra collects and organizes the Wiki; Bower finds references and allocates task and reminder drafts. Digger, Roo, Tally and Kooka can each ask Bower questions. The sections below document the preserved original general-purpose engine; they are not a description of live integrations in the photo demo.
 
 ## In one sentence
 

@@ -3,13 +3,14 @@
 // equivalent for screen readers.
 
 export const NODES = {
-  source:    { x: 200, y: 30, w: 150, h: 40, label: 'New messages', kind: 'io' },
-  router:    { x: 92, y: 115, w: 160, h: 58, label: 'Digger', role: 'Site Manager', kind: 'agent' },
-  capture:   { x: 305, y: 115, w: 166, h: 58, label: 'Lyra', role: 'Organizes', kind: 'agent' },
-  questions: { x: 100, y: 225, w: 188, h: 54, label: 'Questions', role: 'Digger · Roo · Tally · Kooka', kind: 'io' },
-  kb:        { x: 305, y: 225, w: 120, h: 52, label: 'Wiki', kind: 'store' },
-  curator:   { x: 100, y: 330, w: 170, h: 58, label: 'Bower', role: 'Finds + references', kind: 'agent' },
-  result:    { x: 200, y: 425, w: 218, h: 46, label: 'Information + sources', kind: 'io' },
+  source:     { x: 230, y: 30, w: 150, h: 40, label: 'New message', kind: 'io' },
+  router:     { x: 110, y: 115, w: 190, h: 64, label: 'Digger', role: 'Site Manager', kind: 'agent' },
+  capture:    { x: 350, y: 115, w: 205, h: 64, label: 'Lyra', role: 'Collect & organize', kind: 'agent' },
+  curator:    { x: 110, y: 270, w: 200, h: 82, label: 'Bower', role: 'Find & reference', role2: 'Allocate tasks', kind: 'agent' },
+  kb:         { x: 350, y: 270, w: 160, h: 64, label: 'Wiki', kind: 'store' },
+  teamwork:   { x: 75, y: 440, w: 140, h: 64, label: 'Roo', role: 'Admin', kind: 'agent' },
+  commercial: { x: 230, y: 440, w: 140, h: 64, label: 'Tally', role: 'Client', kind: 'agent' },
+  content:    { x: 385, y: 440, w: 140, h: 64, label: 'Kooka', role: 'Stories', kind: 'agent' },
 };
 
 export const EDGES = [
@@ -17,13 +18,14 @@ export const EDGES = [
   { from: 'source', to: 'capture' },
   { from: 'router', to: 'capture', both: true },
   { from: 'capture', to: 'kb' },
-  { from: 'router', to: 'questions' },
-  { from: 'questions', to: 'curator', both: true },
+  { from: 'router', to: 'curator', both: true },
   { from: 'curator', to: 'kb', both: true },
-  { from: 'curator', to: 'result' },
+  { from: 'curator', to: 'teamwork', both: true },
+  { from: 'curator', to: 'commercial', both: true },
+  { from: 'curator', to: 'content', both: true },
 ];
 
-const aliases = { teamwork: 'questions', commercial: 'questions', content: 'questions', gate: 'result', delivered: 'result' };
+const aliases = { gate: 'curator', delivered: 'curator', founder: 'router' };
 const SVGNS = 'http://www.w3.org/2000/svg';
 let mapSequence = 0;
 
@@ -34,7 +36,7 @@ function anchor(a, b) {
 }
 
 export function createMap(svg, counts = {}, portraits = {}) {
-  svg.setAttribute('viewBox', '0 0 400 465');
+  svg.setAttribute('viewBox', '0 0 460 490');
   svg.innerHTML = '';
   const markerId = `crew-arrow-${++mapSequence}`;
   const defs = document.createElementNS(SVGNS, 'defs');
@@ -78,22 +80,26 @@ export function createMap(svg, counts = {}, portraits = {}) {
     if (n.kind === 'agent') {
       const clipId = `${markerId}-clip-${id}`;
       const cp = document.createElementNS(SVGNS, 'clipPath'); cp.id = clipId;
-      const cc = document.createElementNS(SVGNS, 'circle'); cc.setAttribute('cx', 28); cc.setAttribute('cy', 29); cc.setAttribute('r', 21);
+      const cy = H / 2;
+      const cc = document.createElementNS(SVGNS, 'circle'); cc.setAttribute('cx', 28); cc.setAttribute('cy', cy); cc.setAttribute('r', 21);
       cp.append(cc); g.append(cp);
-      const ring = document.createElementNS(SVGNS, 'circle'); ring.setAttribute('cx', 28); ring.setAttribute('cy', 29); ring.setAttribute('r', 21); ring.setAttribute('class', 'ring');
+      const ring = document.createElementNS(SVGNS, 'circle'); ring.setAttribute('cx', 28); ring.setAttribute('cy', cy); ring.setAttribute('r', 21); ring.setAttribute('class', 'ring');
       g.append(ring);
       if (pic) {
         const im = document.createElementNS(SVGNS, 'image');
-        im.setAttribute('href', pic); im.setAttribute('x', 5); im.setAttribute('y', 6); im.setAttribute('width', 46); im.setAttribute('height', 46);
+        im.setAttribute('href', pic); im.setAttribute('x', 5); im.setAttribute('y', cy - 23); im.setAttribute('width', 46); im.setAttribute('height', 46);
         im.setAttribute('clip-path', `url(#${clipId})`);
         g.append(im);
       } else {
-        const ini = document.createElementNS(SVGNS, 'text'); ini.setAttribute('x', 28); ini.setAttribute('y', 34); ini.setAttribute('text-anchor', 'middle'); ini.textContent = n.label[0];
+        const ini = document.createElementNS(SVGNS, 'text'); ini.setAttribute('x', 28); ini.setAttribute('y', cy + 5); ini.setAttribute('text-anchor', 'middle'); ini.textContent = n.label[0];
         g.append(ini);
       }
       const t1 = document.createElementNS(SVGNS, 'text'); t1.setAttribute('x', 58); t1.setAttribute('y', 25); t1.setAttribute('class', 'nm'); t1.textContent = n.label;
       const t2 = document.createElementNS(SVGNS, 'text'); t2.setAttribute('x', 58); t2.setAttribute('y', 42); t2.setAttribute('class', 'rl'); t2.textContent = n.role;
       g.append(t1, t2);
+      if (n.role2) {
+        const t3 = document.createElementNS(SVGNS, 'text'); t3.setAttribute('x', 58); t3.setAttribute('y', 59); t3.setAttribute('class', 'rl'); t3.textContent = n.role2; g.append(t3);
+      }
     } else {
       const t = document.createElementNS(SVGNS, 'text');
       t.setAttribute('x', W / 2); t.setAttribute('y', n.role ? 22 : H / 2 + 5); t.setAttribute('text-anchor', 'middle');
@@ -142,7 +148,7 @@ export function createMap(svg, counts = {}, portraits = {}) {
     if (!A || !B) return;
     const edge = edgeEls[`${a}>${b}`];
     if (!edge) return;
-    if (edge) { edge.classList.add('hot'); setTimeout(() => edge.classList.remove('hot'), 650); }
+    edge.classList.add('hot'); setTimeout(() => edge.classList.remove('hot'), 650);
     const c = document.createElementNS(SVGNS, 'circle');
     c.setAttribute('r', 6);
     c.setAttribute('class', `pulse pulse-${kind || 'agent'}`);
@@ -161,9 +167,9 @@ export function createMap(svg, counts = {}, portraits = {}) {
   }
 
   return {
-    // Counts: each agent once per message it works on; gate and delivered once per draft.
+    // Count each agent once per message or information request.
     play(step) {
-      const id = step.agent === 'founder' ? 'result' : aliases[step.agent] || step.agent;
+      const id = aliases[step.agent] || step.agent;
       flash(id);
       const key = `${step.itemId || step.draftId}:${id}`;
       if (NODES[id]?.kind === 'agent' && !seen.has(key)) {
@@ -173,16 +179,7 @@ export function createMap(svg, counts = {}, portraits = {}) {
         const kind = step.to === 'gate' ? 'human' : step.to === 'delivered' ? 'ok' : step.to === 'kb' ? 'store' : 'agent';
         pulse(id, step.to, kind);
         if (step.alsoTo) pulse(id, step.alsoTo, kind);
-        if (['delivered', 'gate'].includes(step.to) && step.draftId) {
-          const k2 = `${step.draftId}:${step.to}`;
-          if (!seen.has(k2)) {
-            seen.add(k2);
-            state.counts[step.to] = (state.counts[step.to] || 0) + 1;
-            setTimeout(() => { flash(step.to); setCount(step.to); }, 500);
-          }
-        } else if (['kb', 'delivered', 'gate'].includes(step.to)) {
-          setTimeout(() => flash(step.to), 500);
-        }
+        setTimeout(() => flash(step.to), 500);
       }
     },
     counts: () => ({ ...state.counts }),

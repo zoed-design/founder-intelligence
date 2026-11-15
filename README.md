@@ -3,7 +3,7 @@
 Empower your business to scale.
 
 The presentation has four role pages: **Digger / Site Manager**, **Roo / Team**, **Tally / Client**, and **Kooka / Instagram**. Drop a site photo into
-Digger's conversation to automatically prepare three parallel updates. Initial
+**Talk to Bower** as Digger to automatically prepare three parallel updates, assigned tasks and reminder drafts. Initial
 screens stay neutral until a photo is received. The presentation uses a fictional
 project, personal and business names with generic scenario details; live image recognition is not implemented.
 
@@ -22,11 +22,11 @@ This repository is a **hackathon prototype** (WSTI Festi 2026), built for **cons
 
 ## Try it
 
-1. Drop a site photo into **Talk to Digger**, paste an image, or use the inline +.
+1. As Digger, drop a site photo into **Talk to Bower**, paste an image, or use the inline +.
 2. Three updates appear side by side automatically.
-3. Open **Team** or **Client** to continue their separate conversations.
+3. Open **Team** or **Client** to ask Bower questions in that role, with audience-appropriate references.
 4. Open **Instagram** to review Kooka's public-safe caption and preview.
-5. Return to Digger to approve and download the updates. Nothing is sent externally.
+5. Return to Digger to approve and download the updates. Nothing is sent externally, and reminder drafts are not scheduled.
 
 The active UI has no morning rush, sample-photo buttons, Markdown upload, or
 manual preparation button. The core engine retains its Markdown-reference API.
@@ -40,8 +40,8 @@ The crew uses low-poly Australian animals, with a human parent/homeowner persona
 | Agent | Who | Why that animal |
 |---|---|---|
 | Router | **Digger** the wombat, in the foreman's white hat | Australia's champion digger runs the site. He talks you through each message and dances when the crew gets it right. Turn on **Voice** to hear him (browser speech, off by default). |
-| Capture | **Lyra** the lyrebird | Copies every sound it hears |
-| Curator | **Bower** the bowerbird | Collects and sorts the good stuff (and loves blue things) |
+| Collect & organize | **Lyra** the lyrebird | Brings fragmented information together in the Wiki |
+| Find, reference & allocate tasks | **Bower** the bowerbird | Finds useful knowledge and coordinates the next actions (and loves blue things) |
 | Teamwork | **Roo** the kangaroo | Tape measure in the pouch, answers the crew |
 | Client | **Tally**, the homeowner persona | Friendly parent, no construction hat |
 | Content | **Kooka** the kookaburra | Camera ready, tells the stories |
