@@ -41,7 +41,7 @@ export function buildPhotoPack({ note = '', photoName = '', briefName = '', brie
   const drafts = [
     { id: 'admin', agent: 'teamwork', tier: 'internal', title: 'Employee coaching guide', to: c.admin, channel: 'Team coaching draft', body: admin, citations: inputSources, status: 'draft', taskTitle: 'Coach the employee through the next steps', reminder: 'Follow up on employee questions and any items Digger needs to review.' },
     { id: 'client', agent: 'commercial', tier: 'customer-safe', title: 'Client milestone update', to: c.client, channel: 'WhatsApp draft', body: client, citations: ['photo', 'progress', 'brief'].filter(id => id !== 'photo' || photoName), status: 'draft', taskTitle: 'Prepare the client progress update', reminder: 'Update the client once the inspection appointment is confirmed.' },
-    { id: 'social', agent: 'content', tier: 'public', title: 'Instagram story', to: c.publicName, channel: 'Instagram draft', body: social, citations: ['public-roof'], status: 'draft', taskTitle: 'Prepare the site story for review', reminder: 'Revisit the story after the site manager approves the public copy.' },
+    { id: 'social', agent: 'content', tier: 'public', title: 'Client story', to: c.publicName, channel: 'Instagram draft', body: social, citations: ['public-roof'], status: 'draft', taskTitle: 'Prepare the client story for review', reminder: 'Revisit the client story after the site manager approves the public copy.' },
   ];
   const steps = [
     { agent: 'source', to: 'router', alsoTo: 'capture', detail: 'New input shared with both Digger and Lyra.' },

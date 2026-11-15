@@ -6,9 +6,9 @@
    reveal no project or framing details before input.
 2. Drop or paste a presentation-approved JPEG into the conversation, or use the inline + file
    picker. Preparation starts automatically; there is no manual run button.
-3. Review the Team, Client and Instagram updates side by side below the
+3. Review the Employee Coach, Client and Client Stories updates side by side below the
    conversation, then open any of the three corresponding role pages.
-4. Roo is the **Employee Coach**: employees **Talk to Roo** for step-by-step guidance, source references and a handoff to Digger when review is needed. Tally has a human mother/homeowner avatar without PPE. Kooka has an Instagram preview, editable public caption and a Bower conversation. Each receives an assigned task and a reminder draft.
+4. Roo is the **Employee Coach**: employees **Talk to Roo** for step-by-step guidance, source references and a handoff to Digger when review is needed. Tally has a human mother/homeowner avatar without PPE. Kooka is **Client Stories**, with an Instagram-style preview, editable public caption and a Bower conversation. Each receives an assigned task and a reminder draft.
 5. Return to Digger to approve the three drafts and download the pack. Approval
    and dispatch are local simulation; nothing is sent externally.
 
@@ -18,6 +18,8 @@ The palette matches the founder's screenshot: warm cream/peach background, gold-
 The original mascot retains continuous idle motion, Dance and optional Voice.
 
 ## Architecture
+
+This prototype demonstrates one small workflow within the intended product. The wider demo and pitch should also communicate the full product vision, clearly distinguishing concept scenes from the functions implemented here.
 
 The original `src/engine.js`, `orchestrate()` and role policies are preserved.
 `src/agents.js` also exports the focused `photo-workflow.js` scenario adapter.

@@ -10,7 +10,7 @@ export const NODES = {
   kb:         { x: 350, y: 270, w: 160, h: 64, label: 'Wiki', kind: 'store' },
   teamwork:   { x: 75, y: 440, w: 140, h: 82, label: 'Roo', role: 'Employee', role2: 'Coach', kind: 'agent' },
   commercial: { x: 230, y: 440, w: 140, h: 64, label: 'Tally', role: 'Client', kind: 'agent' },
-  content:    { x: 385, y: 440, w: 140, h: 64, label: 'Kooka', role: 'Stories', kind: 'agent' },
+  content:    { x: 385, y: 440, w: 140, h: 82, label: 'Kooka', role: 'Client', role2: 'Stories', kind: 'agent' },
 };
 
 export const EDGES = [

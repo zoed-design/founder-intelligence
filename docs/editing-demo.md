@@ -6,9 +6,9 @@
 2. As Digger / Site Manager, drop a site photo into **Talk to Bower**, or use the + button. The three
    updates appear automatically.
 3. Expand **Edit update** in any of the three cards to change its text. The Team,
-   Client and Instagram pages immediately use the updated text.
+   Client and Client Stories pages immediately use the updated text.
 4. **Open conversation** opens that role's page. Roo / Employee Coach explains the steps to employees, consults Bower's references and flags questions for Digger review when necessary. It also has an editable
-   coaching guide. Kooka / Instagram has an editable caption. Tally / Client is a
+   coaching guide. Kooka / Client Stories has an editable caption and Instagram-style preview. Tally / Client is a
    client conversation and cannot see internal notes or export the combined pack.
 5. Return to Digger, choose **Approve updates**, then **Download updates**.
 

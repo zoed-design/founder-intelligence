@@ -10,7 +10,7 @@ export const CREW = {
   curator:    { name: 'Bower',  species: 'bowerbird',  role: 'Find, reference & allocate tasks', plan: 'bird', o: { base: 0x3d55a8, belly: 0x5f79cc, beak: 0.32, tail: 'flat', blueBits: 1 }, hat: 0xf2c14e, vest: 0xff7a1a },
   teamwork:   { name: 'Roo',    species: 'kangaroo',   role: 'Employee Coach', plan: 'roo', o: { base: 0xa97f52, belly: 0xdec09a, tape: 1 }, hat: 0xf2c14e, vest: 0xff7a1a },
   commercial: { name: 'Tally', species: 'mum', role: 'Client', plan: 'human', o: { base: 0xe3b08f, belly: 0xf3ccb1 }, hat: null, vest: null },
-  content:    { name: 'Kooka',  species: 'kookaburra', role: 'Content · tells the stories', plan: 'bird', o: { base: 0x8a7a68, belly: 0xe8dcc8, beak: 0.5, headBig: 1, tail: 'flat', camera: 1 }, hat: 0xf2c14e, vest: 0xff7a1a },
+  content:    { name: 'Kooka',  species: 'kookaburra', role: 'Client Stories', plan: 'bird', o: { base: 0x8a7a68, belly: 0xe8dcc8, beak: 0.5, headBig: 1, tail: 'flat', camera: 1 }, hat: 0xf2c14e, vest: 0xff7a1a },
 };
 
 const T = () => window.THREE;

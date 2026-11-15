@@ -2,7 +2,7 @@
 
 Empower your business to scale.
 
-The presentation has four role pages: **Digger / Site Manager**, **Roo / Employee Coach**, **Tally / Client**, and **Kooka / Instagram**. Drop a site photo into
+The presentation has four role pages: **Digger / Site Manager**, **Roo / Employee Coach**, **Tally / Client**, and **Kooka / Client Stories**. Drop a site photo into
 **Talk to Bower** as Digger to automatically prepare three parallel updates, assigned tasks and reminder drafts. Initial
 screens stay neutral until a photo is received. The presentation uses a fictional
 project, personal and business names with generic scenario details; live image recognition is not implemented.
@@ -25,7 +25,7 @@ This repository is a **hackathon prototype** (WSTI Festi 2026), built for **cons
 1. As Digger, drop a site photo into **Talk to Bower**, paste an image, or use the inline +.
 2. Three updates appear side by side automatically.
 3. Open **Employee Coach** to ask Roo how to work through the steps; questions needing a decision are flagged for Digger. Open **Client** for audience-appropriate Bower answers.
-4. Open **Instagram** to review Kooka's public-safe caption and preview.
+4. Open **Client Stories** to review Kooka's public-safe caption and Instagram-style preview.
 5. Return to Digger to approve and download the updates. Nothing is sent externally, and reminder drafts are not scheduled.
 
 The active UI has no morning rush, sample-photo buttons, Markdown upload, or
@@ -44,7 +44,7 @@ The crew uses low-poly Australian animals, with a human parent/homeowner persona
 | Find, reference & allocate tasks | **Bower** the bowerbird | Finds useful knowledge and coordinates the next actions (and loves blue things) |
 | Employee Coach | **Roo** the kangaroo | Explains the steps, answers employee questions and flags issues for Digger review |
 | Client | **Tally**, the homeowner persona | Friendly parent, no construction hat |
-| Content | **Kooka** the kookaburra | Camera ready, tells the stories |
+| Client Stories | **Kooka** the kookaburra | Camera ready, tells the story behind the client's project |
 
 ## How the agents work
 
