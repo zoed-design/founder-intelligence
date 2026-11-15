@@ -16,12 +16,18 @@ concurrency:
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      artifact-name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
       - run: npm test
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
 
   deploy:
     needs: test
@@ -30,10 +36,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ needs.test.outputs.artifact-name }}
