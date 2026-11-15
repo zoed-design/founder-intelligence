@@ -8,13 +8,13 @@
    picker. Preparation starts automatically; there is no manual run button.
 3. Review the Team, Client and Instagram updates side by side below the
    conversation, then open any of the three corresponding role pages.
-4. Each role can **Talk to Bower** for audience-appropriate Wiki references. Roo has an editable admin action pack. Tally has a human mother/homeowner avatar without PPE. Kooka has an Instagram preview, editable public caption and a Bower conversation. Each receives an assigned task and a reminder draft.
+4. Roo is the **Employee Coach**: employees **Talk to Roo** for step-by-step guidance, source references and a handoff to Digger when review is needed. Tally has a human mother/homeowner avatar without PPE. Kooka has an Instagram preview, editable public caption and a Bower conversation. Each receives an assigned task and a reminder draft.
 5. Return to Digger to approve the three drafts and download the pack. Approval
    and dispatch are local simulation; nothing is sent externally.
 
 No morning scenario runs. No unrelated questions, sample-photo controls, Markdown
 uploader, project-overview page or simulation banner appears in the main UI.
-The palette uses Digger's slate-blue sky with mist blue, sand, light brown and earth-colored borders.
+The palette matches the founder's screenshot: warm cream/peach background, gold-brown navigation, brown headlines, cream conversation surfaces and a blue crew panel.
 The original mascot retains continuous idle motion, Dance and optional Voice.
 
 ## Architecture

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="demo.css">
+<link rel="stylesheet" href="demo.css?v=warm-coach-1">
 </head>
 <body>
 <header class="bar">
@@ -22,7 +22,7 @@
     </div>
     <nav class="roles" aria-label="App views">
       <button data-page="workspace" class="role" aria-current="page">Digger · Site Manager</button>
-      <button data-page="admin" class="role">Roo · Team</button>
+      <button data-page="admin" class="role">Roo · Employee Coach</button>
       <button data-page="client" class="role">Tally · Client</button>
       <button data-page="social" class="role">Kooka · Instagram</button>
     </nav>
@@ -51,7 +51,7 @@
         <span class="live-dot" aria-hidden="true"></span>
       </div>
       <p class="map-sub">Questions, references and next steps.</p>
-      <svg id="agentMap" class="map" role="img" aria-label="New messages reach Digger, the Site Manager, and Lyra. Digger and Lyra communicate in both directions. Lyra collects and organizes information into the Wiki. Digger asks Bower questions. Bower finds and references Wiki information and allocates tasks and reminder drafts. Roo, the contractor admin, Tally and Kooka can each ask Bower questions and receive tasks in return."></svg>
+      <svg id="agentMap" class="map" role="img" aria-label="New messages reach Digger, the Site Manager, and Lyra. Lyra collects and organizes the Wiki. Bower finds references and coordinates next steps. Roo is the Employee Coach: Roo uses that context to guide employees, answers their questions and flags issues for Digger to review. Tally and Kooka support client updates and stories."></svg>
       <p class="map-key">↔ Questions, tasks &amp; reminder drafts</p>
       <details class="steps">
         <summary>Show each step</summary>
@@ -63,6 +63,6 @@
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script src="vendor/three.min.js"></script>
-<script type="module" src="demo.js"></script>
+<script type="module" src="demo.js?v=warm-coach-1"></script>
 </body>
 </html>

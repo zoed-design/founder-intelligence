@@ -65,36 +65,37 @@ body { background: #f3f5f8; }
 @media (max-width: 1060px) { .mapcol { max-width: none; } .mascot { max-width: 360px; } .mapcard { max-width: 440px; } }
 @media (max-width: 640px) { .name { font-size: 16px; } .roles { width: 100%; } .chat-heading, .founder-thread { padding: 14px; } .attachment-area { padding: 12px 14px; } #founder-form { padding: 0 14px 16px; } .composer-footer .btn { width: 100%; } .overview-stats { gap: 6px; } .overview-stats div { padding: 10px; } }
 
-/* Digger's slate-blue sky, warm sand and earth: soft, professional and neutral. */
-:root { --ink:#344452; --ink-2:#506273; --muted:#607384; --agent:#806044; --agent-bg:#efe3d2; --line:#b7aa98; --band:#e4eaf0; --ok:#536b55; --ok-bg:#e5ece3; --accent:#b98143; }
-body { background:linear-gradient(145deg,#e3eaf2 0%,#eff1f0 52%,#eee4d5 100%); min-height:100vh; }
-.bar { background:#f0eee7; color:var(--ink); border-bottom:1px solid #b8aa98; }
-.tag { color:#67747c; }
-.logo { background:conic-gradient(from 210deg,#9c8061,#819ab2,#d8ba87,#9c8061); box-shadow:inset 0 0 0 7px #f0eee7; }
+/* Approved screenshot: warm cream/peach page, gold-brown navigation, blue crew panel. */
+:root { --ink:#3e3444; --ink-2:#62566c; --muted:#78677c; --agent:#985332; --agent-bg:#f6e4cf; --line:#dfcfc3; --band:#eee3db; --ok:#536d49; --ok-bg:#e7edda; --accent:#b98143; }
+body { background:linear-gradient(115deg,#e7e2eb 0%,#f6e6dc 55%,#f2d3aa 100%); min-height:100vh; }
+.bar { background:linear-gradient(100deg,#ece2e4,#f0e5df); color:var(--ink); border-bottom:1px solid #d9cbd0; }
+.name { color:#795131; }
+.tag { color:#91623f; }
+.logo { background:conic-gradient(from 210deg,#c78b63,#9b94b1,#f2ba61,#c78b63); box-shadow:inset 0 0 0 7px #ece2e4; }
 .bar-in { max-width:1760px; padding:18px 24px; gap:16px; }
 .brand { flex:1 1 390px; }
-.roles { background:#e3d7c6; gap:5px; border:1px solid #c5b49e; }
+.roles { background:linear-gradient(100deg,#e9c79c,#e3bd8d); gap:5px; border:1px solid #e3c6a0; }
 .role { color:#705338; padding:9px 12px; font-size:13px; }
-.role:hover { background:#f0e7d8; color:#624a35; }
-.role[aria-current="page"] { background:#fffaf0; color:#624a35; box-shadow:0 2px 6px #77543b12; }
-.btn-quiet { color:#596c7b; border-color:#a99c8b; }
+.role:hover { background:#f1dec3; color:#624a35; }
+.role[aria-current="page"] { background:#fff5e6; color:#3e3444; box-shadow:0 2px 6px #77543b12; }
+.btn-quiet { color:#65536a; border-color:#cdbbc3; }
 .layout { max-width:1760px; padding:26px; }
 .hello { margin-bottom:22px; }
-.hello h1 { max-width:40ch; font-size:clamp(24px,2.5vw,34px); color:#795c40; }
-.card { background:#fffcf6; border-color:#b7aa98; }
+.hello h1 { max-width:40ch; font-size:clamp(24px,2.5vw,34px); color:#8a603c; }
+.card { background:#fef9f3; border-color:#dfcfc3; }
 .founder-chat { box-shadow:0 12px 32px #6f463410; }
-.chat-heading { border-color:#c9c0b2; }
-.chat-heading span { color:#637788; }
+.chat-heading { border-color:#eadbd0; }
+.chat-heading span { color:#8c6247; }
 .founder-thread { min-height:180px; max-height:380px; padding-bottom:24px; }
-.agent-message { background:#edf0ee; }
-.founder-message { background:#dbe7f1; }
+.agent-message { background:#f0e4dd; }
+.founder-message { background:#eadccd; }
 .selected-photo { margin:0 22px 18px; background:#f5eadb; border-color:#e6d1bb; }
 .selected-photo img { width:108px; height:130px; }
-.message-composer,#founder-form { display:flex; align-items:center; gap:12px; margin:0; padding:16px 20px; background:#f0e7d9; border-top:1px solid #c6b7a3; }
-.message-composer textarea,#founder-note { flex:1; min-width:0; min-height:62px; max-height:150px; resize:vertical; padding:15px 12px; background:#fffcf6; color:var(--ink); border:1px solid #b6a58f; border-radius:14px; font:14px/1.5 Inter,system-ui,sans-serif; }
+.message-composer,#founder-form { display:flex; align-items:center; gap:12px; margin:0; padding:16px 20px; background:#f5e9dc; border-top:1px solid #eadbd0; }
+.message-composer textarea,#founder-note { flex:1; min-width:0; min-height:62px; max-height:150px; resize:vertical; padding:15px 12px; background:#fef9f3; color:var(--ink); border:1px solid #e7d1c1; border-radius:14px; font:14px/1.5 Inter,system-ui,sans-serif; }
 .photo-button,.send-message { flex:none; width:44px; height:44px; display:grid; place-items:center; background:#e4c9a3; color:#694527; border:0; border-radius:50%; cursor:pointer; font-size:24px; }
 .photo-button:focus-within { outline:3px solid var(--accent); outline-offset:3px; }
-.send-message { background:#876347; color:white; }
+.send-message { background:#9f683c; color:white; }
 .send-message:disabled { opacity:.45; }
 .dragging { outline:3px dashed #b77d44; outline-offset:4px; }
 .working-status { display:flex; align-items:center; gap:8px; padding:12px 22px; color:#8f633d; font-size:13px; }
@@ -104,10 +105,10 @@ body { background:linear-gradient(145deg,#e3eaf2 0%,#eff1f0 52%,#eee4d5 100%); m
 .parallel-heading h2 { font-size:21px; }
 .parallel-heading>span { font-size:12px; color:#8e6b4b; }
 .parallel-panes { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
-.team-pane { min-width:0; background:#fffcf6; border:1px solid #b6a58f; border-radius:16px; overflow:hidden; display:flex; flex-direction:column; }
-.pane-heading { display:flex; gap:10px; align-items:center; padding:16px; background:#e3d6c0; border-bottom:1px solid #b7aa98; }
-.team-pane[data-pane="client"] .pane-heading { background:#d9e5ee; }
-.team-pane[data-pane="social"] .pane-heading { background:#e1e4d7; }
+.team-pane { min-width:0; background:#fef9f3; border:1px solid #d9c5b3; border-radius:16px; overflow:hidden; display:flex; flex-direction:column; }
+.pane-heading { display:flex; gap:10px; align-items:center; padding:16px; background:#ead8c0; border-bottom:1px solid #dfcab1; }
+.team-pane[data-pane="client"] .pane-heading { background:#eee2d2; }
+.team-pane[data-pane="social"] .pane-heading { background:#efdfba; }
 .pane-heading h3 { font-size:16px; }
 .pane-heading span { font-size:12px; color:#776052; }
 .pane-body { white-space:pre-wrap; font-size:12px; line-height:1.8; max-height:295px; min-height:200px; overflow:auto; padding:16px; }
@@ -120,7 +121,7 @@ body { background:linear-gradient(145deg,#e3eaf2 0%,#eff1f0 52%,#eee4d5 100%); m
 .pack-actions { border-color:#ddc9b3; }
 .role-hello { justify-content:flex-start; align-items:center; gap:16px; }
 .role-hello .ava { background:#e5dac9; border-color:#a28463; }
-.role-hello p { color:#637788; }
+.role-hello p { color:#906a56; }
 .role-conversation { padding:0; overflow:hidden; margin-top:18px; }
 .role-conversation .founder-thread { max-height:520px; }
 .draft-editor { margin-top:22px; }
@@ -133,22 +134,22 @@ body { background:linear-gradient(145deg,#e3eaf2 0%,#eff1f0 52%,#eee4d5 100%); m
 .instagram-top>div { display:grid; gap:3px; font-size:13px; }
 .instagram-top>div>span { font-size:11px; color:#896c65; }
 .instagram-word { margin-left:auto; font:italic 20px Georgia,serif; color:#875a42; }
-.instagram-art { height:260px; padding:32px; display:flex; align-items:end; background:linear-gradient(160deg,#7f97af,#bcc6c6 45%,#c6a578 80%,#a38460); }
+.instagram-art { height:260px; padding:32px; display:flex; align-items:end; background:linear-gradient(160deg,#8a9bb9,#e4b278 65%,#c68b53); }
 .instagram-art>span { color:#fff9e9; font-size:32px; line-height:1.15; max-width:13ch; font-weight:700; }
 .instagram-icons { padding:18px 20px 0; font-size:28px; color:#8a5c42; }
 .instagram-caption { white-space:pre-wrap; padding:8px 22px 24px; font-size:14px; line-height:1.8; margin:0; }
-.mapcard { background:#dbe6f0; color:#354f66; border:1px solid #9c9283; }
-.map-sub,details.steps { color:#536b7d; }
-details.steps summary { color:#705338; }
+.mapcard { background:linear-gradient(135deg,#c9d7eb,#b8c4da); color:#30314b; border:1px solid #7f9dc0; }
+.map-sub,details.steps { color:#294d76; }
+details.steps summary { color:#214a77; }
 .trace li { color:#486074; border-color:#a8bac7; }
 .map .node rect { fill:#f5f0e5; stroke:#a18e76; }
 .map .node text { fill:#344b5e; }
 .map .node text.nm { font-size:16px; }
 .map .node text.rl { fill:#526678; font-size:13px; }
 .map .node-human rect { fill:#ecd3a9; stroke:#c99a62; }
-.map .node-store rect { fill:#c8d9e7; stroke:#8196a8; }
+.map .node-store rect { fill:#bdcbe0; stroke:#7a96ba; }
 .map .node-io rect { fill:#eee6d7; }
-.map [data-node="curator"] rect { fill:#c7d8e7; stroke:#718a9e; }
+.map [data-node="curator"] rect { fill:#f5f0e5; stroke:#a18e76; }
 .map .node.active rect { fill:#d2e4ed; stroke:#5d7f99; }
 .map .edge { stroke:#8295a4; }
 .map .edge.hot { stroke:#466d8a; }
@@ -164,10 +165,11 @@ details.steps summary { color:#705338; }
 .message-sources { margin-top:10px; font-size:12px; }
 .message-sources summary { cursor:pointer; color:#715239; font-weight:600; }
 .message-sources .source-detail { padding:8px 0; }
-.task-summary { padding:14px 16px; background:#edf1f0; border-bottom:1px solid #c4c9c4; font-size:12px; }
+.task-summary { padding:14px 16px; background:#f2e8dc; border-bottom:1px solid #dfcab1; font-size:12px; }
 .task-summary p { margin:8px 0 0; line-height:1.6; color:#586a76; }
 .task-summary p>span { display:block; color:#73573d; font-size:11px; font-weight:600; }
 .reminder-note { margin:12px 0 0; font-size:12px; color:#5c7180; }
+.review-flag { display:block; margin-top:10px; color:#835427; font-size:12px; font-weight:600; }
 @media(max-width:1250px) { .layout { gap:20px; } .mapcol { flex-basis:260px; } .pane-heading { padding:12px; } }
 @media(max-width:1060px) { .mapcol { max-width:none; display:grid; grid-template-columns:1fr 1fr; gap:20px; flex-basis:100%; position:static; } .mascot { max-width:none; margin:0; height:300px; } .mapcard { max-width:none; } }
 @media(max-width:700px) { .layout { padding:16px; } .parallel-panes { grid-template-columns:1fr; } .pane-body { max-height:220px; } .mapcol { display:block; } .mapcard { margin-top:18px; } .name { font-size:16px; } .bar-in { padding:16px; } .roles { display:grid; grid-template-columns:1fr 1fr; } .message-composer,#founder-form { gap:8px; padding:12px; } .photo-button,.send-message { width:36px; height:36px; } .selected-photo { margin:0 14px 14px; } .instagram-art { height:220px; } }

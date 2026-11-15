@@ -26,7 +26,11 @@ Lyra groups, labels and links information for the Wiki. When available, labels s
 
 Bower responds to questions from Digger, Roo, Tally, Kooka or another authorized user. Bower finds the right information, filters out noise and returns the most relevant results with references to the original sources so answers can be checked and traced. Retrieval respects the requester's permitted project and audience. Where evidence is missing or conflicting, the answer should say so.
 
-Bower also turns the relevant context into next actions, allocates them to Roo (contractor admin), Tally (client communication) and Kooka (stories), and prepares reminder drafts. Each role can ask follow-up questions and return its work for review. Digger remains the Site Manager and human review role. The main conversation is **Talk to Bower**, viewed as Digger; the other pages let Roo, Tally and Kooka ask Bower in their own context.
+Bower also turns the relevant context into next actions, allocates them to Roo (Employee Coach), Tally (client communication) and Kooka (stories), and prepares reminder drafts. Each role can ask follow-up questions and return its work for review. Digger remains the Site Manager and human review role. The main conversation is **Talk to Bower**, viewed as Digger. The Employee Coach page lets employees **Talk to Roo**; Tally and Kooka can ask Bower in their own context.
+
+## Roo coaches employees
+
+Roo is the **Employee Coach**. Digger and Bower provide the context and references; Roo turns that information into understandable steps so employees can do the work correctly. Employees ask Roo questions, and Roo explains the process with references. Questions involving changes, conflicting instructions or concerns are flagged for Digger to review. The demo records that handoff in the Site Manager conversation; it does not approve work or send external notifications. Routine questions are answered without automatically escalating them.
 
 ## Current demo scope
 
@@ -34,4 +38,4 @@ The panel illustrates the intended roles and flow. The photo-led app uses fixed 
 
 ## Agreed visual direction
 
-Use slate and mist blue for the crew panel and Wiki, warm sand and light brown for navigation and headlines, off-white surfaces, and earth-colored borders. Keep Digger's existing animated scene and warm construction accents. Avoid pink or lavender surface fills. Use the same direction for future landing-page, pitch-video and demo-slide work.
+Match the founder's screenshot supplied on 15 November 2026: a warm cream/peach page with a subtle muted mauve tint, gold-brown navigation, brown headlines and cream conversation surfaces. Reserve the stronger blue for the crew panel and Wiki. Keep Digger's existing animated sunset scene and warm construction accents. Use this exact visual direction for future landing-page, pitch-video and demo-slide work.

@@ -13,6 +13,7 @@ export const SOURCES = [
   { id: 'schedule', title: 'Example project sequence', file: 'DEMO-SCHEDULE', evidence: 'Generic sequence: report progress, confirm inspection readiness, review relevant documentation, and prepare the next communication. No appointment or completion date is assumed.' },
   { id: 'progress', title: 'Client progress note', file: 'DEMO-PROGRESS', evidence: 'Fictional customer-safe note: framing progress has been reported. Inspection readiness, the appointment and the following milestones still need confirmation.' },
   { id: 'claim', title: 'Example claim preparation note', file: 'DEMO-CLAIM', evidence: 'Fictional internal workflow: assemble progress photos and required supporting documents. Hold any claim submission until inspection sign-off and eligibility checks are complete.' },
+  { id: 'coaching', title: 'Example employee coaching procedure', file: 'DEMO-COACH', evidence: 'Fictional internal procedure: check current issued instructions and source references, work through the approved sequence, record the checks and open questions, and ask the site manager to review changes, conflicting instructions or safety concerns. Coaching is not approval to change the work.' },
   { id: 'public-roof', title: 'Public design note', file: 'DEMO-PUBLIC-NOTE', evidence: 'Generic public storytelling about careful framing and roof drainage. No private records or specific technical measurements are cited.' },
   { id: 'brief', title: 'Fictional presentation scenario', file: 'src/demo-config.js', evidence: 'All project aliases, customer and team names, engineering references, certifier and lender names are invented presentation fixtures.' },
 ];
@@ -33,12 +34,12 @@ export function publicIssues(text) {
 export function buildPhotoPack({ note = '', photoName = '', briefName = '', briefText = '' } = {}) {
   if (!photoName && !briefName) throw new Error('Add a site photo or Markdown brief first.');
   const c = CONTEXT;
-  const inputSources = [photoName ? 'photo' : null, 'chat', 'cdc', 'structure', 'schedule', 'claim', 'brief'].filter(Boolean);
-  const admin = `Hi ${c.admin},\n\nPlease coordinate the framing follow-up for ${c.address}. ${photoName ? 'A site photo accompanies this update.' : 'This update uses the attached reference note.'}\n\n1. Contact ${c.certifier} to confirm the relevant inspection requirements and request an available appointment. Confirm site readiness with the site manager before booking.\n\n2. Review the relevant wall, roof and drainage details against current issued drawings. Record any required professional confirmation before the work is covered.\n\n3. Prepare the next progress claim evidence pack for ${c.lender}: progress photos, the inspection report once available, and the required supporting documents. Hold submission pending sign-off and eligibility checks.\n\nSuggested schedule note: Framing progress reported — inspection readiness and sign-off to be confirmed.\n\nExample references: ${c.consent}; ${c.engineer}. No schedule, booking or lender system has been changed.${note.trim() ? `\n\nUser-provided note (unverified):\n${note.trim()}` : ''}${briefText.trim() ? `\n\nUser-provided reference (${briefName}; unverified):\n${briefText.trim()}` : ''}`;
+  const inputSources = [photoName ? 'photo' : null, 'chat', 'cdc', 'structure', 'schedule', 'coaching', 'brief'].filter(Boolean);
+  const admin = `Team coaching for ${c.address}\n\nHi ${c.admin}, here is how to work through the next steps. ${photoName ? 'A site photo accompanies this update.' : 'This update uses the attached reference note.'}\n\n1. Start with the current issued instructions and the references Bower has found. Check the revision before relying on a drawing.\n\n2. Confirm inspection readiness with Digger before requesting an appointment from ${c.certifier}. Record what is ready and what still needs confirmation.\n\n3. Compare the relevant wall, roof and drainage details with the issued drawings. If something conflicts or a change is proposed, flag the question for Digger and obtain the required professional confirmation.\n\n4. Keep a record of your checks and open questions. Ask Roo if you need the steps explained; coaching does not approve a change or confirm completion.\n\nExample references: ${c.consent}; ${c.engineer}. No booking or external record has been changed.${note.trim() ? `\n\nUser-provided note (unverified):\n${note.trim()}` : ''}${briefText.trim() ? `\n\nUser-provided reference (${briefName}; unverified):\n${briefText.trim()}` : ''}`;
   const client = `Hi ${c.client},\n\nThe latest site update reports framing progress at ${c.address}. This stage helps bring the future rooms and roof structure into focus.\n\nNext, the team will confirm inspection readiness and arrange the relevant certifier visit before the work is covered. We’ll confirm the appointment once it is booked.\n\nAfter the required sign-off and checks, we plan to prepare the next progress claim. We’ll keep you informed about the paperwork and following milestones.`;
   const social = `The details behind the build.\n\nA framing milestone at our ${c.publicName}. Careful structural work and thoughtful roof drainage are part of the design process from the start.\n\nGood craftsmanship means paying attention to the details behind the finished home.\n\n#${c.publicName.replace(/\s/g, '')} #TimberFraming #Craftsmanship`;
   const drafts = [
-    { id: 'admin', agent: 'teamwork', tier: 'internal', title: 'Construction admin', to: c.admin, channel: 'Email draft', body: admin, citations: inputSources, status: 'draft', taskTitle: 'Coordinate inspection readiness', reminder: 'Follow up after the site manager confirms readiness.' },
+    { id: 'admin', agent: 'teamwork', tier: 'internal', title: 'Employee coaching guide', to: c.admin, channel: 'Team coaching draft', body: admin, citations: inputSources, status: 'draft', taskTitle: 'Coach the employee through the next steps', reminder: 'Follow up on employee questions and any items Digger needs to review.' },
     { id: 'client', agent: 'commercial', tier: 'customer-safe', title: 'Client milestone update', to: c.client, channel: 'WhatsApp draft', body: client, citations: ['photo', 'progress', 'brief'].filter(id => id !== 'photo' || photoName), status: 'draft', taskTitle: 'Prepare the client progress update', reminder: 'Update the client once the inspection appointment is confirmed.' },
     { id: 'social', agent: 'content', tier: 'public', title: 'Instagram story', to: c.publicName, channel: 'Instagram draft', body: social, citations: ['public-roof'], status: 'draft', taskTitle: 'Prepare the site story for review', reminder: 'Revisit the story after the site manager approves the public copy.' },
   ];
@@ -55,6 +56,21 @@ export function buildPhotoPack({ note = '', photoName = '', briefName = '', brie
     { agent: 'content', to: 'curator', detail: 'Kooka returns the public story for review. Tasks and reminder drafts stay in this session; nothing is sent or scheduled.' },
   ].map((s, i) => ({ ...s, action: 'prepared', itemId: 'PHOTO-PACK', t: String(i+1) }));
   return { drafts, steps, photoName, briefName, sourceNote: note, approved: false };
+}
+
+export function coachEmployee({question = '', pack} = {}) {
+  const answer = askBower({question, audience:'admin', pack});
+  const needsReview = /\b(?:unsafe|danger\w*|change\w*|remove|cut|crack\w*|bypass|conflict\w*|unsure)\b|安全|修改|裂|批准|不确定/i.test(question) || /(?:Digger.*review|review.*Digger)|\b(?:can|may|could|should)\s+(?:i|we)\s+(?:approve|proceed|go ahead)\b/i.test(question);
+  if (needsReview) return {
+    ...answer,
+    text:'This needs Digger’s review. I’ve flagged your question in the Site Manager conversation. Check the current issued instructions and wait for the appropriate confirmation before acting on the proposed change. No work or change has been approved.',
+    citations:[...new Set([...answer.citations,'coaching'])],
+    needsReview:true,
+    steps:[...answer.steps,{agent:'curator',to:'router',itemId:answer.steps[0].itemId}],
+  };
+  if (!pack) return {...answer,text:'I’m Roo, your Employee Coach. Share the latest site update so I can explain the next steps using the available references. If a question needs a decision, I’ll flag it for Digger.',needsReview:false};
+  if (!answer.citations.length) return {...answer,text:'I don’t have a supported procedure for that question in this demo. Try asking me how to prepare for an inspection, check drawing references or work through the next actions.',needsReview:false};
+  return {...answer,needsReview:false,citations:[...new Set([...answer.citations,'coaching'])],text:`Here’s how to work through it:\n\n1. Check the current issued instructions and the references below.\n2. ${answer.text}\n3. Record your checks and open questions. If instructions conflict or a decision is needed, ask Digger to review before proceeding.`};
 }
 
 // Small, audience-scoped Wiki lookup for the demo, not a live model or connector.

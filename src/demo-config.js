@@ -14,7 +14,7 @@ export const CONTEXT = Object.freeze({
 
 export function shortUpdates(c = CONTEXT) {
   return {
-    admin: `Hi ${c.admin}, please confirm frame inspection readiness at ${c.address} and request an appointment with ${c.certifier}. Check the relevant wall and roof details against current issued drawings. Prepare the progress claim pack for ${c.lender}, holding submission pending sign-off and eligibility checks. References: ${c.engineer} / ${c.consent}.`,
+    admin: `Hi ${c.admin}, here are the steps for ${c.address}: check the current issued instructions and drawing revisions; confirm inspection readiness with Digger before requesting an appointment with ${c.certifier}; record your checks and open questions. Ask Roo for guidance, and flag conflicting instructions or proposed changes for Digger review. References: ${c.engineer} / ${c.consent}.`,
     client: `Hi ${c.client}, the latest update reports framing progress at ${c.address}. We’ll confirm inspection readiness and arrange the certifier’s visit. Once the required sign-off and lender checks are complete, we plan to prepare the next progress claim. We’ll keep you updated.`,
     social: `A framing milestone at our ${c.publicName}. Thoughtful roof drainage and careful structural details are part of the design process. Craftsmanship starts in the structure. #${c.publicName.replace(/\s/g, '')} #TimberFraming`,
   };

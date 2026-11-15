@@ -1,13 +1,12 @@
-import { buildPhotoPack, approvePack, publicIssues } from './src/agents.js';
-import { SOURCES, askBower } from './src/photo-workflow.js';
-import { CONTEXT, shortUpdates } from './src/demo-config.js';
-import { CREW, portrait, mascot } from './src/crew.js';
-import { createMap } from './src/map.js';
+import { buildPhotoPack, approvePack, publicIssues, SOURCES, askBower, coachEmployee } from './src/photo-workflow.js?v=warm-coach-1';
+import { CONTEXT, shortUpdates } from './src/demo-config.js?v=warm-coach-1';
+import { CREW, portrait, mascot } from './src/crew.js?v=warm-coach-1';
+import { createMap } from './src/map.js?v=warm-coach-1';
 
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const ROLES={
-  admin:{agent:'teamwork',name:'Roo',role:'Contractor Admin',title:'Roo · Contractor Admin',greeting:'Ask me for a reference, a site action or a reminder draft. I’ll help you coordinate the next steps.'},
+  admin:{agent:'teamwork',name:'Roo',role:'Employee Coach',title:'Roo · Employee Coach',greeting:'Tell me what you’re working on. I’ll explain the steps, show the references and flag anything Digger should review.'},
   client:{agent:'commercial',name:'Tally',role:'Client',title:'Tally · Client',greeting:'Ask me about your home’s progress and the next milestones. I’ll show the relevant source notes where available.'},
   social:{agent:'content',name:'Kooka',role:'Instagram',title:'Kooka Stories',greeting:'Ask me for public-approved context and references for your next story.'},
 };
@@ -24,7 +23,7 @@ function render(){
   $('#view').innerHTML=page==='workspace'?workspace():rolePage(page);
   const chat=$('.founder-thread');if(chat)chat.scrollTop=chat.scrollHeight;
 }
-function chatMessages(list){return list.map(m=>`<div class="chat-message ${m.who==='you'?'founder-message':'agent-message'}"><b>${esc(m.name||(m.who==='you'?'Digger':'Bower'))}</b><p>${esc(m.text)}</p>${m.citations?.length?`<details class="message-sources"><summary>Sources · ${m.citations.length}</summary>${m.citations.map(id=>SOURCES.find(s=>s.id===id)).filter(Boolean).map(sourceHtml).join('')}</details>`:''}</div>`).join('');}
+function chatMessages(list){return list.map(m=>`<div class="chat-message ${m.who==='you'?'founder-message':'agent-message'}"><b>${esc(m.name||(m.who==='you'?'Digger':'Bower'))}</b><p>${esc(m.text)}</p>${m.needsReview?'<span class="review-flag">Digger review requested · pending</span>':''}${m.citations?.length?`<details class="message-sources"><summary>Sources · ${m.citations.length}</summary>${m.citations.map(id=>SOURCES.find(s=>s.id===id)).filter(Boolean).map(sourceHtml).join('')}</details>`:''}</div>`).join('');}
 function workspace(){return `<div class="hello"><div><h1>One site update. The crew takes it from here.</h1></div></div>
   <section class="card founder-chat" aria-labelledby="conversation-title" id="photo-drop-zone">
   <div class="chat-heading">${avatar('curator')}<div><h2 id="conversation-title">Talk to Bower</h2><span>As Digger · Site Manager</span></div></div>
@@ -38,11 +37,11 @@ function approvalButtons(){return `<div class="pack-actions"><button class="btn 
 function rolePage(id){
   const r=ROLES[id];if(!r)return workspace();const d=pack?.drafts.find(d=>d.id===id);
   if(id==='social')return instagramPage(r,d);
-  return `<div class="hello role-hello">${avatar(r.agent,true)}<div><h1>${r.title}</h1><p>Tasks, updates and references</p></div></div>${d?taskSummary(d):''}${bowerConversation(id,d)}${d&&id==='admin'?editor(d):''}`;
+  return `<div class="hello role-hello">${avatar(r.agent,true)}<div><h1>${r.title}</h1><p>${id==='admin'?'Learn the steps. Ask questions. Get the right review.':'Tasks, updates and references'}</p></div></div>${d?taskSummary(d):''}${bowerConversation(id,d)}${d&&id==='admin'?editor(d):''}`;
 }
-function bowerConversation(id,d){const r=ROLES[id];return `<section class="card role-conversation"><div class="chat-heading">${avatar('curator')}<div><h2>Talk to Bower</h2><span>As ${r.name} · ${r.role}</span></div></div><div class="founder-thread" aria-live="polite"><div class="chat-message agent-message"><b>Bower</b><p>${r.greeting}</p></div>${d&&id!=='social'?`<div class="chat-message agent-message"><b>${r.name}</b><p>${esc(d.body)}</p></div>`:''}${chatMessages(roleMessages[id])}</div><form class="message-composer" id="role-form" data-role="${id}"><label class="sr" for="role-note">Ask Bower as ${r.name}</label><textarea id="role-note" placeholder="Ask Bower…" ${busy?'disabled':''}>${esc(roleInputs[id])}</textarea><button class="send-message" aria-label="Send message" ${busy?'disabled':''}>↑</button></form>${busy?'<p class="working-status" role="status">Bower is checking the Wiki…</p>':''}</section>`;}
+function bowerConversation(id,d){const r=ROLES[id],coach=id==='admin',name=coach?'Roo':'Bower';return `<section class="card role-conversation"><div class="chat-heading">${avatar(coach?'teamwork':'curator')}<div><h2>Talk to ${name}</h2><span>${coach?'Employee coaching':`As ${r.name} · ${r.role}`}</span></div></div><div class="founder-thread" aria-live="polite"><div class="chat-message agent-message"><b>${name}</b><p>${r.greeting}</p></div>${d&&id!=='social'?`<div class="chat-message agent-message"><b>${r.name}</b><p>${esc(d.body)}</p></div>`:''}${chatMessages(roleMessages[id])}</div><form class="message-composer" id="role-form" data-role="${id}"><label class="sr" for="role-note">${coach?'Ask Roo for guidance':`Ask Bower as ${r.name}`}</label><textarea id="role-note" placeholder="Ask ${name}…" ${busy?'disabled':''}>${esc(roleInputs[id])}</textarea><button class="send-message" aria-label="Send message" ${busy?'disabled':''}>↑</button></form>${busy?`<p class="working-status" role="status">${coach?'Roo is checking the references with Bower…':'Bower is checking the Wiki…'}</p>`:''}</section>`;}
 function instagramPage(r,d){return `<div class="hello role-hello">${avatar(r.agent,true)}<div><h1>Kooka Stories</h1><p>Instagram</p></div></div><section class="card instagram-card"><div class="instagram-top">${avatar('content')}<div><b>${esc(CONTEXT.instagramHandle)}</b><span>${d?esc(CONTEXT.publicName):'Stories from your site'}</span></div><span class="instagram-word">Instagram</span></div><div class="instagram-art"><span>${d?'The details behind the roofline.':'Your next story starts here.'}</span></div><div class="instagram-icons" aria-hidden="true">♡ &nbsp; ◯ &nbsp; ↗</div><p class="instagram-caption" data-public-caption>${esc(d?d.body:'Ready to tell the story behind your next site update.')}</p></section>${d?taskSummary(d):''}${bowerConversation('social',d)}${d?editor(d):''}`;}
-function editor(d){const issues=d.id==='social'?publicIssues(d.body):[];const heading={admin:'Site action pack',client:'Client update',social:'Instagram caption'}[d.id];return `<section class="card draft-editor"><div class="editor-heading"><h2>${heading}</h2><span>${pack.approved?'Approved':'Draft'}</span></div><label class="sr" for="draft-body">Edit ${heading}</label><textarea id="draft-body" data-draft="${d.id}">${esc(d.body)}</textarea>${d.id==='social'?`<p id="privacy-result" class="privacy-result ${issues.length?'has-error':''}" aria-live="polite">${issues.length?`Remove private information: ${issues.join(', ')}`:`Public name: ${esc(CONTEXT.publicName)}`}</p>`:''}<details class="evidence"><summary>Sources</summary>${d.citations.map(id=>sourceHtml(SOURCES.find(s=>s.id===id))).join('')}</details></section>`;}
+function editor(d){const issues=d.id==='social'?publicIssues(d.body):[];const heading={admin:'Employee coaching guide',client:'Client update',social:'Instagram caption'}[d.id];return `<section class="card draft-editor"><div class="editor-heading"><h2>${heading}</h2><span>${pack.approved?'Approved':'Draft'}</span></div><label class="sr" for="draft-body">Edit ${heading}</label><textarea id="draft-body" data-draft="${d.id}">${esc(d.body)}</textarea>${d.id==='social'?`<p id="privacy-result" class="privacy-result ${issues.length?'has-error':''}" aria-live="polite">${issues.length?`Remove private information: ${issues.join(', ')}`:`Public name: ${esc(CONTEXT.publicName)}`}</p>`:''}<details class="evidence"><summary>Sources</summary>${d.citations.map(id=>sourceHtml(SOURCES.find(s=>s.id===id))).join('')}</details></section>`;}
 function sourceHtml(s){return `<div class="source-detail"><b>${esc(s.title)}</b><p>${esc(s.evidence)}</p><small>${esc(s.file)}</small></div>`;}
 function say(text,who='agent',citations=[]){messages.push({who,text,citations});render();}
 function setPhoto(next){if(photo?.url?.startsWith('blob:'))URL.revokeObjectURL(photo.url);photo=next;pack=null;}
@@ -72,7 +71,7 @@ $('#view').addEventListener('paste',e=>{if(page!=='workspace')return;const f=[..
 
 $('#view').addEventListener('submit',e=>{
   e.preventDefault();if(busy)return;
-  if(e.target.id==='role-form'){const id=e.target.dataset.role,text=$('#role-note').value.trim();if(!text)return;roleInputs[id]='';roleMessages[id].push({who:'you',name:ROLES[id].name,text});answerQuestion(text,id);return;}
+  if(e.target.id==='role-form'){const id=e.target.dataset.role,text=$('#role-note').value.trim();if(!text)return;roleInputs[id]='';roleMessages[id].push({who:'you',name:id==='admin'?'Employee':ROLES[id].name,text});answerQuestion(text,id);return;}
   if(e.target.id!=='founder-form')return;
   const text=$('#founder-note').value.trim();if(!text)return;inputNote='';say(text,'you');
   if(pack&&/\b(short(?:en|er)?|concise|brief)\b/i.test(text)){
@@ -83,10 +82,11 @@ $('#view').addEventListener('submit',e=>{
 });
 async function answerQuestion(question,audience){
   const token=++sequence;busy=true;render();
-  const answer=askBower({question,audience,pack});
+  const answer=audience==='admin'?coachEmployee({question,pack}):askBower({question,audience,pack});
   for(const step of answer.steps){if(token!==sequence)return;map.play(step);await new Promise(resolve=>setTimeout(resolve,window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:180));}
   if(token!==sequence)return;busy=false;
-  const message={who:'agent',name:'Bower',text:answer.text,citations:answer.citations};
+  const message={who:'agent',name:audience==='admin'?'Roo':'Bower',text:answer.text,citations:answer.citations,needsReview:answer.needsReview};
+  if(audience==='admin'&&answer.needsReview)messages.push({who:'agent',name:'Roo',text:`Digger, please review this employee question: “${question}”\n\nI’ve asked the employee to wait for the appropriate confirmation. No change has been approved.`,needsReview:true,citations:answer.citations});
   if(audience==='workspace')messages.push(message);else roleMessages[audience].push(message);
   render();
 }

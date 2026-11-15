@@ -8,7 +8,7 @@ export const NODES = {
   capture:    { x: 350, y: 115, w: 205, h: 64, label: 'Lyra', role: 'Collect & organize', kind: 'agent' },
   curator:    { x: 110, y: 270, w: 200, h: 82, label: 'Bower', role: 'Find & reference', role2: 'Allocate tasks', kind: 'agent' },
   kb:         { x: 350, y: 270, w: 160, h: 64, label: 'Wiki', kind: 'store' },
-  teamwork:   { x: 75, y: 440, w: 140, h: 64, label: 'Roo', role: 'Admin', kind: 'agent' },
+  teamwork:   { x: 75, y: 440, w: 140, h: 82, label: 'Roo', role: 'Employee', role2: 'Coach', kind: 'agent' },
   commercial: { x: 230, y: 440, w: 140, h: 64, label: 'Tally', role: 'Client', kind: 'agent' },
   content:    { x: 385, y: 440, w: 140, h: 64, label: 'Kooka', role: 'Stories', kind: 'agent' },
 };

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {askBower,buildPhotoPack,SOURCES} from '../src/photo-workflow.js';
+import {askBower,coachEmployee,buildPhotoPack,SOURCES} from '../src/photo-workflow.js';
 
 const pack=buildPhotoPack({photoName:'site.jpg',note:'Private admin-only note'});
 test('Bower returns traceable references and an answer to the asking role',()=>{
@@ -36,4 +36,22 @@ test('missing input and unknown questions do not invent Wiki evidence',()=>{
   const unknown=askBower({question:'Who won a football match?',pack});
   assert.deepEqual(unknown.citations,[]);
   assert.match(unknown.text,/couldn’t find a relevant answer/);
+});
+
+test('Roo coaches routine employee questions without escalating every question',()=>{
+  const answer=coachEmployee({question:'How do I prepare for the inspection?',pack});
+  assert.match(answer.text,/1\.[\s\S]*2\.[\s\S]*3\./);
+  assert.ok(answer.citations.includes('coaching'));
+  assert.equal(answer.needsReview,false);
+  const unknown=coachEmployee({question:'Who won a football match?',pack});
+  assert.equal(unknown.needsReview,false);
+  assert.deepEqual(unknown.citations,[]);
+});
+
+test('Roo flags changes for Digger review without approving the work',()=>{
+  const answer=coachEmployee({question:'Can I change the roof structure?',pack});
+  assert.equal(answer.needsReview,true);
+  assert.match(answer.text,/No work or change has been approved/);
+  assert.ok(answer.citations.every(id=>SOURCES.some(s=>s.id===id)));
+  assert.equal(answer.steps.at(-1).to,'router');
 });
