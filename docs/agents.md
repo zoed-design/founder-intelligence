@@ -1,5 +1,7 @@
 # How the agents work
 
+The current photo-led demo uses the simple [crew roles and information flow](crew-roles.md): messages reach Digger and Lyra, Lyra organizes the Wiki, and Bower finds information with references on request. The sections below document the preserved original general-purpose engine; they are not a description of live integrations in the photo demo.
+
 ## In one sentence
 
 Every message passes through a chain of agents, each with its own job, its own permitted knowledge and its own limit on what it may do without the founder. The chain is real; each agent's *thinking* is rule-based in this prototype.

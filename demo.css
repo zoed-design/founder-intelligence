@@ -149,6 +149,7 @@ details.steps summary { color:#8b5b40; }
 .map .node-io rect { fill:#e8e4d5; }
 .map .node.active rect { fill:#e9bd81; stroke:#ae7445; }
 .map .edge { stroke:#bca5bb; }
+.map .flow-arrow { fill:#9a8199; }
 .map .node.active .ring { stroke:#f3b95a; }
 .mascot { height:290px; border:1px solid #d0ab86; }
 .ava { background:#ead3b4; border-color:#daa053; }

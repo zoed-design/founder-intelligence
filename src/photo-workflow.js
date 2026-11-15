@@ -41,10 +41,15 @@ export function buildPhotoPack({ note = '', photoName = '', briefName = '', brie
     { id: 'social', agent: 'content', tier: 'public', title: 'Instagram story', to: c.publicName, channel: 'Instagram draft', body: social, citations: ['public-roof'], status: 'draft' },
   ];
   const steps = [
-    { agent: 'source', to: 'capture', detail: photoName ? 'Founder added a framing photo' : 'Founder added a Markdown brief' },
-    { agent: 'capture', to: 'router', detail: 'Lyra captured the attachment and site note. Vision is simulated.' },
-    { agent: 'router', to: 'curator', detail: 'Digger routed one project update into three audience tiers.' },
-    { agent: 'curator', to: 'kb', detail: 'Bower loaded the fictional workflow references and kept unverified completion claims out of the drafts.' },
+    { agent: 'source', to: 'router', alsoTo: 'capture', detail: 'New input shared with both Digger and Lyra.' },
+    { agent: 'capture', to: 'router', detail: 'Lyra shares the attachment and available context with Digger. Vision is simulated.' },
+    { agent: 'router', to: 'capture', detail: 'Digger shares the coordination context with Lyra.' },
+    { agent: 'capture', to: 'kb', detail: 'Lyra demonstrates collecting, labeling and organizing the input into Wiki knowledge. This demo does not write to an external Wiki.' },
+    { agent: 'router', to: 'questions', detail: 'Digger asks for the relevant workflow references for the team.' },
+    { agent: 'questions', to: 'curator', detail: 'Bower receives the information request.' },
+    { agent: 'curator', to: 'kb', detail: 'Bower looks up the relevant fictional reference notes in the demo Wiki.' },
+    { agent: 'kb', to: 'curator', detail: 'Bower filters the reference notes for the request and keeps unverified completion claims out of the drafts.' },
+    { agent: 'curator', to: 'result', detail: 'Bower returns relevant information with source references for review.' },
     ...drafts.map(d => ({ agent: 'curator', to: d.agent, detail: `${d.title} prepared for ${d.to}` })),
     { agent: 'content', to: 'gate', detail: 'Public text screened; one combined review pack is ready. Nothing sent.' },
   ].map((s, i) => ({ ...s, action: 'prepared', itemId: 'PHOTO-PACK', t: String(i+1) }));

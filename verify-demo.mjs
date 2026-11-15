@@ -9,6 +9,27 @@ await page.getByRole('heading',{name:'Talk to Digger'}).waitFor();
 let text=await page.locator('body').innerText();
 for(const removed of ['Marubra','Demo Homeowner','framing','Markdown','simulated','Prepare my updates','NSP HOME','Money, clients'])assert.ok(!text.includes(removed),removed);
 assert.equal(await page.locator('nav [data-page]').count(),4);
+// Verify the diagram is legible and every arrow ends outside its node labels.
+const flow = await page.locator('#agentMap').evaluate(svg => {
+  const nodes = [...svg.querySelectorAll('[data-node]')];
+  const edges = [...svg.querySelectorAll('.edge')].map(e => ({from:e.dataset.from,to:e.dataset.to,both:e.hasAttribute('marker-start')}));
+  const clipped = [...svg.querySelectorAll('.node text:not(.count text)')].filter(t => {
+    const box=t.getBBox(), rect=t.closest('.node').querySelector('rect');
+    return box.x<0 || box.x+box.width>Number(rect.getAttribute('width')) || box.y<0 || box.y+box.height>Number(rect.getAttribute('height'));
+  }).map(t=>t.textContent);
+  return {edges,clipped,labels:nodes.map(n=>n.textContent)};
+});
+assert.deepEqual(flow.clipped,[],'Diagram labels must fit their cards');
+assert.ok(flow.labels.some(s=>s.includes('Wiki')));
+assert.ok(flow.labels.some(s=>s.includes('Lyra')&&s.includes('Organizes')));
+assert.ok(flow.labels.some(s=>s.includes('Bower')&&s.includes('references')));
+assert.deepEqual(flow.edges.filter(e=>e.from==='source').map(e=>e.to).sort(),['capture','router']);
+assert.ok(flow.edges.some(e=>e.from==='router'&&e.to==='capture'&&e.both));
+assert.ok(flow.edges.some(e=>e.from==='capture'&&e.to==='kb'));
+assert.ok(flow.edges.some(e=>e.from==='questions'&&e.to==='curator'));
+assert.ok(flow.edges.some(e=>e.from==='curator'&&e.to==='kb'&&e.both));
+assert.ok(flow.edges.some(e=>e.from==='curator'&&e.to==='result'));
+await page.locator('.mapcard').screenshot({path:'private-demo/crew-flow.png'});
 assert.equal(await page.locator('.mascot-canvas').count(),1);
 const before=await page.locator('.mascot-canvas').screenshot();
 await page.waitForTimeout(600);
