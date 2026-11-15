@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Founder Intelligence</title>
+<title>Construction and Contractor Intelligence</title>
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="demo.css">
 </head>
 <body>
 <header class="bar">
@@ -15,24 +16,20 @@
     <div class="brand">
       <span class="logo" aria-hidden="true"></span>
       <div>
-        <div class="name">Founder Intelligence</div>
-        <div class="tag">The founder’s know-how, on tap for the whole crew</div>
+        <div class="name">Construction and Contractor Intelligence</div>
+        <div class="tag">Empower your business to scale</div>
       </div>
     </div>
-    <nav class="roles" aria-label="See the app as">
-      <span class="roles-label">See it as</span>
-      <button data-role="founder" class="role"><span class="av av-founder" aria-hidden="true">F</span>Founder</button>
-      <button data-role="site" class="role"><span class="av av-site" aria-hidden="true">S</span>Site crew</button>
-      <button data-role="client" class="role"><span class="av av-client" aria-hidden="true">H</span>Homeowner</button>
-      <button data-role="office" class="role"><span class="av av-office" aria-hidden="true">O</span>Office</button>
-      <button data-role="public" class="role"><span class="av av-public" aria-hidden="true">P</span>Public</button>
+    <nav class="roles" aria-label="App views">
+      <button data-page="workspace" class="role" aria-current="page">Digger · Site Manager</button>
+      <button data-page="admin" class="role">Roo · Team</button>
+      <button data-page="client" class="role">Tally · Client</button>
+      <button data-page="social" class="role">Kooka · Instagram</button>
     </nav>
     <div class="bar-actions">
-      <button id="demoBtn" class="btn btn-accent">Play the 7 am rush</button>
-      <button id="resetBtn" class="btn btn-quiet">Start over</button>
+      <button id="resetBtn" class="btn btn-quiet">New session</button>
     </div>
   </div>
-  <div class="dummy-strip">Demo with a made-up building company. <a href="https://github.com/Business-Analyst-Services/founder-intelligence/blob/main/docs/agents.md">How it works</a></div>
 </header>
 
 <div class="layout">
@@ -41,7 +38,7 @@
     <div class="mascot" id="mascot">
       <div class="bubble" id="bubble" aria-live="polite"></div>
       <div class="mascot-bar">
-        <div><b>Digger</b> <span>the foreman</span></div>
+        <div><b>Digger</b> <span>Site Manager</span></div>
         <div class="mascot-btns">
           <button id="danceBtn" type="button">Dance</button>
           <button id="soundBtn" type="button" aria-pressed="false">Voice off</button>
@@ -53,8 +50,8 @@
         <h2>The crew at work</h2>
         <span class="live-dot" aria-hidden="true"></span>
       </div>
-      <p class="map-sub">Every message goes down the line. Most get answered; the rest come to you.</p>
-      <svg id="agentMap" class="map" role="img" aria-label="Messages pass from Lyra, who listens, to Digger, who checks who’s asking, to Bower, who finds the answer, then to Roo, Tally or Kooka. Answers go out, or wait for the founder."></svg>
+      <p class="map-sub">Site Manager · Team · Client · Stories</p>
+      <svg id="agentMap" class="map" role="img" aria-label="Lyra captures updates, Digger coordinates as Site Manager, Bower finds project evidence, Roo handles Team, Tally supports the Client, and Kooka prepares Stories."></svg>
       <details class="steps">
         <summary>Show each step</summary>
         <ol id="trace" class="trace"></ol>
@@ -65,6 +62,6 @@
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script src="vendor/three.min.js"></script>
-<script type="module" src="app.js"></script>
+<script type="module" src="demo.js"></script>
 </body>
 </html>

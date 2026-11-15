@@ -5,11 +5,11 @@
 // Falls back quietly (no portraits, text-only mascot) if WebGL is unavailable.
 
 export const CREW = {
-  router:     { name: 'Digger', species: 'wombat',     role: 'Router · site foreman', plan: 'quad', o: { base: 0x7d6a58, belly: 0xb3a28c, ears: 'stub', muzzle: 'broad', stocky: 1.25 }, hat: 0xf4f4ef, vest: 0xff7a1a },
+  router:     { name: 'Digger', species: 'wombat',     role: 'Site Manager', plan: 'quad', o: { base: 0x7d6a58, belly: 0xb3a28c, ears: 'stub', muzzle: 'broad', stocky: 1.25 }, hat: 0xf4f4ef, vest: 0xff7a1a },
   capture:    { name: 'Lyra',   species: 'lyrebird',   role: 'Capture · copies every sound', plan: 'bird', o: { base: 0x6b5d52, belly: 0x9c8a76, beak: 0.3, tail: 'lyre' }, hat: 0xf2c14e, vest: 0xc6ef2a },
   curator:    { name: 'Bower',  species: 'bowerbird',  role: 'Curator · collects and sorts', plan: 'bird', o: { base: 0x3d55a8, belly: 0x5f79cc, beak: 0.32, tail: 'flat', blueBits: 1 }, hat: 0xf2c14e, vest: 0xff7a1a },
-  teamwork:   { name: 'Roo',    species: 'kangaroo',   role: 'Teamwork · SiteBrain', plan: 'roo', o: { base: 0xa97f52, belly: 0xdec09a, tape: 1 }, hat: 0xf2c14e, vest: 0xff7a1a },
-  commercial: { name: 'Tally',  species: 'numbat',     role: 'Commercial · claims and coding', plan: 'quad', o: { base: 0xb06a3a, belly: 0xe0b07c, ears: 'point', muzzle: 'needle', tail: 'brush', bands: 1, clipboard: 1 }, hat: 0x3d7be0, vest: 0xc6ef2a },
+  teamwork:   { name: 'Roo',    species: 'kangaroo',   role: 'Team', plan: 'roo', o: { base: 0xa97f52, belly: 0xdec09a, tape: 1 }, hat: 0xf2c14e, vest: 0xff7a1a },
+  commercial: { name: 'Tally', species: 'mum', role: 'Client', plan: 'human', o: { base: 0xe3b08f, belly: 0xf3ccb1 }, hat: null, vest: null },
   content:    { name: 'Kooka',  species: 'kookaburra', role: 'Content · tells the stories', plan: 'bird', o: { base: 0x8a7a68, belly: 0xe8dcc8, beak: 0.5, headBig: 1, tail: 'flat', camera: 1 }, hat: 0xf2c14e, vest: 0xff7a1a },
 };
 
@@ -45,7 +45,20 @@ function build(id) {
     parts.hat = h;
   };
 
-  if (c.plan === 'bird') {
+  if (c.plan === 'human') {
+    const hair=mat(0x473029),top=mat(0xc77d63),trousers=mat(0x55637e);
+    add(g,new THREE.SphereGeometry(0.4,8,6),top,0,1.0,0,[1,1.35,0.68]);
+    [-0.18,0.18].forEach(x=>{add(g,new THREE.CylinderGeometry(0.12,0.11,0.62,7),trousers,x,0.35,0);add(g,new THREE.SphereGeometry(0.13,7,5),mat(0xf6e8d7),x,0.06,0.09,[1,0.5,1.5]);});
+    parts.wings=[-0.44,0.44].map(x=>{const arm=add(g,new THREE.CylinderGeometry(0.085,0.075,0.65,7),top,x,1,0);add(g,new THREE.SphereGeometry(0.09,7,5),base,x,0.65,0);return arm;});
+    const head=new THREE.Group();head.position.set(0,1.8,0.05);g.add(head);parts.head=head;
+    add(head,new THREE.SphereGeometry(0.39,9,7),hair,0,0.02,-0.06,[1.08,1.18,0.9]);
+    add(head,new THREE.SphereGeometry(0.33,9,7),base,0,-0.015,0.09,[1,1.1,0.9]);
+    [-0.32,0.32].forEach(x=>add(head,new THREE.SphereGeometry(0.12,7,5),hair,x,-0.15,-0.05,[0.8,2.5,0.85]));
+    add(head,new THREE.SphereGeometry(0.26,8,5),hair,-0.08,0.25,0.02,[1.15,0.45,0.95]);
+    parts.eyes=[-0.12,0.12].map(x=>add(head,new THREE.SphereGeometry(0.035,8,6),DK,x,0.02,0.36));
+    add(head,new THREE.SphereGeometry(0.045,7,5),base,0,-0.055,0.38);
+    const smile=add(head,new THREE.TorusGeometry(0.075,0.012,5,10,Math.PI),mat(0x934c43),0,-0.1,0.365);smile.rotation.z=Math.PI;
+  } else if (c.plan === 'bird') {
     const body = add(g, new THREE.SphereGeometry(0.62, 7, 5), base, 0, 0.95, 0, [0.9, 1.15, 1]); body.rotation.x = 0.25;
     add(g, new THREE.SphereGeometry(0.4, 6, 4), belly, 0, 0.8, 0.3, [0.8, 0.95, 0.6]);
     vest(0.95, 0, [0.9, 1.15, 1], 0.25);
@@ -263,14 +276,14 @@ export function mascot(container, bubble) {
         p.wings.forEach((w, i) => { w.rotation.x = Math.sin(k + i * Math.PI) * 0.7; });
         crane.rotation.y = Math.sin(t * 2) * 0.2;
       } else {
-        p.g.position.y = Math.sin(t * (talking ? 5.2 : 1.6)) * (talking ? 0.05 : 0.03);
-        p.g.rotation.z = 0;
-        p.g.rotation.y += (-0.3 - p.g.rotation.y) * 0.08;
-        p.head.rotation.y = Math.sin(t * (talking ? 2.2 : 0.8)) * 0.14;
+        p.g.position.y = Math.sin(t * (talking ? 5.2 : 1.8)) * (talking ? 0.07 : 0.055);
+        p.g.rotation.z = Math.sin(t * 1.2) * 0.025;
+        p.g.rotation.y += (-0.3 + Math.sin(t * 0.7) * 0.12 - p.g.rotation.y) * 0.08;
+        p.head.rotation.y = Math.sin(t * (talking ? 2.2 : 0.9)) * 0.24;
         p.head.rotation.x = talking ? 0.04 + Math.sin(t * 11) * 0.085 : Math.sin(t * 1.3) * 0.04;
         p.head.rotation.z = 0;
         p.hat.rotation.z *= 0.9;
-        p.wings.forEach((w) => { w.rotation.x *= 0.9; });
+        p.wings.forEach((w,i) => { w.rotation.x = Math.sin(t * 2.2 + i * Math.PI) * 0.09; });
       }
       if (p.jaw) p.jaw.scale.y = talking ? 0.3 + Math.abs(Math.sin(t * 16)) * 1.6 : 0.3;
       if (p.tail) p.tail.rotation.y = Math.sin(t * (talking || dancing ? 13 : 6)) * 0.35;

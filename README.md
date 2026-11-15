@@ -1,22 +1,41 @@
-# Founder Intelligence
+# Construction and Contractor Intelligence
+
+Empower your business to scale.
+
+The presentation has four role pages: **Digger / Site Manager**, **Roo / Team**, **Tally / Client**, and **Kooka / Instagram**. Drop a site photo into
+Digger's conversation to automatically prepare three parallel updates. Initial
+screens stay neutral until a photo is received. The presentation uses a fictional
+project, personal and business names with generic scenario details; live image recognition is not implemented.
+
+See [the demo walkthrough and source register](docs/photo-demo.md). The original
+agent architecture remains intact. Vision, drafting and dispatch are simulated.
+Real assets stay in the ignored `private-demo/` folder and are never required for
+a public clone: attendees can use the upload controls instead.
 
 A multi-agent knowledge platform for small businesses. It captures what the business learns every day, holds it in one knowledge base with three access tiers, and puts a router in front of specialist agents for crew, customers, office and content. The founder only sees what needs their judgement.
 
-This repository is a **hackathon prototype** (WSTI Festi 2026), built first for **construction and contractors**. **All data is labelled dummy data**; see [docs/DATA.md](docs/DATA.md).
+This repository is a **hackathon prototype** (WSTI Festi 2026), built for **construction and contractors**. The public demo uses entirely fictional project and contact data with a generic framing workflow. No actual project records or images are included. The original `data/*.json` engine fixtures remain labelled dummy data; see [docs/DATA.md](docs/DATA.md).
 
-**Live app:** https://business-analyst-services.github.io/founder-intelligence/
+**Live app:** https://zoed-design.github.io/founder-intelligence/
+
+[How to edit the demo](docs/editing-demo.md) · Project details: [`src/demo-config.js`](src/demo-config.js)
 
 ## Try it
 
-1. Press **Play the 7 am rush**. Five messages arrive; the crew answers what it can.
-2. As the **Founder**, look at **Needs you**. For each reply, choose **Send**, **Change** or **Don't send**. Tap **Why is this here?** for the reason and the source.
-3. Use **See it as** to switch to **Site crew**, **Homeowner**, **Office** or **Public** and ask your own questions. Replies you send as the founder appear in their chats.
+1. Drop a site photo into **Talk to Digger**, paste an image, or use the inline +.
+2. Three updates appear side by side automatically.
+3. Open **Team** or **Client** to continue their separate conversations.
+4. Open **Instagram** to review Kooka's public-safe caption and preview.
+5. Return to Digger to approve and download the updates. Nothing is sent externally.
 
-Things to try as the site crew: ask about party-wall insulation (Roo answers straight away), studs at 600 (doesn't match the drawings, so it comes to you), markup (private) and decking nails (nobody knows yet: answer it as the founder, then ask again).
+The active UI has no morning rush, sample-photo buttons, Markdown upload, or
+manual preparation button. The core engine retains its Markdown-reference API.
+Digger has continuous idle animation, Dance and optional Voice. Tally's avatar
+is a human mother/homeowner wearing ordinary clothes, without a hard hat.
 
 ## Meet the crew
 
-Every agent is a low-poly Australian animal in a hard hat and hi-vis, in the same style as [SFIA Agent Studio](https://business-analyst-services.github.io/SFIA-agent-Studio/)'s menagerie.
+The crew uses low-poly Australian animals, with a human parent/homeowner persona for Tally. Team characters wear hard hats; Tally wears everyday clothes.
 
 | Agent | Who | Why that animal |
 |---|---|---|
@@ -24,7 +43,7 @@ Every agent is a low-poly Australian animal in a hard hat and hi-vis, in the sam
 | Capture | **Lyra** the lyrebird | Copies every sound it hears |
 | Curator | **Bower** the bowerbird | Collects and sorts the good stuff (and loves blue things) |
 | Teamwork | **Roo** the kangaroo | Tape measure in the pouch, answers the crew |
-| Commercial | **Tally** the numbat | Clipboard in hand, counts and codes |
+| Client | **Tally**, the homeowner persona | Friendly parent, no construction hat |
 | Content | **Kooka** the kookaburra | Camera ready, tells the stories |
 
 ## How the agents work
@@ -37,10 +56,10 @@ See **[docs/agents.md](docs/agents.md)**. In short: capture → router → curat
 
 ```bash
 npm start      # http://localhost:8080
-npm test       # 27 tests: tiers, routing, escalation, autonomy, review gate, learning loop
+npm test       # 33 tests including photo workflow, privacy and local approval
 ```
 
-No build step and no package dependencies (three.js is vendored). Plain HTML, CSS and ES modules. App state is kept in the browser (localStorage); **Reset** clears it.
+No build step and no package dependencies (three.js is vendored). Plain HTML, CSS and ES modules. The focused demo holds uploads and drafts in memory; **New session** or reload clears them.
 
 ## Layout
 
@@ -72,4 +91,4 @@ Business Analyst Services, with the construction vertical brief by the team. Pat
 
 three.js © 2010-2023 three.js authors, MIT licence.
 
-All people, businesses, addresses and figures are fictional.
+The public presentation uses fictional project aliases and demo identifiers. Original source assets are excluded from Git.

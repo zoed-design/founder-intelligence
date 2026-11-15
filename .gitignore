@@ -1,0 +1,8 @@
+node_modules
+inspect_sources.py
+anonymise-demo.mjs
+finalise-config.mjs
+fictionalise-tests.mjs
+private-demo/
+__pycache__/
+*.pyc

@@ -7,6 +7,7 @@
 // swapped for a model call without changing the rest (docs/agents.md).
 
 import { route, draft, CONFIDENCE_THRESHOLD } from './engine.js';
+export { buildPhotoPack, approvePack, publicIssues } from './photo-workflow.js';
 
 export const DEFAULT_POLICY = { autoAnswer: true };
 

@@ -1,5 +1,13 @@
 # Data register
 
+## Current photo-led presentation
+
+The active UI uses entirely fictional project, personal and business names and generic framing references,
+not the legacy dummy inbox below. See [photo-demo.md](photo-demo.md) for source
+summary limitations and private asset handling. The legacy
+`data/*.json` fixtures remain unchanged to preserve the original engine tests.
+Uploads stay in memory. Nothing is sent, booked, certified or synced by this demo.
+
 Hackathon rule: be clear about every source, what it is used for, and any dummy data. This register covers every file in `data/`.
 
 ## Status
