@@ -2,31 +2,22 @@
 
 Empower your business to scale.
 
-The presentation has four role pages: **Digger / Site Manager**, **Roo / Employee Coach**, **Tally / Client**, and **Kooka / Client Stories**. Choose **Load sample project** under Talk to Bower to use reviewed extracts of the founder’s real project records. The public address and professional identities are aliases.
-
-The sample check compares drawing levels with the site conversation, finds the **800 mm** difference, cross-checks the **5°** fall and flags missing roof-covering dates. Roo receives a takeoff-review task; Tally and Kooka receive audience-appropriate drafts. Every finding has a source link. Digger reviews, edits, approves and downloads locally.
-
-See [the sample-data demo guide](docs/sample-data-demo.md) and [public sample register](sample-data/README.md). The partly anonymised full source files are excluded from Git. The original general engine and a generic photo-only demonstration remain available. Photo content is not analysed.
-
-A multi-agent knowledge platform for small businesses. It captures what the business learns every day, holds it in one knowledge base with three access tiers, and puts a router in front of specialist agents for crew, customers, office and content. The founder only sees what needs their judgement.
-
-This repository is a **hackathon prototype** (WSTI Festi 2026), built for **construction and contractors**. The public demo includes selected de-identified project extracts and reviewed structured facts. Raw project packs, third-party contact lists, original approvals and chat images are not included. The original `data/*.json` engine fixtures remain labelled dummy data; see [docs/DATA.md](docs/DATA.md).
+The current hackathon prototype covers **one project: 18 Maroubra Street, Maroubra, Sydney**. Its four role pages are Digger / Site Manager, Roo / Employee Coach, Tally / Client and Kooka / Brand Stories. The original architecture and warm cream, brown and blue palette are preserved.
 
 **Live app:** https://zoed-design.github.io/founder-intelligence/
 
-[How to edit the demo](docs/editing-demo.md) · Project details: [`src/demo-config.js`](src/demo-config.js)
+Drop a site photo to allocate three source-linked drafts. The project’s reviewed Wiki is already available; no separate sample-loading step is required. Lyra can also collect and tag manually supplied WhatsApp text into the session Wiki. Bower references the schedule, CDC drawing extracts, structural notes, OC checklist, photo context, roof markup and chat transcript. See [the source register](sample-data/README.md) for the seven supplied files and precise publication limits.
 
 ## Try it
 
-1. Choose **New session**, then **Load sample project** below Talk to Bower.
-2. Review Bower’s drawing/chat comparison and the three drafts. Open **Source references** to inspect the supporting extract.
-3. Ask: **Why is there an 800 mm difference?** or **When is roof covering scheduled?**
-4. Open **Roo · Employee Coach** and ask how to prepare for inspection. Ask about changing the roof structure to demonstrate Digger review.
-5. Return to Digger, review and edit, then **Approve updates** and **Download updates**. The export includes source links. No message or reminder is dispatched.
+1. Choose New session. Drop the supplied site photo, or open Wiki and choose Use supplied site photo.
+2. Review the Roo, Tally and Kooka drafts and open their references.
+3. As Tally, ask “When will roof covering finish?”, “When will the entire project finish?” and “When will I receive my OC to move in?” Dates are projections from the supplied mock-up schedule. An undated milestone remains unknown.
+4. As Roo, ask “Do I need a certificate for roof covering?” or “When should I arrange an inspection after the roof?” References identify the relevant checklist items and the limits of the inspection information. Proposed changes are flagged for Digger.
+5. In Digger, choose Add a WhatsApp message. Paste text, upload .txt/.md or select the supplied screenshot. Review the transcript, then Collect into Wiki. Ask “What did Mark say in the WhatsApp message?” The new message is cited as an unverified local source.
+6. Review, edit, Approve updates and Download updates. Nothing is sent, scheduled or posted.
 
-You can also upload a photo after loading the sample project. It is an attachment to that selected case; no image recognition or measurement is performed. Uploading a photo without loading the sample retains the generic template demonstration. New session clears the selected case, files and drafts.
-
-The palette and animated crew are unchanged. There is no morning scenario, external sending or new dashboard.
+The supplied screenshot is recognised by its hash and uses a reviewed transcript. Other screenshots need manually pasted text. Photos are attachments without image analysis. Imported messages do not override schedule dates, issued drawings or client facts. Browser-session state clears on reload or New session; the bundled one-project Wiki remains available. Full original PDF packs still contain identifying material and are not published or fully searchable. All static downloads are public; role views are not production authentication.
 
 ## Meet the crew
 
@@ -39,7 +30,7 @@ The crew uses low-poly Australian animals, with a human parent/homeowner persona
 | Find, reference & allocate tasks | **Bower** the bowerbird | Finds useful knowledge and coordinates the next actions (and loves blue things) |
 | Employee Coach | **Roo** the kangaroo | Explains the steps, answers employee questions and flags issues for Digger review |
 | Client | **Tally**, the homeowner persona | Friendly parent, no construction hat |
-| Client Stories | **Kooka** the kookaburra | Camera ready, tells the story behind the client's project |
+| Brand Stories | **Kooka** the kookaburra | Camera ready, tells the story behind the client's project |
 
 ## How the agents work
 

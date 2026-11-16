@@ -1,9 +1,9 @@
-import {buildSamplePack, answerSampleQuestion} from './sample-project.js?v=sample-records-1';
+import {buildSamplePack, answerSampleQuestion} from './sample-project.js?v=single-project-2';
 // Focused scenario adapter. The existing general message engine stays intact.
 // Generic fixtures remain available. An explicitly loaded reviewed sample pack uses source-backed checks.
 // No vision/LLM API calls or external dispatch are used.
-import { CONTEXT } from './demo-config.js?v=sample-records-1';
-export { CONTEXT } from './demo-config.js?v=sample-records-1';
+import { CONTEXT } from './demo-config.js?v=single-project-2';
+export { CONTEXT } from './demo-config.js?v=single-project-2';
 
 export const SOURCES = [
   { id: 'photo', title: 'Photo input', file: 'Session attachment', evidence: 'The uploaded photo is an input to this fixed framing scenario. No image recognition, measurement or compliance verification is performed.' },
@@ -14,7 +14,7 @@ export const SOURCES = [
   { id: 'schedule', title: 'Example project sequence', file: 'DEMO-SCHEDULE', evidence: 'Generic sequence: report progress, confirm inspection readiness, review relevant documentation, and prepare the next communication. No appointment or completion date is assumed.' },
   { id: 'progress', title: 'Client progress note', file: 'DEMO-PROGRESS', evidence: 'Fictional customer-safe note: framing progress has been reported. Inspection readiness, the appointment and the following milestones still need confirmation.' },
   { id: 'claim', title: 'Example claim preparation note', file: 'DEMO-CLAIM', evidence: 'Fictional internal workflow: assemble progress photos and required supporting documents. Hold any claim submission until inspection sign-off and eligibility checks are complete.' },
-  { id: 'coaching', title: 'Example employee coaching procedure', file: 'DEMO-COACH', evidence: 'Fictional internal procedure: check current issued instructions and source references, work through the approved sequence, record the checks and open questions, and ask the site manager to review changes, conflicting instructions or safety concerns. Coaching is not approval to change the work.' },
+  { id: 'coaching', title: 'Prototype employee coaching procedure', file: 'DEMO-COACH', evidence: 'Prototype workflow guidance, not a project record: check current issued instructions and source references, work through the approved sequence, record the checks and open questions, and ask the site manager to review changes, conflicting instructions or safety concerns. Coaching is not approval to change the work.' },
   { id: 'public-roof', title: 'Public design note', file: 'DEMO-PUBLIC-NOTE', evidence: 'Generic public storytelling about careful framing and roof drainage. No private records or specific technical measurements are cited.' },
   { id: 'brief', title: 'Fictional presentation scenario', file: 'src/demo-config.js', evidence: 'All project aliases, customer and team names, engineering references, certifier and lender names are invented presentation fixtures.' },
 ];
@@ -32,8 +32,8 @@ export function publicIssues(text) {
   return checks.filter(([re]) => re.test(text)).map(([,label]) => label);
 }
 
-export function buildPhotoPack({ note = '', photoName = '', briefName = '', briefText = '', sampleProject = null } = {}) {
-  if (sampleProject) return buildSamplePack({project:sampleProject,photoName,note});
+export function buildPhotoPack({ note = '', photoName = '', briefName = '', briefText = '', sampleProject = null, wikiEntries = [] } = {}) {
+  if (sampleProject) return buildSamplePack({project:sampleProject,photoName,note,wikiEntries});
   if (!photoName && !briefName) throw new Error('Add a site photo or Markdown brief first.');
   const c = CONTEXT;
   const inputSources = [photoName ? 'photo' : null, 'chat', 'cdc', 'structure', 'schedule', 'coaching', 'brief'].filter(Boolean);
@@ -43,7 +43,7 @@ export function buildPhotoPack({ note = '', photoName = '', briefName = '', brie
   const drafts = [
     { id: 'admin', agent: 'teamwork', tier: 'internal', title: 'Employee coaching guide', to: c.admin, channel: 'Team coaching draft', body: admin, citations: inputSources, status: 'draft', taskTitle: 'Coach the employee through the next steps', reminder: 'Follow up on employee questions and any items Digger needs to review.' },
     { id: 'client', agent: 'commercial', tier: 'customer-safe', title: 'Client milestone update', to: c.client, channel: 'WhatsApp draft', body: client, citations: ['photo', 'progress', 'brief'].filter(id => id !== 'photo' || photoName), status: 'draft', taskTitle: 'Prepare the client progress update', reminder: 'Update the client once the inspection appointment is confirmed.' },
-    { id: 'social', agent: 'content', tier: 'public', title: 'Client story', to: c.publicName, channel: 'Instagram draft', body: social, citations: ['public-roof'], status: 'draft', taskTitle: 'Prepare the client story for review', reminder: 'Revisit the client story after the site manager approves the public copy.' },
+    { id: 'social', agent: 'content', tier: 'public', title: 'Brand story', to: c.publicName, channel: 'Instagram draft', body: social, citations: ['public-roof'], status: 'draft', taskTitle: 'Prepare the brand story for review', reminder: 'Revisit the brand story after the site manager approves the public copy.' },
   ];
   const steps = [
     { agent: 'source', to: 'router', alsoTo: 'capture', detail: 'New input shared with both Digger and Lyra.' },

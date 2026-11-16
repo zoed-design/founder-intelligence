@@ -1,10 +1,10 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "demo-18-maroubra",
-  "title": "18 Maroubra Street, Maroubra",
+  "title": "18 Maroubra Street, Maroubra, Sydney",
   "publicName": "Coastal Duplex",
-  "provenance": "Reviewed extracts of founder-supplied real project records; project and professional identities are aliases.",
-  "limits": "Source values and schedule gaps are used for deterministic checks. No image measurement, live AI, current compliance validation, booking, sending or external Wiki write is performed.",
+  "provenance": "Seven founder-supplied files for one demo project. Project and professional names are aliases. Schedule is a supplied mock-up with projected dates; photos, drawing values and chat wording come from the provided project material.",
+  "limits": "Browser-session Wiki and source-based rules. No live WhatsApp, external Wiki, OCR of arbitrary screenshots, image analysis, compliance certification or external sending.",
   "drawing": {
     "pitchDegrees": 5,
     "wallTopRL": 48.1,
@@ -20,730 +20,1342 @@
     "source": "site-conversation-extract.md"
   },
   "schedule": {
+    "sheet": "Maroubra",
     "rows": [
       {
-        "sourceRow": 2,
-        "stage": "DEPOSIT",
-        "task": "",
-        "start": null,
-        "finish": null
-      },
-      {
-        "sourceRow": 3,
-        "stage": "Contract Signing",
-        "task": "",
-        "start": null,
-        "finish": null
-      },
-      {
-        "sourceRow": 4,
-        "stage": "Documentation",
-        "task": "",
-        "start": null,
-        "finish": null
-      },
-      {
         "sourceRow": 5,
-        "stage": "",
-        "task": "Detail Survey",
-        "start": "2025-02-25",
-        "finish": "2025-02-25"
+        "stage": "DEPOSIT STAGE",
+        "process": "",
+        "task": "DEPOSIT STAGE",
+        "start": null,
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 6,
-        "stage": "Approval",
-        "task": "",
+        "stage": "Planning",
+        "process": "Architect Engagement",
+        "task": "Site visit & engineer consulting",
         "start": null,
-        "finish": null
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 7,
-        "stage": "Mobilisation of Resources",
-        "task": "",
+        "stage": "Planning",
+        "process": "Site cleaning",
+        "task": "Tree lopping",
         "start": null,
-        "finish": null
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 8,
-        "stage": "UNDERGROUND GARAGE BASE",
-        "task": "",
+        "stage": "Planning",
+        "process": "Surveyor planning",
+        "task": "Surveyor visit and to produce the plan",
         "start": null,
-        "finish": null
-      },
-      {
-        "sourceRow": 9,
-        "stage": "Completion of demolition",
-        "task": "Demolition",
-        "start": "2025-09-30",
-        "finish": "2025-10-28"
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 10,
-        "stage": "",
-        "task": "Traffic Management",
-        "start": "2025-10-01",
-        "finish": "2025-10-01"
+        "stage": "CDC",
+        "process": "CDC Concepts",
+        "task": "Briefing",
+        "start": "2025-11-26",
+        "finish": "2025-12-16",
+        "note": ""
       },
       {
         "sourceRow": 11,
-        "stage": "",
-        "task": "Portable Toilet Hire 35 Weeks Standard",
-        "start": "2025-10-09",
-        "finish": "2026-06-11"
+        "stage": "CDC",
+        "process": "CDC Concepts",
+        "task": "first draft review",
+        "start": null,
+        "finish": "2025-12-16",
+        "note": ""
       },
       {
         "sourceRow": 12,
-        "stage": "Piling, shoring, and retention works",
-        "task": "Support Stay Set Fence",
-        "start": "2025-10-09",
-        "finish": null
+        "stage": "CDC",
+        "process": "CDC Concepts",
+        "task": "almost finalized",
+        "start": null,
+        "finish": "2025-12-16",
+        "note": ""
       },
       {
         "sourceRow": 13,
-        "stage": "",
-        "task": "Fence",
-        "start": "2025-10-09",
-        "finish": null
+        "stage": "CDC",
+        "process": "CDC Design",
+        "task": "consultants engagement",
+        "start": null,
+        "finish": "2025-12-17",
+        "note": ""
       },
       {
         "sourceRow": 14,
-        "stage": "",
-        "task": "Construction Set Out -Grid & Pool",
-        "start": "2025-10-28",
-        "finish": "2025-10-28"
+        "stage": "CDC",
+        "process": "CDC Design",
+        "task": "Geo-tech report",
+        "start": null,
+        "finish": "2026-01-12",
+        "note": ""
       },
       {
         "sourceRow": 15,
-        "stage": "",
-        "task": "Asset Opening  Permit Approval",
-        "start": "2025-11-07",
-        "finish": "2025-11-07"
+        "stage": "CDC",
+        "process": "CDC Approval",
+        "task": "CDC Approval",
+        "start": null,
+        "finish": "2026-01-12",
+        "note": ""
       },
       {
         "sourceRow": 16,
-        "stage": "",
-        "task": "Construction Set Out - Pile & Al Fresco",
-        "start": "2025-11-12",
-        "finish": "2025-11-12"
+        "stage": "CDC",
+        "process": "CDC Approval",
+        "task": "Hrydolic engineer",
+        "start": null,
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 17,
-        "stage": "",
-        "task": "Supply & Install Screw Piles -> Stage 1: G.F & Pools",
-        "start": "2025-11-12",
-        "finish": "2025-11-27"
+        "stage": "CDC",
+        "process": "CDC Approval",
+        "task": "Driveway Design Approval",
+        "start": null,
+        "finish": "2026-03-06",
+        "note": ""
       },
       {
         "sourceRow": 18,
-        "stage": "",
-        "task": "Inspection Supply & Install Screw Piles -> Stage 1: G.F & Pools",
-        "start": "2025-11-27",
-        "finish": "2025-11-27"
+        "stage": "CDC",
+        "process": "CDC Approval",
+        "task": "strucuture engineer",
+        "start": null,
+        "finish": "2026-03-30",
+        "note": ""
       },
       {
         "sourceRow": 19,
-        "stage": "",
-        "task": "S73 Sydney Water Asset Opening",
-        "start": "2025-12-09",
-        "finish": "2025-12-09"
+        "stage": "CDC",
+        "process": "CDC Approval",
+        "task": "BASIX Report",
+        "start": null,
+        "finish": "2026-05-18",
+        "note": ""
       },
       {
         "sourceRow": 20,
-        "stage": "",
-        "task": "- Disconnection remove exiting service main\n- Re install private pole and temporary board\n- Install three phase overhead main\n- Testing commissioning",
-        "start": "2025-12-12",
-        "finish": "2025-12-12"
+        "stage": "CDC",
+        "process": "CDC Approval",
+        "task": "BASIX Certificate",
+        "start": null,
+        "finish": "2026-06-08",
+        "note": ""
       },
       {
         "sourceRow": 21,
-        "stage": "",
-        "task": "Construction Set Out - Basement Walls",
-        "start": "2025-12-16",
-        "finish": "2025-12-16"
+        "stage": "CDC",
+        "process": "CDC Approval",
+        "task": "Waste management plan -check",
+        "start": null,
+        "finish": "2026-06-10",
+        "note": ""
       },
       {
         "sourceRow": 22,
-        "stage": "",
-        "task": "Bulk Excavation",
-        "start": "2025-12-17",
-        "finish": "2025-12-18"
+        "stage": "CDC",
+        "process": "CDC Approval",
+        "task": "Check conditions prior commencement and fullfill it .",
+        "start": "2026-06-11",
+        "finish": "2026-06-11",
+        "note": ""
       },
       {
         "sourceRow": 23,
-        "stage": "",
-        "task": "CFA Piling",
-        "start": "2026-01-22",
-        "finish": "2026-02-02"
+        "stage": "CDC",
+        "process": "CDC Approval",
+        "task": "Subdivision lodged into portale",
+        "start": null,
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 24,
-        "stage": "",
-        "task": "Concrete Pump CFA Piling",
-        "start": "2026-01-28",
-        "finish": "2026-01-28"
+        "stage": "CDC",
+        "process": "CDC Approval",
+        "task": "HWIC",
+        "start": null,
+        "finish": "2026-06-16",
+        "note": ""
       },
       {
         "sourceRow": 25,
-        "stage": "",
-        "task": "Capping Beam",
-        "start": "2026-02-02",
-        "finish": "2026-02-12"
+        "stage": "CDC",
+        "process": "CDC Approval",
+        "task": "Geo-tech report",
+        "start": null,
+        "finish": "2026-01-12",
+        "note": ""
       },
       {
         "sourceRow": 26,
-        "stage": "",
-        "task": "Pre Pour Inspection (Capping Beam Reinforcement)",
-        "start": "2026-02-13",
-        "finish": "2026-02-13"
+        "stage": "Demolition & Disconnection",
+        "process": "Demolition",
+        "task": "Demolish (Site)",
+        "start": "2026-06-18",
+        "finish": "2026-06-20",
+        "note": ""
       },
       {
         "sourceRow": 27,
-        "stage": "",
-        "task": "Concrete Pump Cap Beam",
-        "start": "2026-02-16",
-        "finish": "2026-02-16"
+        "stage": "Demolition & Disconnection",
+        "process": "Demolition",
+        "task": "Council Contribution & Bonds to be paid , email to PCA",
+        "start": "2026-06-22",
+        "finish": "2026-06-22",
+        "note": ""
       },
       {
         "sourceRow": 28,
-        "stage": "",
-        "task": "Asset Opening  S73 Inspection",
-        "start": "2026-02-25",
-        "finish": "2026-02-25"
+        "stage": "Demolition & Disconnection",
+        "process": "Service disconnection (Gas/Electricity/Water)",
+        "task": "Water-disconnect by Plumber",
+        "start": "2026-06-23",
+        "finish": "2026-06-23",
+        "note": ""
       },
       {
         "sourceRow": 29,
-        "stage": "",
-        "task": "Absorption Trench",
-        "start": "2026-02-25",
-        "finish": "2026-02-25"
+        "stage": "Demolition & Disconnection",
+        "process": "Service disconnection (Gas/Electricity/Water)",
+        "task": "Gas-need request by ourselves request metre abolishement",
+        "start": null,
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 30,
-        "stage": "",
-        "task": "Formwork Stage 1 Ground Preparation",
-        "start": "2026-02-26",
-        "finish": "2026-03-10"
+        "stage": "Demolition & Disconnection",
+        "process": "Service disconnection (Gas/Electricity/Water)",
+        "task": "Electricity-level 2 electrican",
+        "start": "2026-06-12",
+        "finish": "2026-06-13",
+        "note": ""
       },
       {
         "sourceRow": 31,
-        "stage": "",
-        "task": "Dincel Structural Walling",
-        "start": "2026-02-26",
-        "finish": "2026-03-10"
+        "stage": "Demolition & Disconnection",
+        "process": "Service disconnection (Gas/Electricity/Water)",
+        "task": "Remove any valuable stuff inside",
+        "start": "2026-05-21",
+        "finish": "2026-05-22",
+        "note": ""
       },
       {
         "sourceRow": 32,
-        "stage": "",
-        "task": "Dincel Wall Reinforcement_Raft Slab Reinforcement GF_Piles GF",
-        "start": "2026-03-09",
-        "finish": "2026-03-09"
+        "stage": "Demolition & Disconnection",
+        "process": "Service disconnection (Gas/Electricity/Water)",
+        "task": "NBN Asset relocation request",
+        "start": null,
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 33,
-        "stage": "",
-        "task": "Concrete Pump",
-        "start": "2026-03-10",
-        "finish": "2026-03-10"
+        "stage": "Demolition & Disconnection",
+        "process": "Construction",
+        "task": "Surveyor coming setout",
+        "start": "2026-06-23",
+        "finish": "2026-06-23",
+        "note": ""
       },
       {
         "sourceRow": 34,
-        "stage": "Waterproofing of substructure",
-        "task": "Used Waterproof Membrane",
-        "start": "2026-03-13",
-        "finish": "2026-03-13"
+        "stage": "Demolition & Disconnection",
+        "process": "Construction",
+        "task": "Clearance certificate to be submitted after demolition",
+        "start": "2026-07-01",
+        "finish": "2026-07-01",
+        "note": ""
       },
       {
         "sourceRow": 35,
-        "stage": "Basement excavation",
-        "task": "Pre-commencement Inspection",
-        "start": "2026-03-13",
-        "finish": "2026-03-13"
+        "stage": "SLAB STAGE",
+        "process": "Construction",
+        "task": "SLAB STAGE",
+        "start": null,
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 36,
-        "stage": "",
-        "task": "Basement excavation",
-        "start": "2026-03-16",
-        "finish": "2026-03-19"
+        "stage": "SLAB STAGE",
+        "process": "Site set up",
+        "task": "Piers and concrete to piers",
+        "start": "2026-07-08",
+        "finish": "2026-07-10",
+        "note": ""
       },
       {
         "sourceRow": 37,
-        "stage": "",
-        "task": "Geotechnical Footing Inspection",
-        "start": "2026-03-19",
-        "finish": "2026-03-19"
+        "stage": "SLAB STAGE",
+        "process": "Site set up",
+        "task": "Swimming pool Piers , retaining walls excavation",
+        "start": "2026-07-13",
+        "finish": "2026-07-13",
+        "note": ""
       },
       {
         "sourceRow": 38,
-        "stage": "",
-        "task": "Shotcrete",
-        "start": "2026-03-23",
-        "finish": "2026-03-23"
+        "stage": "SLAB STAGE",
+        "process": "Inspections to book",
+        "task": "Structual & Geo Engineer",
+        "start": null,
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 39,
-        "stage": "",
-        "task": "Construction Set Out - Basement",
-        "start": "2026-03-25",
-        "finish": "2026-03-25"
+        "stage": "SLAB STAGE",
+        "process": "Inspections to book",
+        "task": "PCA",
+        "start": null,
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 40,
-        "stage": "",
-        "task": "Supply & Install Screw Pile-> Stage 2: Basement",
-        "start": "2026-03-27",
-        "finish": "2026-03-27"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "OSD excavation and steel bars",
+        "start": null,
+        "finish": "2026-07-30",
+        "note": ""
       },
       {
         "sourceRow": 41,
-        "stage": "",
-        "task": "Two OSD Tank Basement",
-        "start": "2026-03-31",
-        "finish": "2026-04-02"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "Excavation",
+        "start": null,
+        "finish": "2026-08-03",
+        "note": ""
       },
       {
         "sourceRow": 42,
-        "stage": "",
-        "task": "Concrete Pump OSD Tank Basement",
-        "start": "2026-04-02",
-        "finish": "2026-04-02"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "S73 Plumbing",
+        "start": "2026-08-03",
+        "finish": "2026-08-03",
+        "note": ""
       },
       {
         "sourceRow": 43,
-        "stage": "",
-        "task": "OSD Inspection",
-        "start": "2026-04-02",
-        "finish": "2026-04-02"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "Stormwater engineer inspection",
+        "start": null,
+        "finish": "2026-08-04",
+        "note": ""
       },
       {
         "sourceRow": 44,
-        "stage": "",
-        "task": "Order Blue metal",
-        "start": "2026-04-14",
-        "finish": "2026-04-14"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "Water Connection/Tap In",
+        "start": null,
+        "finish": "2026-08-04",
+        "note": ""
       },
       {
         "sourceRow": 45,
-        "stage": "",
-        "task": "Plumbing Rough In before Basement Work",
-        "start": "2026-04-15",
-        "finish": "2026-04-17"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "Syd water inspection",
+        "start": null,
+        "finish": "2026-08-10",
+        "note": ""
       },
       {
         "sourceRow": 46,
-        "stage": "",
-        "task": "Booked machine",
-        "start": "2026-04-16",
-        "finish": "2026-04-16"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "Inspection Fair Trading Plumbing/Drainage",
+        "start": null,
+        "finish": "2026-08-14",
+        "note": ""
       },
       {
         "sourceRow": 47,
-        "stage": "",
-        "task": "Order building materials - blue metal/ steel",
-        "start": "2026-04-16",
-        "finish": "2026-04-16"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "Plumbing -Pipes",
+        "start": null,
+        "finish": "2026-08-14",
+        "note": ""
       },
       {
         "sourceRow": 48,
-        "stage": "Reinforcement placement",
-        "task": "Formwork Stage 2 -  Slab Reinforcement",
-        "start": "2026-04-17",
-        "finish": "2026-04-29"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "OSD Plumbing",
+        "start": null,
+        "finish": "2026-08-14",
+        "note": ""
       },
       {
         "sourceRow": 49,
-        "stage": "Pouring of underground garage raft or base slab",
-        "task": "Concrete Pump Basement Slab",
-        "start": "2026-04-29",
-        "finish": "2026-05-15"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "Steel placement for ground slab",
+        "start": null,
+        "finish": "2026-08-19",
+        "note": ""
       },
       {
         "sourceRow": 50,
-        "stage": "FRAME – PART 1: GROUND FLOOR",
-        "task": "",
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "Slab and Concreting",
         "start": null,
-        "finish": null
+        "finish": "2026-08-29",
+        "note": ""
       },
       {
         "sourceRow": 51,
-        "stage": "Completion of ground floor vertical structure",
-        "task": "Order of Dincel Wall",
-        "start": "2026-05-05",
-        "finish": "2026-05-05"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "ISA-set out for bricks",
+        "start": null,
+        "finish": "2026-09-07",
+        "note": ""
       },
       {
         "sourceRow": 52,
-        "stage": "",
-        "task": "Order of Rebar & Sundries",
-        "start": "2026-05-13",
-        "finish": "2026-05-13"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "Geo engineer inspection of footing",
+        "start": null,
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 53,
-        "stage": "",
-        "task": "Structure of Dincel Wall",
-        "start": "2026-05-16",
-        "finish": "2026-05-20"
-      },
-      {
-        "sourceRow": 54,
-        "stage": "",
-        "task": "Formwork Ground Slab",
-        "start": "2026-05-20",
-        "finish": "2026-06-01"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "Geo-engineer inspection",
+        "start": null,
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 55,
-        "stage": "",
-        "task": "Pipe Installation - Wet Areas",
-        "start": "2026-05-25",
-        "finish": "2026-05-25"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "PCA inspection-prior to the placement of any footings groundfloor",
+        "start": null,
+        "finish": "2026-09-19",
+        "note": ""
       },
       {
         "sourceRow": 56,
-        "stage": "",
-        "task": "Pre Pour Inspection - Ground Slab",
-        "start": "2026-06-01",
-        "finish": "2026-06-01"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "Engineer inpsection",
+        "start": null,
+        "finish": "2026-09-19",
+        "note": ""
       },
       {
         "sourceRow": 57,
-        "stage": "Pouring of ground floor slab",
-        "task": "Concrete Pump Ground Slab",
-        "start": "2026-06-05",
-        "finish": "2026-06-05"
+        "stage": "SLAB STAGE",
+        "process": "Ground Slab",
+        "task": "PCA inspection",
+        "start": null,
+        "finish": "2026-09-19",
+        "note": ""
       },
       {
         "sourceRow": 58,
-        "stage": "",
-        "task": "Portable Toilet Hire 6 Months Standard",
-        "start": "2026-06-10",
-        "finish": "2026-12-09"
+        "stage": "SLAB STAGE",
+        "process": "Ground Bricks",
+        "task": "Ground level Brick Laying",
+        "start": null,
+        "finish": "2026-09-08",
+        "note": ""
       },
       {
         "sourceRow": 59,
-        "stage": "",
-        "task": "Storm Water and Sewer Pipe - Boundiries",
-        "start": "2026-07-01",
-        "finish": null
+        "stage": "SLAB STAGE",
+        "process": "Suspended Slab",
+        "task": "Suspended Concrete Slab & Stairs",
+        "start": null,
+        "finish": "2026-10-21",
+        "note": ""
       },
       {
         "sourceRow": 60,
-        "stage": "",
-        "task": "Pest Control",
-        "start": "2026-07-08",
-        "finish": "2026-07-08"
+        "stage": "FRAME STAGE",
+        "process": "Suspended Slab",
+        "task": "FRAME STAGE",
+        "start": null,
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 61,
-        "stage": "Brickwork walls",
-        "task": "Brick Commencement 4k CB & 4k FB",
-        "start": "2026-07-08",
-        "finish": "2026-07-12"
+        "stage": "FRAME STAGE",
+        "process": "Scaffolding",
+        "task": "Scaffolding arrangement",
+        "start": null,
+        "finish": "2026-10-21",
+        "note": ""
       },
       {
         "sourceRow": 62,
-        "stage": "",
-        "task": "Brick Delivery 8k CB",
-        "start": "2026-07-13",
-        "finish": "2026-07-13"
+        "stage": "FRAME STAGE",
+        "process": "Scaffolding",
+        "task": "Lintel Ordering",
+        "start": "2026-09-07",
+        "finish": "2026-11-04",
+        "note": ""
       },
       {
         "sourceRow": 63,
-        "stage": "Building structure rises above ground level",
-        "task": "Lintel Bar Delivery",
-        "start": "2026-07-14",
-        "finish": "2026-07-14"
+        "stage": "FRAME STAGE",
+        "process": "Frame",
+        "task": "Framework \u2013 First floor (brick veneer construction)",
+        "start": "2026-11-09",
+        "finish": "2026-11-27",
+        "note": "Started Mon 9 Nov 2026"
       },
       {
         "sourceRow": 64,
-        "stage": "",
-        "task": "Building Materials - Cement, sand, wall tie, expansion join",
-        "start": "2026-07-14",
-        "finish": null
+        "stage": "FRAME STAGE",
+        "process": "Frame",
+        "task": "Frame in roof (roof trusses)",
+        "start": "2026-11-30",
+        "finish": "2026-12-04",
+        "note": ""
       },
       {
         "sourceRow": 65,
-        "stage": "",
-        "task": "Brick Delivery 8k CB",
-        "start": "2026-07-17",
-        "finish": "2026-07-17"
+        "stage": "FRAME STAGE",
+        "process": "Roof",
+        "task": "Brick veneer \u2013 First floor (external brick skin)",
+        "start": "2026-12-03",
+        "finish": "2026-12-10",
+        "note": "Roof on by 10 Dec 2026"
       },
       {
         "sourceRow": 66,
-        "stage": "",
-        "task": "Brick Delivery 8k CB",
-        "start": "2026-07-21",
-        "finish": "2026-07-23"
+        "stage": "FRAME STAGE",
+        "process": "Roof",
+        "task": "Roof covering (roof enclosing)",
+        "start": "2026-12-11",
+        "finish": "2027-01-22",
+        "note": "Includes Christmas shutdown (approx. 19 Dec \u2013 10 Jan)"
       },
       {
         "sourceRow": 67,
-        "stage": "",
-        "task": "Formwork Suspended Slab 1st floor",
-        "start": "2026-07-24",
-        "finish": "2026-08-03"
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Enclose Plumbing",
+        "task": "Plumbing Rough in",
+        "start": "2027-01-11",
+        "finish": "2027-01-16",
+        "note": ""
       },
       {
         "sourceRow": 68,
-        "stage": "",
-        "task": "Order Steel Fixing",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Enclose Windows",
+        "task": "Windows",
         "start": null,
-        "finish": null
+        "finish": "2027-01-20",
+        "note": ""
+      },
+      {
+        "sourceRow": 69,
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Enclose Electricity/Wiring",
+        "task": "Electricity Cutting Walls",
+        "start": null,
+        "finish": "2027-01-23",
+        "note": ""
       },
       {
         "sourceRow": 70,
-        "stage": "Establishes the primary footprint of the building",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Enclose Electricity/Wiring",
+        "task": "Wiring",
         "start": null,
-        "finish": null
+        "finish": "2027-02-04",
+        "note": ""
       },
       {
         "sourceRow": 71,
-        "stage": "FRAMEWORK – PART 2: FIRST FLOOR",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Enclose Electricity/Wiring",
+        "task": "Insulation Installation",
         "start": null,
-        "finish": null
+        "finish": "2027-02-20",
+        "note": ""
       },
       {
         "sourceRow": 72,
-        "stage": "framework and reinforcement for first floor",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Enclose Electricity/Wiring",
+        "task": "Gyprock cutting for downlights",
         "start": null,
-        "finish": null
+        "finish": "2027-03-02",
+        "note": ""
       },
       {
         "sourceRow": 73,
-        "stage": "Pouring of first floor slab",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Joinery Planning",
+        "task": "Confirm Joinery Company and start detailed drawing",
         "start": null,
-        "finish": null
+        "finish": "2027-03-03",
+        "note": ""
       },
       {
         "sourceRow": 74,
-        "stage": "Erection of vertical structural elements to roof level",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Joinery Planning",
+        "task": "Aircon  installation",
         "start": null,
-        "finish": null
+        "finish": "2027-03-13",
+        "note": ""
       },
       {
         "sourceRow": 75,
-        "stage": "Full structural frame is completed",
-        "task": "",
-        "start": null,
-        "finish": null
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Rendering",
+        "task": "External Rendering",
+        "start": "2027-01-25",
+        "finish": "2027-03-22",
+        "note": ""
       },
       {
         "sourceRow": 76,
-        "stage": "Structure ready for wall and enclosure works",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Fixing",
+        "task": "Waterproofing",
         "start": null,
-        "finish": null
+        "finish": "2027-03-22",
+        "note": ""
       },
       {
         "sourceRow": 77,
-        "stage": "ENCLOSED – PART 1 (LOCK-UP EXTERNAL)",
-        "task": "",
-        "start": null,
-        "finish": null
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Fixing",
+        "task": "Gybrock for 3 weeks",
+        "start": "2027-02-22",
+        "finish": "2027-03-24",
+        "note": ""
       },
       {
         "sourceRow": 78,
-        "stage": "Installation of roof covering",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Planning",
+        "task": "Tiles picking and ordering",
         "start": null,
-        "finish": null
+        "finish": "2027-03-24",
+        "note": ""
       },
       {
         "sourceRow": 79,
-        "stage": "Completion of external walls to lock-up stage",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Planning",
+        "task": "Garage measurement & Installation",
         "start": null,
-        "finish": null
+        "finish": "2027-03-24",
+        "note": ""
       },
       {
         "sourceRow": 80,
-        "stage": "Weatherproofing of the main building shell",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Planning",
+        "task": "Garage Doors Ordering/Quoting",
         "start": null,
-        "finish": null
+        "finish": "2027-03-24",
+        "note": ""
       },
       {
         "sourceRow": 81,
-        "stage": "Structure protected against external weather",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Enclose Brick",
+        "task": "External Brick Cleaning",
         "start": null,
-        "finish": null
+        "finish": "2027-03-24",
+        "note": ""
       },
       {
         "sourceRow": 82,
-        "stage": "Internal works can safely commence",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Enclose Brick",
+        "task": "Waterproofing inspection by PCA",
         "start": null,
-        "finish": null
+        "finish": "2027-03-26",
+        "note": ""
       },
       {
         "sourceRow": 83,
-        "stage": "Garage doors not necessarily installed yet",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Enclose Brick",
+        "task": "Plumbing Down Pipes",
         "start": null,
-        "finish": null
+        "finish": "2027-03-29",
+        "note": ""
       },
       {
         "sourceRow": 84,
-        "stage": "ENCLOSED – PART 2 (SERVICES ROUGH-IN)",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Planning",
+        "task": "Tiling -Bathroom & Kitchen",
         "start": null,
-        "finish": null
+        "finish": "2027-04-11",
+        "note": ""
       },
       {
         "sourceRow": 85,
-        "stage": "Installation of windows and external doors",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Planning",
+        "task": "Joinery Production",
         "start": null,
-        "finish": null
+        "finish": "2027-03-31",
+        "note": ""
       },
       {
         "sourceRow": 86,
-        "stage": "Commencement of services rough-in:",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Planning",
+        "task": "Joinery Installation",
         "start": null,
-        "finish": null
+        "finish": "2027-04-20",
+        "note": ""
       },
       {
         "sourceRow": 87,
-        "stage": "Plumbing rough-in",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Site/Pavement Preparation",
+        "task": "Flooring",
         "start": null,
-        "finish": null
+        "finish": "2027-05-11",
+        "note": ""
       },
       {
         "sourceRow": 88,
-        "stage": "Electrical rough-in",
-        "task": "",
+        "stage": "ENCLOSED & FIXING STAGE",
+        "process": "Site/Pavement Preparation",
+        "task": "Front Door & Lock Installation",
         "start": null,
-        "finish": null
+        "finish": "2027-05-24",
+        "note": ""
       },
       {
         "sourceRow": 89,
-        "stage": "Major services are embedded within the structure",
-        "task": "",
+        "stage": "Planning",
+        "process": "Picking and Ordering",
+        "task": "Shower Screen & Baluster ordering",
         "start": null,
-        "finish": null
+        "finish": "2027-05-25",
+        "note": ""
       },
       {
         "sourceRow": 90,
-        "stage": "FIXING",
-        "task": "",
+        "stage": "Planning",
+        "process": "Picking and Ordering",
+        "task": "Garage Doors",
         "start": null,
-        "finish": null
+        "finish": "2027-03-24",
+        "note": ""
       },
       {
         "sourceRow": 91,
-        "stage": "Bathroom and wet area tiling",
-        "task": "",
+        "stage": "Planning",
+        "process": "Picking and Ordering",
+        "task": "Tiles",
         "start": null,
-        "finish": null
+        "finish": "2027-03-24",
+        "note": ""
       },
       {
         "sourceRow": 92,
-        "stage": "Joinery (kitchen, wardrobes, cabinetry)",
-        "task": "",
+        "stage": "Planning",
+        "process": "Picking and Ordering",
+        "task": "Letter Box",
         "start": null,
-        "finish": null
+        "finish": "2027-06-03",
+        "note": ""
       },
       {
         "sourceRow": 93,
-        "stage": "Internal doors and hardware",
-        "task": "",
+        "stage": "Planning",
+        "process": "Picking and Ordering",
+        "task": "Landscape Plants ordering",
         "start": null,
-        "finish": null
+        "finish": "2027-07-12",
+        "note": ""
       },
       {
         "sourceRow": 94,
-        "stage": "Property brought close to final finish standard",
-        "task": "",
+        "stage": "Planning",
+        "process": "Picking and Ordering",
+        "task": "Watertanks ordering",
         "start": null,
-        "finish": null
+        "finish": null,
+        "note": ""
       },
       {
         "sourceRow": 95,
-        "stage": "PRACTICAL COMPLETION",
-        "task": "",
+        "stage": "Driveway",
+        "process": "Picking and Ordering",
+        "task": "Concrete of driveway (need apply road occupancy Permit)",
         "start": null,
-        "finish": null
+        "finish": "2027-05-24",
+        "note": ""
       },
       {
         "sourceRow": 96,
-        "stage": "Final Stage of Construction",
-        "task": "",
+        "stage": "Driveway",
+        "process": "Picking and Ordering",
+        "task": "Excavation for landscaping and Driveway",
         "start": null,
-        "finish": null
+        "finish": "2027-05-24",
+        "note": ""
       },
       {
         "sourceRow": 97,
-        "stage": "Works completed in accordance with:",
-        "task": "",
+        "stage": "Driveway",
+        "process": "Planning",
+        "task": "Shower Screen & Baluster ordering",
         "start": null,
-        "finish": null
+        "finish": "2027-05-25",
+        "note": ""
       },
       {
         "sourceRow": 98,
-        "stage": "Contract",
-        "task": "",
-        "start": null,
-        "finish": null
+        "stage": "Driveway",
+        "process": "Planning",
+        "task": "Door Ordering",
+        "start": "2027-05-01",
+        "finish": "2027-05-25",
+        "note": ""
       },
       {
         "sourceRow": 99,
-        "stage": "Approved plans",
-        "task": "",
+        "stage": "Driveway",
+        "process": "Construction",
+        "task": "Formwork of driveway",
         "start": null,
-        "finish": null
+        "finish": "2027-05-26",
+        "note": ""
       },
       {
         "sourceRow": 100,
-        "stage": "Specifications",
-        "task": "",
+        "stage": "Driveway",
+        "process": "Driveway Inspection",
+        "task": "Council driveway formwork inspection",
         "start": null,
-        "finish": null
+        "finish": "2027-05-28",
+        "note": ""
       },
       {
         "sourceRow": 101,
-        "stage": "Statutory requirements",
-        "task": "",
-        "start": null,
-        "finish": null
+        "stage": "Driveway",
+        "process": "Driveway Inspection",
+        "task": "Apply Section 68 for stormwater and road opening",
+        "start": "2027-05-25",
+        "finish": "2027-06-02",
+        "note": ""
       },
       {
         "sourceRow": 102,
-        "stage": "Property is ready for handover and occupation (subject to final inspections)",
-        "task": "",
+        "stage": "Driveway",
+        "process": "Driveway Inspection",
+        "task": "Letter box ordering",
         "start": null,
-        "finish": null
+        "finish": "2027-06-03",
+        "note": ""
+      },
+      {
+        "sourceRow": 103,
+        "stage": "Driveway",
+        "process": "Service Connection",
+        "task": "NBN Applicaiton",
+        "start": null,
+        "finish": "2027-06-11",
+        "note": ""
+      },
+      {
+        "sourceRow": 104,
+        "stage": "Driveway",
+        "process": "Service Connection",
+        "task": "Rainwater tank installation Plumbing",
+        "start": "2027-05-28",
+        "finish": "2027-06-30",
+        "note": ""
+      },
+      {
+        "sourceRow": 105,
+        "stage": "Driveway",
+        "process": "Service Connection",
+        "task": "Landscape Plants Ordering",
+        "start": null,
+        "finish": "2027-07-12",
+        "note": ""
+      },
+      {
+        "sourceRow": 106,
+        "stage": "Driveway",
+        "process": "Landscape",
+        "task": "Landscape and Planting",
+        "start": "2027-07-12",
+        "finish": "2027-07-12",
+        "note": ""
+      },
+      {
+        "sourceRow": 107,
+        "stage": "Driveway",
+        "process": "Landscape",
+        "task": "Installation of bathroom accessories",
+        "start": null,
+        "finish": "2027-07-31",
+        "note": ""
+      },
+      {
+        "sourceRow": 108,
+        "stage": "Driveway",
+        "process": "Landscape",
+        "task": "Plumbing final wrap up",
+        "start": null,
+        "finish": "2027-07-31",
+        "note": ""
+      },
+      {
+        "sourceRow": 109,
+        "stage": "Driveway",
+        "process": "Enclose Finishing",
+        "task": "Sealing & Chaulking",
+        "start": null,
+        "finish": "2027-08-24",
+        "note": ""
+      },
+      {
+        "sourceRow": 110,
+        "stage": "Driveway",
+        "process": "Enclose Finishing",
+        "task": "Electrician weap up -Final check all lights",
+        "start": null,
+        "finish": "2027-08-28",
+        "note": ""
+      },
+      {
+        "sourceRow": 111,
+        "stage": "Driveway",
+        "process": "Finishing",
+        "task": "Driveway sealing",
+        "start": null,
+        "finish": "2027-08-30",
+        "note": ""
+      },
+      {
+        "sourceRow": 112,
+        "stage": "Driveway",
+        "process": "Finishing",
+        "task": "Shower Screen & Baluster Installation",
+        "start": null,
+        "finish": "2027-06-11",
+        "note": ""
+      },
+      {
+        "sourceRow": 113,
+        "stage": "Driveway",
+        "process": "Finishing",
+        "task": "Electrician-Switch & downlights",
+        "start": null,
+        "finish": "2027-06-11",
+        "note": ""
+      },
+      {
+        "sourceRow": 114,
+        "stage": "Driveway",
+        "process": "Finishing",
+        "task": "Installation of appliances by electrician",
+        "start": null,
+        "finish": "2027-06-11",
+        "note": ""
+      },
+      {
+        "sourceRow": 115,
+        "stage": "Driveway",
+        "process": "Appliance Planning",
+        "task": "Bathroom, joinery, Doors & Kitchen Electrical appliances  (including BBQ) ordering",
+        "start": null,
+        "finish": "2027-06-17",
+        "note": ""
+      },
+      {
+        "sourceRow": 116,
+        "stage": "Driveway",
+        "process": "Appliance Planning",
+        "task": "BBQ Delivery",
+        "start": null,
+        "finish": "2027-06-17",
+        "note": ""
+      },
+      {
+        "sourceRow": 117,
+        "stage": "Driveway",
+        "process": "Stone Selection & Measurement",
+        "task": "Stone supplier Ordering",
+        "start": null,
+        "finish": "2027-06-15",
+        "note": ""
+      },
+      {
+        "sourceRow": 118,
+        "stage": "Driveway",
+        "process": "Stone Selection & Measurement",
+        "task": "Electricity Connection",
+        "start": null,
+        "finish": "2027-07-06",
+        "note": ""
+      },
+      {
+        "sourceRow": 119,
+        "stage": "Driveway",
+        "process": "Stone Selection & Measurement",
+        "task": "Tiles Ordering",
+        "start": null,
+        "finish": "2027-08-10",
+        "note": ""
+      },
+      {
+        "sourceRow": 120,
+        "stage": "Driveway",
+        "process": "Swimming Pool",
+        "task": "Pool Tiling & Mosaic",
+        "start": null,
+        "finish": "2027-08-10",
+        "note": ""
+      },
+      {
+        "sourceRow": 121,
+        "stage": "Driveway",
+        "process": "Swimming Pool",
+        "task": "Pest Control for frame",
+        "start": "2026-11-23",
+        "finish": null,
+        "note": ""
+      },
+      {
+        "sourceRow": 122,
+        "stage": "Driveway",
+        "process": "Swimming Pool",
+        "task": "Installation of toilet by plumbing",
+        "start": null,
+        "finish": "2027-01-09",
+        "note": ""
+      },
+      {
+        "sourceRow": 123,
+        "stage": "Driveway",
+        "process": "Swimming Pool",
+        "task": "Watertanks Ordering",
+        "start": null,
+        "finish": "2027-01-09",
+        "note": ""
+      },
+      {
+        "sourceRow": 124,
+        "stage": "Driveway",
+        "process": "Enclose Painting",
+        "task": "Internal painting",
+        "start": null,
+        "finish": "2027-08-12",
+        "note": ""
+      },
+      {
+        "sourceRow": 125,
+        "stage": "Driveway",
+        "process": "Enclose Painting",
+        "task": "Commercial cleanninhg Caulking",
+        "start": null,
+        "finish": "2027-09-25",
+        "note": ""
+      },
+      {
+        "sourceRow": 126,
+        "stage": "Driveway",
+        "process": "Enclose Painting",
+        "task": "Gas Connection",
+        "start": null,
+        "finish": "2027-09-27",
+        "note": ""
+      },
+      {
+        "sourceRow": 127,
+        "stage": "PRACTICAL COMPLETION",
+        "process": "Enclose Painting",
+        "task": "PRACTICAL COMPLETION",
+        "start": null,
+        "finish": null,
+        "note": ""
+      },
+      {
+        "sourceRow": 128,
+        "stage": "Occupany Certificate",
+        "process": "PCA Checklist",
+        "task": "Obtain updated OC Checklist from PCA",
+        "start": "2027-08-25",
+        "finish": "2027-08-25",
+        "note": ""
+      },
+      {
+        "sourceRow": 129,
+        "stage": "Occupany Certificate",
+        "process": "PCA Checklist",
+        "task": "Completion & Submission of Requirements",
+        "start": "2028-01-13",
+        "finish": "2028-01-13",
+        "note": ""
+      },
+      {
+        "sourceRow": 130,
+        "stage": "Occupany Certificate",
+        "process": "PCA Checklist",
+        "task": "Received Certificate",
+        "start": "2028-01-18",
+        "finish": "2028-01-18",
+        "note": ""
+      },
+      {
+        "sourceRow": 132,
+        "stage": "Subdivision",
+        "process": "PCA Checklist",
+        "task": "Obtain subdivision checklist from the subdivision PCA",
+        "start": "2027-08-26",
+        "finish": "2027-08-26",
+        "note": ""
+      },
+      {
+        "sourceRow": 133,
+        "stage": "Subdivision",
+        "process": "PCA Checklist",
+        "task": "Received CDC for Subdivision",
+        "start": "2027-09-29",
+        "finish": "2027-09-29",
+        "note": ""
+      },
+      {
+        "sourceRow": 134,
+        "stage": "Subdivision",
+        "process": "PCA Checklist",
+        "task": "Received Subdivision Certificate",
+        "start": "2028-01-20",
+        "finish": "2028-01-20",
+        "note": ""
+      },
+      {
+        "sourceRow": 135,
+        "stage": "Interview Agents",
+        "process": "PCA Checklist",
+        "task": "Interview Agents",
+        "start": null,
+        "finish": null,
+        "note": ""
+      },
+      {
+        "sourceRow": 136,
+        "stage": "Interview Agents",
+        "process": "Interview Agents",
+        "task": "Interview Agents",
+        "start": null,
+        "finish": "2027-08-02",
+        "note": ""
+      },
+      {
+        "sourceRow": 137,
+        "stage": "Interview Agents",
+        "process": "Photoshoot",
+        "task": "Photoshoot",
+        "start": null,
+        "finish": null,
+        "note": ""
+      },
+      {
+        "sourceRow": 138,
+        "stage": "Interview Agents",
+        "process": "Sale",
+        "task": "Sale",
+        "start": null,
+        "finish": null,
+        "note": ""
       }
     ],
-    "dateMeaning": "Dates are source schedule entries, not evidence of actual completion. Blank means not recorded in the supplied schedule."
+    "milestones": {
+      "roofCovering": 66,
+      "roofFrame": 64,
+      "practicalCompletion": 127,
+      "ocChecklist": 128,
+      "ocSubmission": 129,
+      "ocReceipt": 130
+    },
+    "dateBasis": "Projected dates in columns E and F; not actual completion, appointments or certification."
   },
   "checklist": [
     {
+      "number": 1,
+      "requirement": "Completed and signed Cedar Certifiers Application Form"
+    },
+    {
       "number": 2,
-      "requirement": "Structural engineer’s inspection reports"
+      "requirement": "Structural engineer\u2019s inspection reports"
+    },
+    {
+      "number": 3,
+      "requirement": "Peg out survey/sketch by the land surveyor"
+    },
+    {
+      "number": 4,
+      "requirement": "Final survey report by registered land surveyor"
+    },
+    {
+      "number": 5,
+      "requirement": "Waterproofing Certificate to AS3740-2021 and specify type of product applied.Note: only licensed builder & waterproofing technician\u2019s certificate will be accepted."
+    },
+    {
+      "number": 6,
+      "requirement": "Glazing certificate for all window/door glasses in accordance with AS1288-2021 & AS2047-2014"
+    },
+    {
+      "number": 7,
+      "requirement": "Shower screen certificate for all shower screens in accordance with AS 1288- 2021"
+    },
+    {
+      "number": 8,
+      "requirement": "Glazing certificate from glazing manufacturer certifying BASIX commitments"
+    },
+    {
+      "number": 9,
+      "requirement": "Termite Management Certificate to AS3660.1-2014"
+    },
+    {
+      "number": 10,
+      "requirement": "Stormwater compliance certificate certifying AS3500.3-2021 from a licensed plumber"
+    },
+    {
+      "number": 11,
+      "requirement": "Smoke alarm certificate from licensed electrician certifying AS3786-2014"
+    },
+    {
+      "number": 12,
+      "requirement": "Electrical work certificate"
+    },
+    {
+      "number": 13,
+      "requirement": "Plumbing work certificate & Sewer Diagram (new build only)"
+    },
+    {
+      "number": 14,
+      "requirement": "Mechanical ventilation certificate certifying installed bathroom exhaust fan exceeds 25 L/s and attached product spec."
+    },
+    {
+      "number": 15,
+      "requirement": "Stormwater engineer\u2019s compliance certificate certifying the Work-as-executed Stormwater Plan"
+    },
+    {
+      "number": 16,
+      "requirement": "Landscaping completion certificate"
     },
     {
       "number": 17,
-      "requirement": "BASIX Compliance certificate from the builder, with the BASIX number correctly referenced"
+      "requirement": "BASIX Compliance certificate from the builder, BASIX number to be correctly reference in the certificate."
+    },
+    {
+      "number": 18,
+      "requirement": "Driveway compliance certificate from Local Council"
+    },
+    {
+      "number": 19,
+      "requirement": "Glass balustrade compliance certificate to AS1288-2021"
+    },
+    {
+      "number": 20,
+      "requirement": "Slip resistance certificate"
     },
     {
       "number": 21,
       "requirement": "Metal sheet (Colorbond) roofing certificate"
     },
     {
+      "number": 22,
+      "requirement": "Bushfire construction certificate/report"
+    },
+    {
+      "number": 23,
+      "requirement": "Fair Trading Gas Connection Certificate (if applicable)"
+    },
+    {
+      "number": 24,
+      "requirement": "Party Wall Acoustic Certificate"
+    },
+    {
       "number": 27,
-      "requirement": "Fire Rated Construction Certificate"
+      "requirement": "Fire Rated Construction Certifcate"
+    },
+    {
+      "number": 28,
+      "requirement": "Sydney Water Section 73 Certificate"
     },
     {
       "number": 29,
       "requirement": "Work-as-executed stormwater plan signed by registered surveyor"
+    },
+    {
+      "number": 30,
+      "requirement": "Evidence of Plan Registration from NSW Land Rigstry regarding Postivie Convenant & Restriction of Use for the Stormwater System"
+    },
+    {
+      "number": 31,
+      "requirement": "Swimming Pool Installation Certificate"
+    },
+    {
+      "number": 33,
+      "requirement": "Certificate of Registration for pool - https://www.swimmingpoolregister.nsw.gov.au/"
+    },
+    {
+      "number": 34,
+      "requirement": "Non-combustible Skylight Installation Certificate"
+    },
+    {
+      "number": 35,
+      "requirement": "Aesbestos Clearance Certificate (if asbestos found during full demolition)"
+    },
+    {
+      "number": 36,
+      "requirement": "Waterproofing Certificate (external) to A4654.2-2012 and specify type of product applied.Note: only licensed builder & waterproofing technician\u2019s certificate will be accepted."
+    },
+    {
+      "number": 37,
+      "requirement": "Sydney Water - Water Service Coordinator Compliance/Completion Statement"
+    },
+    {
+      "number": 38,
+      "requirement": "Housing Productivity Contribution (HPC) Payment Receipt/Evidence of Payment"
+    },
+    {
+      "number": 39,
+      "requirement": "Builder statement of backfilled soil material and compaction certificate for the pool removal."
     }
   ],
   "sources": [
@@ -779,36 +1391,36 @@
       "title": "Timber structural notes",
       "file": "Structural notes extract",
       "url": "sample-data/structural-notes-extract.pdf",
-      "locator": "Extract page 1; original structural set page 1, S01, timber notes T1-T7",
+      "locator": "Page 1: S01 T1-T7; page 2: S01 G1-G3",
       "tier": "internal",
-      "evidence": "The supplied timber notes refer to AS 1720.1 and AS 1684. This excerpt is not an approval of the proposed change."
+      "evidence": "Timber notes name AS 1720.1 and AS 1684 as supplied. General notes require reading drawings together, resolving discrepancies and verifying setting-out dimensions. They do not define a roof inspection date or approve an 800 mm change."
     },
     {
       "id": "sample-schedule",
       "title": "Project schedule",
       "file": "Public schedule extract",
       "url": "sample-data/project-schedule-extract.xlsx",
-      "locator": "Source row column: 71-78; row 78 is installation of roof covering",
+      "locator": "Maroubra!E66:F66; A127:F130. Public extract preserves source row IDs.",
       "tier": "internal",
-      "evidence": "Row 78 lists installation of roof covering with no start or finish date recorded. Stage labels do not prove completion."
+      "evidence": "Projected roof-covering dates: 11 December 2026 to 22 January 2027 (E66:F66). OC receipt is projected for 18 January 2028 (E130:F130). Practical Completion row 127 is undated."
     },
     {
       "id": "sample-oc",
       "title": "OC document checklist",
       "file": "OC document checklist",
       "url": "sample-data/oc-document-checklist.pdf",
-      "locator": "Page 1, items 2, 17, 21, 27 and 29",
+      "locator": "Page 1, all 36 numbered entries; item 21 roof certificate; item 2 structural reports",
       "tier": "internal",
-      "evidence": "The supplied checklist requests structural engineer inspection reports and specified completion documents. Presence or validity of these documents is not confirmed."
+      "evidence": "Item 21 requests a Metal sheet (Colorbond) roofing certificate. Item 2 requests structural engineer inspection reports. Applicability and sufficiency must be confirmed with the responsible certifier."
     },
     {
       "id": "sample-progress",
-      "title": "Client progress context",
-      "file": "Reviewed sample summary",
-      "url": "sample-data/README.md",
-      "locator": "Client communication facts",
+      "title": "Client schedule reference",
+      "file": "Reviewed client schedule extract",
+      "url": "sample-data/client-schedule.html",
+      "locator": "Roof covering row 66; Practical Completion row 127; OC rows 128-130",
       "tier": "customer-safe",
-      "evidence": "The team has a roof-detail query to review. A roof-covering date and inspection sign-off are not confirmed in the supplied records."
+      "evidence": "Projected roof-covering finish: 22 January 2027. Projected OC receipt: 18 January 2028. Practical Completion has no date. Projections do not confirm completed work or OC issue."
     },
     {
       "id": "sample-public",
@@ -818,6 +1430,24 @@
       "locator": "Public story context",
       "tier": "public",
       "evidence": "A public story can explain careful drawing review and coordination. The sample does not establish a new completion milestone."
+    },
+    {
+      "id": "sample-photo",
+      "title": "Supplied framing and roof photo",
+      "file": "site-photo.jpg",
+      "url": "sample-data/site-photo.jpg",
+      "locator": "Founder-supplied site photo; metadata removed",
+      "tier": "internal",
+      "evidence": "A supplied image attached to this one-project demo. No image measurement, readiness or completion is inferred."
+    },
+    {
+      "id": "sample-markup",
+      "title": "Supplied roof takeoff markup",
+      "file": "roof-markup.png",
+      "url": "sample-data/roof-markup.png",
+      "locator": "Highlighted wall and annotation",
+      "tier": "internal",
+      "evidence": "The markup says 3.5m height too but minus windows. It is a reported takeoff note; the local profile and openings still need review."
     }
   ],
   "downloads": [
@@ -840,6 +1470,25 @@
     {
       "title": "Site conversation extract",
       "url": "sample-data/site-conversation-extract.md"
+    },
+    {
+      "title": "Supplied site photo",
+      "url": "sample-data/site-photo.jpg"
+    },
+    {
+      "title": "Roof takeoff markup",
+      "url": "sample-data/roof-markup.png"
+    },
+    {
+      "title": "WhatsApp transcript and import file",
+      "url": "sample-data/whatsapp-message.txt"
     }
-  ]
+  ],
+  "location": "Sydney, NSW",
+  "assets": {
+    "photo": "sample-data/site-photo.jpg",
+    "roofMarkup": "sample-data/roof-markup.png",
+    "whatsappHash": "164717194562af15acc5d36a3c813027ca796b3538a14382d0a943eb3f7d406d",
+    "transcript": "Kira: I got ~18m but I only estimated 2.7m height based on the plans. Should\u2019ve added 800.\nMark: Yes need to add 800mm in the middle\nMark: There is 5 degree fall\nMark: Otherwise it will be flat roof"
+  }
 }

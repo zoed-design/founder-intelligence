@@ -4,7 +4,7 @@
 
 The app includes selected de-identified extracts of founder-supplied project records in `sample-data/`. The project address and professional identities are fictional aliases; drawing values, task labels, planned dates and conversation wording are retained in the reviewed extracts. See [the public sample register](../sample-data/README.md) and [the source-backed demo guide](sample-data-demo.md) for provenance, exclusions and limits.
 
-Choose **Load sample project** to run source-based arithmetic, schedule-gap checks and audience-specific drafts. Uploads stay in memory. No photo analysis, live document ingestion, dispatch, booking, compliance certification or connected account sync is performed. Full source packs and private preparation files are excluded from Git.
+The one-project Wiki loads automatically. Photo upload runs source-based checks and drafts. Manual WhatsApp text imports are tagged and indexed as unverified browser-session sources. Uploads stay in memory. No photo analysis, live document ingestion, dispatch, booking, compliance certification or connected account sync is performed. Full source packs and private preparation files are excluded from Git.
 
 ## Legacy engine fixtures
 
