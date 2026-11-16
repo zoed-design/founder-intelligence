@@ -26,6 +26,10 @@ Project alias: **18 Maroubra Street, Maroubra, Sydney**. Seven selected founder-
 
 The bundled reviewed facts are available on opening the app. Lyra can collect pasted text or a .txt/.md file, tag it and add it to the current project’s browser-session Wiki. Messages stay unverified, separate from the schedule and drawings. Bower can cite their exact imported text internally. Client answers use reviewed schedule facts; Kooka’s story does not include private messages or technical measurements. All static files are public: role tabs demonstrate audience handling, not production authentication.
 
+A separate [planning snapshot](regulatory-references.json) contains 12 official reference entries, with review dates and linked-only status where legislation retrieval was blocked. See [planning coverage](../docs/planning-references.md). This supports selected Randwick / NSW questions and does not establish parcel eligibility.
+
+The downloadable whatsapp-demo.png is a de-identified recreation of the reviewed transcript, without the original faces, drawing numbers or group-membership details. Uploading it offers the reviewed transcript for confirmation and prepares Roo coaching. Arbitrary screenshots still need confirmed text.
+
 No external Wiki, WhatsApp, Google Drive or Notion is connected. No live LLM, arbitrary screenshot OCR, legal/compliance verification, booking, sending or posting occurs. Reload or New session clears imported messages, attachments and edits. Full PDF ingestion and general semantic search are not implemented.
 
 ## Client communication facts

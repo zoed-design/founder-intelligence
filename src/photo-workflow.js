@@ -1,9 +1,9 @@
-import {buildSamplePack, answerSampleQuestion} from './sample-project.js?v=single-project-2';
+import {buildSamplePack, answerSampleQuestion} from './sample-project.js?v=planning-refs-1';
 // Focused scenario adapter. The existing general message engine stays intact.
 // Generic fixtures remain available. An explicitly loaded reviewed sample pack uses source-backed checks.
 // No vision/LLM API calls or external dispatch are used.
-import { CONTEXT } from './demo-config.js?v=single-project-2';
-export { CONTEXT } from './demo-config.js?v=single-project-2';
+import { CONTEXT } from './demo-config.js?v=planning-refs-1';
+export { CONTEXT } from './demo-config.js?v=planning-refs-1';
 
 export const SOURCES = [
   { id: 'photo', title: 'Photo input', file: 'Session attachment', evidence: 'The uploaded photo is an input to this fixed framing scenario. No image recognition, measurement or compliance verification is performed.' },

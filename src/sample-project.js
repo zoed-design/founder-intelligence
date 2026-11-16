@@ -1,4 +1,5 @@
-import {findWikiMessage,wikiMessageSources} from './session-wiki.js?v=single-project-2';
+import {findWikiMessage,wikiMessageSources} from './session-wiki.js?v=planning-refs-1';
+import {answerPlanningQuestion} from './planning-knowledge.js?v=planning-refs-1';
 const FILE=/^sample-data\/[a-z0-9._-]+(?:#page=\d+)?$/i;
 const day=s=>s?new Date(s+'T00:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}):'not recorded';
 const round=n=>Math.round(n*1000)/1000;
@@ -11,6 +12,7 @@ export function validateSampleProject(p){
  if(!Array.isArray(p.checklist)||!p.checklist.some(x=>x.number===21))throw new Error('Sample checklist is incomplete.');
  const ids=new Set();for(const s of p.sources||[]){if(!/^sample-[a-z-]+$/.test(s.id)||ids.has(s.id)||!FILE.test(s.url)||!['internal','customer-safe','public'].includes(s.tier))throw new Error('Invalid sample source.');ids.add(s.id);}
  for(const id of ['sample-chat','sample-roof','sample-elevation','sample-structure','sample-schedule','sample-oc','sample-progress','sample-public','sample-photo','sample-markup'])if(!ids.has(id))throw new Error('A required sample reference is missing.');
+ if(p.assets?.illustrativeWhatsappHash&&!/^[a-f0-9]{64}$/.test(p.assets.illustrativeWhatsappHash))throw new Error('Invalid illustrative screenshot hash.');
  if(!Array.isArray(p.downloads)||p.downloads.some(s=>!FILE.test(s.url))||!FILE.test(p.assets?.photo)||!FILE.test(p.assets?.roofMarkup)||!/^[a-f0-9]{64}$/.test(p.assets?.whatsappHash))throw new Error('Invalid sample asset.');return p;
 }
 const milestone=(p,key)=>p.schedule.rows.find(r=>r.sourceRow===p.schedule.milestones[key]);
@@ -32,9 +34,10 @@ export function buildSamplePack({project,photoName='',note='',wikiEntries=[]}={}
  {id:'social',agent:'content',tier:'public',title:'Brand story',to:p.publicName,channel:'Instagram draft',body:`The care behind the roofline.\n\nAt our ${p.publicName}, careful drawing review and coordination are part of the work behind the finished home.\n\nA story about the details and decisions along the way, ready for the site manager’s review.\n\n#${p.publicName.replace(/\s/g,'')} #ConstructionDetails`,citations:['sample-public'],taskTitle:'Prepare the brand story for human review',reminder:'Get Digger’s approval before using the story externally.'}
  ].map(d=>({...d,status:'draft'}));
  const steps=[{agent:'source',to:'router',alsoTo:'capture',detail:'The site update reaches Digger and Lyra for the one selected project.'},{agent:'router',to:'capture',detail:'Digger shares the site context with Lyra.'},{agent:'capture',to:'router',detail:'Lyra returns labelled project context to Digger.'},{agent:'capture',to:'kb',detail:'Lyra organises the photo, schedule, drawings, checklist and chat in the session Wiki.'},{agent:'router',to:'curator',detail:'Digger asks Bower for references and next steps.'},{agent:'curator',to:'kb',detail:'Bower retrieves the projected roof dates and document requirements.'},{agent:'kb',to:'curator',detail:'The Wiki returns source rows, checklist items and drawing references.'},{agent:'curator',to:'router',detail:'Bower returns the planned dates and flags uncertainties for Digger review.'},...drafts.map(d=>({agent:'curator',to:d.agent,detail:`Bower allocates: ${d.taskTitle}.`}))].map((s,i)=>({...s,action:'prepared',itemId:p.id,t:String(i+1)}));
- return {drafts,steps,photoName,sourceNote:note,approved:false,sampleProject:p,wikiEntries,sources:[...p.sources,...wikiMessageSources(wikiEntries)],findings:f};
+ return {drafts,steps,photoName,sourceNote:note,approved:false,sampleProject:p,wikiEntries,sources:[...p.sources,...(p.regulatory?.references||[]),...wikiMessageSources(wikiEntries)],findings:f};
 }
 export function answerSampleQuestion({question='',audience='workspace',pack}={}){
+ const planning=answerPlanningQuestion({question,audience,registry:pack.sampleProject.regulatory});if(planning)return planning;
  const p=pack.sampleProject,f=sampleFindings(p),internal=['workspace','admin'].includes(audience),q=question;
  const result=(text,citations=[])=>({text,citations});
  if(!internal&&/price|margin|markup|supplier|profit|internal|quote|cost|lender|bank|contract|drawing|height|pitch|800|FFL|millimetre|technical|mark\b|kira\b|whatsapp|private/i.test(q))return result(audience==='social'?'Digger needs to review that request before any public use.':'I can help with the project plan and milestones. Digger reviews technical, pricing and private team questions.');

@@ -530,7 +530,7 @@
         "sourceRow": 63,
         "stage": "FRAME STAGE",
         "process": "Frame",
-        "task": "Framework \u2013 First floor (brick veneer construction)",
+        "task": "Framework – First floor (brick veneer construction)",
         "start": "2026-11-09",
         "finish": "2026-11-27",
         "note": "Started Mon 9 Nov 2026"
@@ -548,7 +548,7 @@
         "sourceRow": 65,
         "stage": "FRAME STAGE",
         "process": "Roof",
-        "task": "Brick veneer \u2013 First floor (external brick skin)",
+        "task": "Brick veneer – First floor (external brick skin)",
         "start": "2026-12-03",
         "finish": "2026-12-10",
         "note": "Roof on by 10 Dec 2026"
@@ -560,7 +560,7 @@
         "task": "Roof covering (roof enclosing)",
         "start": "2026-12-11",
         "finish": "2027-01-22",
-        "note": "Includes Christmas shutdown (approx. 19 Dec \u2013 10 Jan)"
+        "note": "Includes Christmas shutdown (approx. 19 Dec – 10 Jan)"
       },
       {
         "sourceRow": 67,
@@ -1219,7 +1219,7 @@
     },
     {
       "number": 2,
-      "requirement": "Structural engineer\u2019s inspection reports"
+      "requirement": "Structural engineer’s inspection reports"
     },
     {
       "number": 3,
@@ -1231,7 +1231,7 @@
     },
     {
       "number": 5,
-      "requirement": "Waterproofing Certificate to AS3740-2021 and specify type of product applied.Note: only licensed builder & waterproofing technician\u2019s certificate will be accepted."
+      "requirement": "Waterproofing Certificate to AS3740-2021 and specify type of product applied.Note: only licensed builder & waterproofing technician’s certificate will be accepted."
     },
     {
       "number": 6,
@@ -1271,7 +1271,7 @@
     },
     {
       "number": 15,
-      "requirement": "Stormwater engineer\u2019s compliance certificate certifying the Work-as-executed Stormwater Plan"
+      "requirement": "Stormwater engineer’s compliance certificate certifying the Work-as-executed Stormwater Plan"
     },
     {
       "number": 16,
@@ -1343,7 +1343,7 @@
     },
     {
       "number": 36,
-      "requirement": "Waterproofing Certificate (external) to A4654.2-2012 and specify type of product applied.Note: only licensed builder & waterproofing technician\u2019s certificate will be accepted."
+      "requirement": "Waterproofing Certificate (external) to A4654.2-2012 and specify type of product applied.Note: only licensed builder & waterproofing technician’s certificate will be accepted."
     },
     {
       "number": 37,
@@ -1489,6 +1489,7 @@
     "photo": "sample-data/site-photo.jpg",
     "roofMarkup": "sample-data/roof-markup.png",
     "whatsappHash": "164717194562af15acc5d36a3c813027ca796b3538a14382d0a943eb3f7d406d",
-    "transcript": "Kira: I got ~18m but I only estimated 2.7m height based on the plans. Should\u2019ve added 800.\nMark: Yes need to add 800mm in the middle\nMark: There is 5 degree fall\nMark: Otherwise it will be flat roof"
+    "transcript": "Kira: I got ~18m but I only estimated 2.7m height based on the plans. Should’ve added 800.\nMark: Yes need to add 800mm in the middle\nMark: There is 5 degree fall\nMark: Otherwise it will be flat roof",
+    "illustrativeWhatsappHash": "9f886f3954e9b1a50429130535a88e22668a4499782f6c6982a70fb38dd84967"
   }
 }
