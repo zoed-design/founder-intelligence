@@ -10,13 +10,15 @@ Drop a site photo to allocate three source-linked drafts. The project’s review
 
 Bower also uses a reviewed Randwick / NSW planning-reference snapshot, checked 17 November 2026. Try “Can I build a duplex in Randwick Council?” before uploading a photo. Answers cite official guidance, distinguish conditional standards from approval, and identify missing site information. See [planning coverage and limits](docs/planning-references.md). No live cloud synchronisation or general legal engine is connected.
 
+The public website has five separate pages: [Mission](landing/index.html), [The Crew](landing/crew.html), [Prototype guide and downloads](landing/prototype.html), [Team](landing/team.html), and [Data & AI](landing/data-ai.html). The home page shows brief linked summaries. The [submission summary](docs/project-submission-summary.md) and [16:9 banner](landing/assets/construction-intelligence-banner.jpg) use the current project name and branding.
+
 ## Try it
 
 1. Choose New session. Drop the supplied site photo, or open Wiki and choose Use supplied site photo.
 2. Review the Roo, Tally and Kooka drafts and open their references.
 3. As Tally, ask “When will roof covering finish?”, “When will the entire project finish?” and “When will I receive my OC to move in?” Dates are projections from the supplied mock-up schedule. An undated milestone remains unknown.
 4. As Roo, ask “Do I need a certificate for roof covering?” or “When should I arrange an inspection after the roof?” References identify the relevant checklist items and the limits of the inspection information. Proposed changes are flagged for Digger.
-5. Download the illustrative WhatsApp image from the landing page, or in Digger, choose Add a WhatsApp message. Paste text, upload .txt/.md or select the supplied screenshot. Review the transcript, then Collect into Wiki. Ask “What did Mark say in the WhatsApp message?” The new message is cited as an unverified local source. Roo prepares coaching for review; the recognised demo transcript links the roof drawing references.
+5. Download the illustrative WhatsApp image from the Prototype guide, or in Digger, choose Add a WhatsApp message. Paste text, upload .txt/.md or select the supplied screenshot. Review the transcript, then Collect into Wiki. Ask “What did Mark say in the WhatsApp message?” The new message is cited as an unverified local source. Roo prepares coaching for review; the recognised demo transcript links the roof drawing references.
 6. Review, edit, Approve updates and Download updates. Nothing is sent, scheduled or posted.
 
 The supplied screenshot is recognised by its hash and uses a reviewed transcript. Other screenshots need manually pasted text. Photos are attachments without image analysis. Imported messages do not override schedule dates, issued drawings or client facts. Browser-session state clears on reload or New session; the bundled one-project Wiki remains available. Full original PDF packs still contain identifying material and are not published or fully searchable. All static downloads are public; role views are not production authentication.

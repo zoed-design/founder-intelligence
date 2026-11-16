@@ -1,8 +1,10 @@
 import {createMap} from '../src/map.js?v=brand-stories-2';
 import {mascot} from '../src/crew.js?v=brand-stories-2';
 const portraits=Object.fromEntries(['router','capture','curator','teamwork','commercial','content'].map(id=>[id,`assets/${id}.webp`]));
-createMap(document.querySelector('#vision-map'),{},portraits);
+const map=document.querySelector('#vision-map');
+if(map)createMap(map,{},portraits);
 const container=document.querySelector('#landing-mascot');
+if(container){
 const digger=mascot(container,null);
 const control=document.querySelector('#landing-dance');
 const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -22,3 +24,5 @@ document.addEventListener('visibilitychange',sync);
 let timer;const startTimer=()=>{clearInterval(timer);timer=setInterval(()=>{if(dancing&&visible&&!document.hidden&&!motion.matches)digger.dance();},1500);};
 window.addEventListener('pagehide',()=>clearInterval(timer));window.addEventListener('pageshow',()=>{startTimer();sync();});startTimer();
 sync();
+
+}
