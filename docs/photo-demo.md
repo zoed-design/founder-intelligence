@@ -1,69 +1,21 @@
-# Photo-led hackathon demo
+# Photo and sample-data demo
 
-## Three-minute presentation
+Use [the sample-data demo guide](sample-data-demo.md) for the reviewed real-record case. Start with **New session**, then **Load sample project**. You can attach a presentation-approved JPEG, PNG or WebP after loading the case. The image is an attachment; it is not analysed or measured.
 
-1. Start on **Digger / Site Manager**. The greeting and composer are generic and
-   reveal no project or framing details before input.
-2. Drop or paste a presentation-approved JPEG into the conversation, or use the inline + file
-   picker. Preparation starts automatically; there is no manual run button.
-3. Review the Employee Coach, Client and Client Stories updates side by side below the
-   conversation, then open any of the three corresponding role pages.
-4. Roo is the **Employee Coach**: employees **Talk to Roo** for step-by-step guidance, source references and a handoff to Digger when review is needed. Tally has a human mother/homeowner avatar without PPE. Kooka is **Client Stories**, with an Instagram-style preview, editable public caption and a Bower conversation. Each receives an assigned task and a reminder draft.
-5. Return to Digger to approve the three drafts and download the pack. Approval
-   and dispatch are local simulation; nothing is sent externally.
+Without a selected sample project, uploading a photo retains the original generic template demonstration. It does not identify the photo's project or retrieve new facts from the image.
 
-No morning scenario runs. No unrelated questions, sample-photo controls, Markdown
-uploader, project-overview page or simulation banner appears in the main UI.
-The palette matches the founder's screenshot: warm cream/peach background, gold-brown navigation, brown headlines, cream conversation surfaces and a blue crew panel.
-The original mascot retains continuous idle motion, Dance and optional Voice.
+In either mode, Roo / Employee Coach, Tally / Client and Kooka / Client Stories receive three parallel drafts. Open a role conversation, review sources, edit the draft, return to Digger and approve, then download locally. Nothing is sent, scheduled or posted.
+
+The palette remains warm cream/peach, gold-brown navigation and headlines, with a blue crew panel. The mascot retains idle motion, Dance and optional Voice. No morning scenario runs.
 
 ## Architecture
 
-This prototype demonstrates one small workflow within the intended product. The wider demo and pitch should also communicate the full product vision, clearly distinguishing concept scenes from the functions implemented here.
+New messages reach Digger and Lyra. Lyra collects and organizes information into the Wiki. Digger asks Bower for references and next actions; Bower exchanges questions and task drafts with Roo, Tally and Kooka. The map shows these steps. The original engine and role policies remain in the repository.
 
-The original `src/engine.js`, `orchestrate()` and role policies are preserved.
-`src/agents.js` also exports the focused `photo-workflow.js` scenario adapter.
-New messages reach Digger and Lyra; Lyra collects and organizes the Wiki. Digger asks Bower for references and next actions, and Bower exchanges questions and task drafts with Roo, Tally and Kooka. The adapter returns trace events for the animated map and crew. The original broad
-UI remains in `app.js`; `index.html` now launches `demo.js`.
-
-The adapter uses entirely fictional reference notes and generic templates. It does not run a vision
-model or LLM, parse arbitrary PDF uploads, validate engineering, confirm site
-completion, update a schedule, schedule reminders, connect WhatsApp or dispatch communications. Bower uses a small keyword-based, audience-scoped lookup of the fictional source notes; it is not live semantic retrieval.
-Markdown is preserved as quoted internal reference. It is not executable and
-cannot change permissions, recipients or public templates.
-
-## Fictional scenario
-
-All project, customer, team, certifier, engineering and lender values are
-invented for the presentation. No real source conversation, date, drawing
-reference, spreadsheet cell, engineering dimension or approval record is used.
-
-The generic workflow is: receive a photo, prepare team follow-up actions,
-prepare a client progress message, and create a public-safe Instagram draft.
-The reference notes in `src/photo-workflow.js` are fictional fixtures, not
-excerpts from actual project documents. No claim eligibility or booking is
-verified or inferred.
+The sample mode uses reviewed structured facts and source extracts; the generic photo-only mode uses fictional reference notes. Neither mode calls a live LLM, parses arbitrary uploaded documents, verifies engineering, confirms completion or connects communications. Full source packs and private preparation files are excluded from Git.
 
 ## Privacy and storage
 
-The public presentation uses **42 Marubra Street, Marubra** and **Marubra
-Duplex** as fictional aliases. Engineering and approval identifiers use `DEMO-*`
-values. All personal and business contact names are invented. Original source
-filenames, measurements and project conversations are absent from the public
-code and documentation.
+The case uses **18 Maroubra Street, Maroubra** and **Coastal Duplex** as aliases. Only reviewed extracts in `sample-data/` are bundled. Every download is public; switching role tabs is a demonstration of audience handling, not access control.
 
-Real assets live only in ignored `private-demo/`. The test fixture can be copied
-there as `framing.jpg`. The UI accepts photos directly from the user; it does not
-preload a known project or expose a sample control. No real assets should be
-pushed publicly.
-
-Uploads, conversation and draft edits are held in memory only and clear on page
-reload or New session. An edited public draft is screened again at approval.
-This uses scenario-specific rules, not a general PII detection guarantee. Public
-drafts have no original image attached. Review images and their metadata before
-any future external publication. The downloaded combined pack includes private
-admin/client material and is for founder review, not public distribution.
-
-Existing connection backend work is outside this focused static demo. A real
-deployment still needs authentication, server-enforced access controls, secure
-provider integrations, and model services if live AI analysis is desired.
+Uploads, conversations and edits stay in memory and clear on reload or New session. Public drafts are screened again at approval using scenario-specific rules, not a general PII guarantee. The combined downloaded pack contains internal review material and is not a public social post. Images are not attached to the exported story.

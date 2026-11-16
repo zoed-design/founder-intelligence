@@ -47,7 +47,7 @@ test('approval requires all content, public mask, and records local status only'
   assert.equal(p.approved,false);
   assert.ok(approved.drafts.every(d=>d.status==='approved-local'));
   p.drafts[2].body='Generic public text';
-  assert.throws(()=>approvePack(p),/Marubra Duplex/);
+  assert.throws(()=>approvePack(p),new RegExp(CONTEXT.publicName));
   p.drafts[0].body='';
   assert.throws(()=>approvePack(p),/empty/);
 });

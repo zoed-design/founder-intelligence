@@ -1,8 +1,9 @@
+import {buildSamplePack, answerSampleQuestion} from './sample-project.js?v=sample-records-1';
 // Focused scenario adapter. The existing general message engine stays intact.
-// Public release: entirely fictional fixtures and generic workflow templates.
-// No real project records, personal contacts or vision/LLM API calls are used.
-import { CONTEXT } from './demo-config.js';
-export { CONTEXT } from './demo-config.js';
+// Generic fixtures remain available. An explicitly loaded reviewed sample pack uses source-backed checks.
+// No vision/LLM API calls or external dispatch are used.
+import { CONTEXT } from './demo-config.js?v=sample-records-1';
+export { CONTEXT } from './demo-config.js?v=sample-records-1';
 
 export const SOURCES = [
   { id: 'photo', title: 'Photo input', file: 'Session attachment', evidence: 'The uploaded photo is an input to this fixed framing scenario. No image recognition, measurement or compliance verification is performed.' },
@@ -23,15 +24,16 @@ export function publicIssues(text) {
   const street = CONTEXT.address.split(',')[0].replace(/^\d+\s*/, '');
   const checks = [
     [new RegExp(`\\b${escape(CONTEXT.client)}\\b`, 'i'), 'Client name'], [new RegExp(escape(street), 'i'), 'Exact project location'],
-    [/\b(?:42|42a)\b/i, 'Street number'], [/DEMO-CDC|DEMO-STRUCT-001|DEMO-ARCH-001|DEMO-LOT-001/i, 'Private project identifier'],
-    [new RegExp([CONTEXT.admin, CONTEXT.certifier, CONTEXT.lender].map(escape).join('|'), 'i'), 'Internal contact or lender'],
+    [/\b(?:18|18a|42|42a)\b/i, 'Street number'], [/DEMO-CDC|DEMO-STRUCT-001|DEMO-ARCH-001|DEMO-LOT-001/i, 'Private project identifier'],
+    [new RegExp(`\\b(?:${[CONTEXT.admin, CONTEXT.certifier, CONTEXT.lender, 'Alex Reed', 'Sam Cole', 'S Square'].map(escape).join('|')})\\b`, 'i'), 'Internal contact or lender'],
     [/[\w.+-]+@[\w.-]+\.[a-z]{2,}/i, 'Email address'], [/\+?\d[\d ()-]{8,}\d/, 'Phone or account number'],
     [/\b\d+\s+[a-z][a-z ]{0,35}\s(?:street|st|road|rd|avenue|ave|lane|ln|drive|dr)\b/i, 'Street address'],
   ];
   return checks.filter(([re]) => re.test(text)).map(([,label]) => label);
 }
 
-export function buildPhotoPack({ note = '', photoName = '', briefName = '', briefText = '' } = {}) {
+export function buildPhotoPack({ note = '', photoName = '', briefName = '', briefText = '', sampleProject = null } = {}) {
+  if (sampleProject) return buildSamplePack({project:sampleProject,photoName,note});
   if (!photoName && !briefName) throw new Error('Add a site photo or Markdown brief first.');
   const c = CONTEXT;
   const inputSources = [photoName ? 'photo' : null, 'chat', 'cdc', 'structure', 'schedule', 'coaching', 'brief'].filter(Boolean);
@@ -84,6 +86,7 @@ export function askBower({ question = '', audience = 'workspace', pack } = {}) {
   ].map(s=>({...s,itemId}));
   const result = (text, citations=[]) => ({text,citations,steps});
   if (!pack) return result('Share the latest site photo first. I’ll use the demo Wiki to find references and prepare the team’s tasks and reminder drafts for your review.');
+  if (pack.sampleProject) return {...answerSampleQuestion({question,audience,pack}),steps};
   const internal = audience === 'workspace' || audience === 'admin';
   if (!internal && /price|margin|markup|supplier|profit|internal|quote|cost|lender|bank|contract/i.test(question)) {
     return result(audience === 'client' ? 'I can help with your progress and next steps. For pricing or contract questions, I’ll refer you to your project contact.' : 'I don’t have a public-approved reference for that request. Please ask the site manager to review it.');

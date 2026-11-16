@@ -1,44 +1,27 @@
 # Editing and presenting the demo
 
-## During your presentation
+1. Open the live app and choose **New session**, then **Load sample project**.
+2. Review Bower’s drawing/chat comparison, schedule gap and three role drafts. Open Source references to inspect the public extracts.
+3. Optionally attach a presentation-approved site photo. It stays attached to the selected case without image analysis.
+4. Expand **Edit update** to revise a draft. **Open conversation** opens that role’s page. Roo coaches employees and flags changes for Digger review; Tally receives client context; Kooka prepares Client Stories.
+5. Return to Digger, **Approve updates**, then **Download updates** with source links. Nothing is dispatched or scheduled.
 
-1. Open the live app and choose **New session**.
-2. As Digger / Site Manager, drop a site photo into **Talk to Bower**, or use the + button. The three
-   updates appear automatically.
-3. Expand **Edit update** in any of the three cards to change its text. The Team,
-   Client and Client Stories pages immediately use the updated text.
-4. **Open conversation** opens that role's page. Roo / Employee Coach explains the steps to employees, consults Bower's references and flags questions for Digger review when necessary. It also has an editable
-   coaching guide. Kooka / Client Stories has an editable caption and Instagram-style preview. Tally / Client is a
-   client conversation and cannot see internal notes or export the combined pack.
-5. Return to Digger, choose **Approve updates**, then **Download updates**.
-
-Edits last for this browser session only. Reloading or New session clears them.
-Approval does not send messages or publish to Instagram.
-Tasks and reminder drafts are assigned within the session; they do not schedule notifications. Bower's answers use the fictional demo Wiki notes. Unknown questions return a knowledge gap rather than an invented source.
+Reloading or New session clears the case, attachments and edits. See [the sample demo guide](sample-data-demo.md) for questions to demonstrate and method limits.
 
 ## Permanent changes on GitHub
 
-Open a file in GitHub, choose the pencil / Edit action, make the change and commit
-to `main`. The Pages deployment runs the tests and then publishes the revision.
+Edit the appropriate file and commit to main. Pages runs tests before deploying.
 
-| What you want to change | File |
+| Change | File |
 | --- | --- |
-| Fictional address, project display name, client/team names, Instagram handle | `src/demo-config.js` |
-| The three full output templates and source summaries | `src/photo-workflow.js` |
-| Page greetings and role labels | `demo.js` |
-| Bower's audience-scoped reference lookup, task and reminder templates | `src/photo-workflow.js` |
-| App title, tagline, top navigation | `index.html` |
+| Reviewed case facts and source locators | `sample-data/project.json` and matching extract files |
+| Sample checks, drafts and answers | `src/sample-project.js` |
+| Generic photo-only templates and lookup | `src/photo-workflow.js` |
+| Public aliases and Instagram handle | `src/demo-config.js` |
+| Greetings, role pages and sample controls | `demo.js` |
+| App title, tagline and navigation | `index.html` |
 | Colours and layout | `demo.css` |
-| Mascot, role characters, animation | `src/crew.js` |
-| Agent map and its labels | `src/map.js` |
+| Characters and animation | `src/crew.js` |
+| Agent map | `src/map.js` |
 
-Keep project data fictional. The presentation uses **42 Marubra Street, Marubra**
-and **Marubra Duplex** as aliases, with `DEMO-*` project identifiers. These are
-presentation values, not a verified real address or approvals. Persona names are
-scenario labels and do not verify any actual client, contact or lender records.
-Do not commit original project files or photos. Upload a presentation-approved
-photo when demonstrating; the public repository has no original project images.
-
-The app uses fixed scenario templates; changing the photo does not run a live
-vision model or identify a different project. Static role pages demonstrate the
-workflow; production authentication is not implemented.
+Update reviewed facts and their supporting extracts together. Check identifiers, title blocks, contacts, comments and metadata before publication; do not commit full source packs or original chat images. All bundled downloads are public. Persona tabs are not production authentication. Changing an uploaded photo does not run a vision model or load a different project.

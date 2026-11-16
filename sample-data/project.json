@@ -1,0 +1,845 @@
+{
+  "schemaVersion": 1,
+  "id": "demo-18-maroubra",
+  "title": "18 Maroubra Street, Maroubra",
+  "publicName": "Coastal Duplex",
+  "provenance": "Reviewed extracts of founder-supplied real project records; project and professional identities are aliases.",
+  "limits": "Source values and schedule gaps are used for deterministic checks. No image measurement, live AI, current compliance validation, booking, sending or external Wiki write is performed.",
+  "drawing": {
+    "pitchDegrees": 5,
+    "wallTopRL": 48.1,
+    "roofFFLRL": 47.3,
+    "levelOneFFLRL": 44.6,
+    "issue": "A2",
+    "issueDate": "2025-08-08"
+  },
+  "conversation": {
+    "estimatedHeightM": 2.7,
+    "additionalHeightMm": 800,
+    "pitchDegrees": 5,
+    "source": "site-conversation-extract.md"
+  },
+  "schedule": {
+    "rows": [
+      {
+        "sourceRow": 2,
+        "stage": "DEPOSIT",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 3,
+        "stage": "Contract Signing",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 4,
+        "stage": "Documentation",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 5,
+        "stage": "",
+        "task": "Detail Survey",
+        "start": "2025-02-25",
+        "finish": "2025-02-25"
+      },
+      {
+        "sourceRow": 6,
+        "stage": "Approval",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 7,
+        "stage": "Mobilisation of Resources",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 8,
+        "stage": "UNDERGROUND GARAGE BASE",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 9,
+        "stage": "Completion of demolition",
+        "task": "Demolition",
+        "start": "2025-09-30",
+        "finish": "2025-10-28"
+      },
+      {
+        "sourceRow": 10,
+        "stage": "",
+        "task": "Traffic Management",
+        "start": "2025-10-01",
+        "finish": "2025-10-01"
+      },
+      {
+        "sourceRow": 11,
+        "stage": "",
+        "task": "Portable Toilet Hire 35 Weeks Standard",
+        "start": "2025-10-09",
+        "finish": "2026-06-11"
+      },
+      {
+        "sourceRow": 12,
+        "stage": "Piling, shoring, and retention works",
+        "task": "Support Stay Set Fence",
+        "start": "2025-10-09",
+        "finish": null
+      },
+      {
+        "sourceRow": 13,
+        "stage": "",
+        "task": "Fence",
+        "start": "2025-10-09",
+        "finish": null
+      },
+      {
+        "sourceRow": 14,
+        "stage": "",
+        "task": "Construction Set Out -Grid & Pool",
+        "start": "2025-10-28",
+        "finish": "2025-10-28"
+      },
+      {
+        "sourceRow": 15,
+        "stage": "",
+        "task": "Asset Opening  Permit Approval",
+        "start": "2025-11-07",
+        "finish": "2025-11-07"
+      },
+      {
+        "sourceRow": 16,
+        "stage": "",
+        "task": "Construction Set Out - Pile & Al Fresco",
+        "start": "2025-11-12",
+        "finish": "2025-11-12"
+      },
+      {
+        "sourceRow": 17,
+        "stage": "",
+        "task": "Supply & Install Screw Piles -> Stage 1: G.F & Pools",
+        "start": "2025-11-12",
+        "finish": "2025-11-27"
+      },
+      {
+        "sourceRow": 18,
+        "stage": "",
+        "task": "Inspection Supply & Install Screw Piles -> Stage 1: G.F & Pools",
+        "start": "2025-11-27",
+        "finish": "2025-11-27"
+      },
+      {
+        "sourceRow": 19,
+        "stage": "",
+        "task": "S73 Sydney Water Asset Opening",
+        "start": "2025-12-09",
+        "finish": "2025-12-09"
+      },
+      {
+        "sourceRow": 20,
+        "stage": "",
+        "task": "- Disconnection remove exiting service main\n- Re install private pole and temporary board\n- Install three phase overhead main\n- Testing commissioning",
+        "start": "2025-12-12",
+        "finish": "2025-12-12"
+      },
+      {
+        "sourceRow": 21,
+        "stage": "",
+        "task": "Construction Set Out - Basement Walls",
+        "start": "2025-12-16",
+        "finish": "2025-12-16"
+      },
+      {
+        "sourceRow": 22,
+        "stage": "",
+        "task": "Bulk Excavation",
+        "start": "2025-12-17",
+        "finish": "2025-12-18"
+      },
+      {
+        "sourceRow": 23,
+        "stage": "",
+        "task": "CFA Piling",
+        "start": "2026-01-22",
+        "finish": "2026-02-02"
+      },
+      {
+        "sourceRow": 24,
+        "stage": "",
+        "task": "Concrete Pump CFA Piling",
+        "start": "2026-01-28",
+        "finish": "2026-01-28"
+      },
+      {
+        "sourceRow": 25,
+        "stage": "",
+        "task": "Capping Beam",
+        "start": "2026-02-02",
+        "finish": "2026-02-12"
+      },
+      {
+        "sourceRow": 26,
+        "stage": "",
+        "task": "Pre Pour Inspection (Capping Beam Reinforcement)",
+        "start": "2026-02-13",
+        "finish": "2026-02-13"
+      },
+      {
+        "sourceRow": 27,
+        "stage": "",
+        "task": "Concrete Pump Cap Beam",
+        "start": "2026-02-16",
+        "finish": "2026-02-16"
+      },
+      {
+        "sourceRow": 28,
+        "stage": "",
+        "task": "Asset Opening  S73 Inspection",
+        "start": "2026-02-25",
+        "finish": "2026-02-25"
+      },
+      {
+        "sourceRow": 29,
+        "stage": "",
+        "task": "Absorption Trench",
+        "start": "2026-02-25",
+        "finish": "2026-02-25"
+      },
+      {
+        "sourceRow": 30,
+        "stage": "",
+        "task": "Formwork Stage 1 Ground Preparation",
+        "start": "2026-02-26",
+        "finish": "2026-03-10"
+      },
+      {
+        "sourceRow": 31,
+        "stage": "",
+        "task": "Dincel Structural Walling",
+        "start": "2026-02-26",
+        "finish": "2026-03-10"
+      },
+      {
+        "sourceRow": 32,
+        "stage": "",
+        "task": "Dincel Wall Reinforcement_Raft Slab Reinforcement GF_Piles GF",
+        "start": "2026-03-09",
+        "finish": "2026-03-09"
+      },
+      {
+        "sourceRow": 33,
+        "stage": "",
+        "task": "Concrete Pump",
+        "start": "2026-03-10",
+        "finish": "2026-03-10"
+      },
+      {
+        "sourceRow": 34,
+        "stage": "Waterproofing of substructure",
+        "task": "Used Waterproof Membrane",
+        "start": "2026-03-13",
+        "finish": "2026-03-13"
+      },
+      {
+        "sourceRow": 35,
+        "stage": "Basement excavation",
+        "task": "Pre-commencement Inspection",
+        "start": "2026-03-13",
+        "finish": "2026-03-13"
+      },
+      {
+        "sourceRow": 36,
+        "stage": "",
+        "task": "Basement excavation",
+        "start": "2026-03-16",
+        "finish": "2026-03-19"
+      },
+      {
+        "sourceRow": 37,
+        "stage": "",
+        "task": "Geotechnical Footing Inspection",
+        "start": "2026-03-19",
+        "finish": "2026-03-19"
+      },
+      {
+        "sourceRow": 38,
+        "stage": "",
+        "task": "Shotcrete",
+        "start": "2026-03-23",
+        "finish": "2026-03-23"
+      },
+      {
+        "sourceRow": 39,
+        "stage": "",
+        "task": "Construction Set Out - Basement",
+        "start": "2026-03-25",
+        "finish": "2026-03-25"
+      },
+      {
+        "sourceRow": 40,
+        "stage": "",
+        "task": "Supply & Install Screw Pile-> Stage 2: Basement",
+        "start": "2026-03-27",
+        "finish": "2026-03-27"
+      },
+      {
+        "sourceRow": 41,
+        "stage": "",
+        "task": "Two OSD Tank Basement",
+        "start": "2026-03-31",
+        "finish": "2026-04-02"
+      },
+      {
+        "sourceRow": 42,
+        "stage": "",
+        "task": "Concrete Pump OSD Tank Basement",
+        "start": "2026-04-02",
+        "finish": "2026-04-02"
+      },
+      {
+        "sourceRow": 43,
+        "stage": "",
+        "task": "OSD Inspection",
+        "start": "2026-04-02",
+        "finish": "2026-04-02"
+      },
+      {
+        "sourceRow": 44,
+        "stage": "",
+        "task": "Order Blue metal",
+        "start": "2026-04-14",
+        "finish": "2026-04-14"
+      },
+      {
+        "sourceRow": 45,
+        "stage": "",
+        "task": "Plumbing Rough In before Basement Work",
+        "start": "2026-04-15",
+        "finish": "2026-04-17"
+      },
+      {
+        "sourceRow": 46,
+        "stage": "",
+        "task": "Booked machine",
+        "start": "2026-04-16",
+        "finish": "2026-04-16"
+      },
+      {
+        "sourceRow": 47,
+        "stage": "",
+        "task": "Order building materials - blue metal/ steel",
+        "start": "2026-04-16",
+        "finish": "2026-04-16"
+      },
+      {
+        "sourceRow": 48,
+        "stage": "Reinforcement placement",
+        "task": "Formwork Stage 2 -  Slab Reinforcement",
+        "start": "2026-04-17",
+        "finish": "2026-04-29"
+      },
+      {
+        "sourceRow": 49,
+        "stage": "Pouring of underground garage raft or base slab",
+        "task": "Concrete Pump Basement Slab",
+        "start": "2026-04-29",
+        "finish": "2026-05-15"
+      },
+      {
+        "sourceRow": 50,
+        "stage": "FRAME – PART 1: GROUND FLOOR",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 51,
+        "stage": "Completion of ground floor vertical structure",
+        "task": "Order of Dincel Wall",
+        "start": "2026-05-05",
+        "finish": "2026-05-05"
+      },
+      {
+        "sourceRow": 52,
+        "stage": "",
+        "task": "Order of Rebar & Sundries",
+        "start": "2026-05-13",
+        "finish": "2026-05-13"
+      },
+      {
+        "sourceRow": 53,
+        "stage": "",
+        "task": "Structure of Dincel Wall",
+        "start": "2026-05-16",
+        "finish": "2026-05-20"
+      },
+      {
+        "sourceRow": 54,
+        "stage": "",
+        "task": "Formwork Ground Slab",
+        "start": "2026-05-20",
+        "finish": "2026-06-01"
+      },
+      {
+        "sourceRow": 55,
+        "stage": "",
+        "task": "Pipe Installation - Wet Areas",
+        "start": "2026-05-25",
+        "finish": "2026-05-25"
+      },
+      {
+        "sourceRow": 56,
+        "stage": "",
+        "task": "Pre Pour Inspection - Ground Slab",
+        "start": "2026-06-01",
+        "finish": "2026-06-01"
+      },
+      {
+        "sourceRow": 57,
+        "stage": "Pouring of ground floor slab",
+        "task": "Concrete Pump Ground Slab",
+        "start": "2026-06-05",
+        "finish": "2026-06-05"
+      },
+      {
+        "sourceRow": 58,
+        "stage": "",
+        "task": "Portable Toilet Hire 6 Months Standard",
+        "start": "2026-06-10",
+        "finish": "2026-12-09"
+      },
+      {
+        "sourceRow": 59,
+        "stage": "",
+        "task": "Storm Water and Sewer Pipe - Boundiries",
+        "start": "2026-07-01",
+        "finish": null
+      },
+      {
+        "sourceRow": 60,
+        "stage": "",
+        "task": "Pest Control",
+        "start": "2026-07-08",
+        "finish": "2026-07-08"
+      },
+      {
+        "sourceRow": 61,
+        "stage": "Brickwork walls",
+        "task": "Brick Commencement 4k CB & 4k FB",
+        "start": "2026-07-08",
+        "finish": "2026-07-12"
+      },
+      {
+        "sourceRow": 62,
+        "stage": "",
+        "task": "Brick Delivery 8k CB",
+        "start": "2026-07-13",
+        "finish": "2026-07-13"
+      },
+      {
+        "sourceRow": 63,
+        "stage": "Building structure rises above ground level",
+        "task": "Lintel Bar Delivery",
+        "start": "2026-07-14",
+        "finish": "2026-07-14"
+      },
+      {
+        "sourceRow": 64,
+        "stage": "",
+        "task": "Building Materials - Cement, sand, wall tie, expansion join",
+        "start": "2026-07-14",
+        "finish": null
+      },
+      {
+        "sourceRow": 65,
+        "stage": "",
+        "task": "Brick Delivery 8k CB",
+        "start": "2026-07-17",
+        "finish": "2026-07-17"
+      },
+      {
+        "sourceRow": 66,
+        "stage": "",
+        "task": "Brick Delivery 8k CB",
+        "start": "2026-07-21",
+        "finish": "2026-07-23"
+      },
+      {
+        "sourceRow": 67,
+        "stage": "",
+        "task": "Formwork Suspended Slab 1st floor",
+        "start": "2026-07-24",
+        "finish": "2026-08-03"
+      },
+      {
+        "sourceRow": 68,
+        "stage": "",
+        "task": "Order Steel Fixing",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 70,
+        "stage": "Establishes the primary footprint of the building",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 71,
+        "stage": "FRAMEWORK – PART 2: FIRST FLOOR",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 72,
+        "stage": "framework and reinforcement for first floor",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 73,
+        "stage": "Pouring of first floor slab",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 74,
+        "stage": "Erection of vertical structural elements to roof level",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 75,
+        "stage": "Full structural frame is completed",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 76,
+        "stage": "Structure ready for wall and enclosure works",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 77,
+        "stage": "ENCLOSED – PART 1 (LOCK-UP EXTERNAL)",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 78,
+        "stage": "Installation of roof covering",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 79,
+        "stage": "Completion of external walls to lock-up stage",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 80,
+        "stage": "Weatherproofing of the main building shell",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 81,
+        "stage": "Structure protected against external weather",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 82,
+        "stage": "Internal works can safely commence",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 83,
+        "stage": "Garage doors not necessarily installed yet",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 84,
+        "stage": "ENCLOSED – PART 2 (SERVICES ROUGH-IN)",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 85,
+        "stage": "Installation of windows and external doors",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 86,
+        "stage": "Commencement of services rough-in:",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 87,
+        "stage": "Plumbing rough-in",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 88,
+        "stage": "Electrical rough-in",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 89,
+        "stage": "Major services are embedded within the structure",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 90,
+        "stage": "FIXING",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 91,
+        "stage": "Bathroom and wet area tiling",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 92,
+        "stage": "Joinery (kitchen, wardrobes, cabinetry)",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 93,
+        "stage": "Internal doors and hardware",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 94,
+        "stage": "Property brought close to final finish standard",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 95,
+        "stage": "PRACTICAL COMPLETION",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 96,
+        "stage": "Final Stage of Construction",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 97,
+        "stage": "Works completed in accordance with:",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 98,
+        "stage": "Contract",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 99,
+        "stage": "Approved plans",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 100,
+        "stage": "Specifications",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 101,
+        "stage": "Statutory requirements",
+        "task": "",
+        "start": null,
+        "finish": null
+      },
+      {
+        "sourceRow": 102,
+        "stage": "Property is ready for handover and occupation (subject to final inspections)",
+        "task": "",
+        "start": null,
+        "finish": null
+      }
+    ],
+    "dateMeaning": "Dates are source schedule entries, not evidence of actual completion. Blank means not recorded in the supplied schedule."
+  },
+  "checklist": [
+    {
+      "number": 2,
+      "requirement": "Structural engineer’s inspection reports"
+    },
+    {
+      "number": 17,
+      "requirement": "BASIX Compliance certificate from the builder, with the BASIX number correctly referenced"
+    },
+    {
+      "number": 21,
+      "requirement": "Metal sheet (Colorbond) roofing certificate"
+    },
+    {
+      "number": 27,
+      "requirement": "Fire Rated Construction Certificate"
+    },
+    {
+      "number": 29,
+      "requirement": "Work-as-executed stormwater plan signed by registered surveyor"
+    }
+  ],
+  "sources": [
+    {
+      "id": "sample-chat",
+      "title": "Site conversation",
+      "file": "Site conversation extract",
+      "url": "sample-data/site-conversation-extract.md",
+      "locator": "Kira and Mark messages",
+      "tier": "internal",
+      "evidence": "Kira used 2.7 m in the estimate. Mark says to add 800 mm in the middle and notes a 5 degree fall."
+    },
+    {
+      "id": "sample-roof",
+      "title": "Roof plan",
+      "file": "Approval drawing extracts",
+      "url": "sample-data/approval-drawing-extracts.pdf#page=1",
+      "locator": "Extract page 1; original CDC set page 10, drawing A 1.04, issue A2",
+      "tier": "internal",
+      "evidence": "The roof plan labels FALL 5 degrees."
+    },
+    {
+      "id": "sample-elevation",
+      "title": "West elevation levels",
+      "file": "Approval drawing extracts",
+      "url": "sample-data/approval-drawing-extracts.pdf#page=2",
+      "locator": "Extract page 2; original CDC set page 15, drawing A 2.01, issue A2",
+      "tier": "internal",
+      "evidence": "Top of wall 48.10; roof FFL 47.30; level 1 FFL 44.60."
+    },
+    {
+      "id": "sample-structure",
+      "title": "Timber structural notes",
+      "file": "Structural notes extract",
+      "url": "sample-data/structural-notes-extract.pdf",
+      "locator": "Extract page 1; original structural set page 1, S01, timber notes T1-T7",
+      "tier": "internal",
+      "evidence": "The supplied timber notes refer to AS 1720.1 and AS 1684. This excerpt is not an approval of the proposed change."
+    },
+    {
+      "id": "sample-schedule",
+      "title": "Project schedule",
+      "file": "Public schedule extract",
+      "url": "sample-data/project-schedule-extract.xlsx",
+      "locator": "Source row column: 71-78; row 78 is installation of roof covering",
+      "tier": "internal",
+      "evidence": "Row 78 lists installation of roof covering with no start or finish date recorded. Stage labels do not prove completion."
+    },
+    {
+      "id": "sample-oc",
+      "title": "OC document checklist",
+      "file": "OC document checklist",
+      "url": "sample-data/oc-document-checklist.pdf",
+      "locator": "Page 1, items 2, 17, 21, 27 and 29",
+      "tier": "internal",
+      "evidence": "The supplied checklist requests structural engineer inspection reports and specified completion documents. Presence or validity of these documents is not confirmed."
+    },
+    {
+      "id": "sample-progress",
+      "title": "Client progress context",
+      "file": "Reviewed sample summary",
+      "url": "sample-data/README.md",
+      "locator": "Client communication facts",
+      "tier": "customer-safe",
+      "evidence": "The team has a roof-detail query to review. A roof-covering date and inspection sign-off are not confirmed in the supplied records."
+    },
+    {
+      "id": "sample-public",
+      "title": "Client story context",
+      "file": "Reviewed sample summary",
+      "url": "sample-data/README.md",
+      "locator": "Public story context",
+      "tier": "public",
+      "evidence": "A public story can explain careful drawing review and coordination. The sample does not establish a new completion milestone."
+    }
+  ],
+  "downloads": [
+    {
+      "title": "Project schedule extract",
+      "url": "sample-data/project-schedule-extract.xlsx"
+    },
+    {
+      "title": "Roof plan and elevation extracts",
+      "url": "sample-data/approval-drawing-extracts.pdf"
+    },
+    {
+      "title": "Structural notes extract",
+      "url": "sample-data/structural-notes-extract.pdf"
+    },
+    {
+      "title": "OC document checklist",
+      "url": "sample-data/oc-document-checklist.pdf"
+    },
+    {
+      "title": "Site conversation extract",
+      "url": "sample-data/site-conversation-extract.md"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "name": "founder-intelligence",
   "version": "0.1.0",
-  "description": "Founder Intelligence: multi-agent knowledge platform for SMEs. Hackathon prototype with labelled dummy data.",
+  "description": "Founder Intelligence: multi-agent knowledge platform for SMEs. Hackathon prototype with reviewed de-identified sample records and labelled legacy fixtures.",
   "type": "module",
   "private": true,
   "scripts": {

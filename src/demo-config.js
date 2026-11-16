@@ -1,13 +1,13 @@
 // Edit this file to change the presentation's fictional project details.
 // Never put real addresses, credentials or private project identifiers here.
 export const CONTEXT = Object.freeze({
-  address: '42 Marubra Street, Marubra',
-  publicName: 'Marubra Duplex',
+  address: '18 Maroubra Street, Maroubra',
+  publicName: 'Coastal Duplex',
   client: 'Demo Homeowner',
-  admin: 'Demo Project Team',
+  admin: 'Kira',
   engineer: 'Example Engineering DEMO-STRUCT-001',
   consent: 'DEMO-CDC-001',
-  certifier: 'Example Certifier',
+  certifier: 'Cedar Certifiers',
   lender: 'Example Lender',
   instagramHandle: 'demo.buildco',
 });

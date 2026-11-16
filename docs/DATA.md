@@ -1,18 +1,20 @@
 # Data register
 
-## Current photo-led presentation
+## Current sample-data presentation
 
-The active UI uses entirely fictional project, personal and business names and generic framing references,
-not the legacy dummy inbox below. See [photo-demo.md](photo-demo.md) for source
-summary limitations and private asset handling. The legacy
-`data/*.json` fixtures remain unchanged to preserve the original engine tests.
-Uploads stay in memory. Nothing is sent, booked, certified or synced by this demo.
+The app includes selected de-identified extracts of founder-supplied project records in `sample-data/`. The project address and professional identities are fictional aliases; drawing values, task labels, planned dates and conversation wording are retained in the reviewed extracts. See [the public sample register](../sample-data/README.md) and [the source-backed demo guide](sample-data-demo.md) for provenance, exclusions and limits.
+
+Choose **Load sample project** to run source-based arithmetic, schedule-gap checks and audience-specific drafts. Uploads stay in memory. No photo analysis, live document ingestion, dispatch, booking, compliance certification or connected account sync is performed. Full source packs and private preparation files are excluded from Git.
+
+## Legacy engine fixtures
+
+The register below describes only `data/*.json`, preserved for the original engine and its tests. It does not describe the active sample-data UI.
 
 Hackathon rule: be clear about every source, what it is used for, and any dummy data. This register covers every file in `data/`.
 
 ## Status
 
-**All data in this repository is dummy data.** No personal, medical, client or commercial data is used. People are identified by role only. Businesses, addresses, job codes, dockets and amounts are invented.
+**All files in `data/` are dummy fixtures.** No personal, medical, client or commercial data is used. People are identified by role only. Businesses, addresses, job codes, dockets and amounts are invented.
 
 | File | Contents | Status | Used for | Swap for real data |
 |---|---|---|---|---|
@@ -25,7 +27,7 @@ Hackathon rule: be clear about every source, what it is used for, and any dummy 
 
 ## Data entered in the app
 
-Anything typed or uploaded in the live app stays in that browser's local storage (photos are shrunk to a small thumbnail first). It is never sent anywhere. **Reset** clears it. Don't enter real personal or client details.
+The current UI holds typed text, attachments and drafts in memory only; **New session** or reloading clears them. The original legacy UI used local storage. Do not enter sensitive personal or client details. All bundled sample downloads are public.
 
 ## Method: from raw input to recommendation
 
