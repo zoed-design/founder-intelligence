@@ -26,6 +26,18 @@ function clientDates(p,kind){
  if(kind==='oc')return `I understand how important it is to plan your move. The schedule currently projects receipt of the Occupation Certificate (OC) on ${day(milestone(p,'ocReceipt').finish)}. It plans the updated checklist for ${day(milestone(p,'ocChecklist').start)} and completion/submission of the requirements for ${day(milestone(p,'ocSubmission').finish)}. This is a planning target. The responsible certifier must issue the OC and the required approvals must be confirmed before move-in; the schedule alone does not confirm permission to occupy.`;
  const r=milestone(p,'practicalCompletion');return r.finish?`I know a reliable finish date helps you plan. The Practical Completion milestone is projected for ${day(r.finish)}. It remains a planning target, subject to confirmation by the site manager; it is separate from an issued OC and permission to move in. We’ll keep you informed as inspections and other dependencies are reviewed, and explain any confirmed change to the program.`:`I know having a reliable finish date matters to you. The schedule’s Practical Completion milestone has no projected date, so I don’t want to give you an unsupported whole-project finish date. The separate OC receipt target is ${day(milestone(p,'ocReceipt').finish)}; that is not a confirmed construction finish or move-in date. Digger needs to confirm the practical-completion milestone. We’ll keep you posted as the site team reviews inspections and other dependencies, with a revised projection once the program is confirmed.`;
 }
+export function sampleBrandStory(p){return `The care behind the roofline.
+
+At our ${p.publicName}, the framework is taking shape—and with it, the outline of a future home.
+
+A well-planned roof involves more than what you see from the street. Roof fall, wall heights and openings all deserve careful attention when reviewing drawings and preparing material quantities.
+
+Those small details connect the site team, the people preparing estimates and the next stage of the build. Sharing this journey helps our clients understand the care behind the finished home.
+
+Progress you can see. Care in the details you might never see.
+
+#BehindTheBuild #RoofFraming #ConstructionDetails`;}
+
 export function buildSamplePack({project,photoName='',note='',wikiEntries=[]}={}){
  const p=validateSampleProject(project),f=sampleFindings(p);
  const hasConversation=wikiEntries.some(e=>/800|5\s*(?:°|degree)|takeoff|markup/i.test(e.text))||/takeoff|markup|height|pitch|800|elevation/i.test(note);
@@ -33,7 +45,7 @@ export function buildSamplePack({project,photoName='',note='',wikiEntries=[]}={}
  const drafts=[
  {id:'admin',agent:'teamwork',tier:'internal',title:'Roofing employee coaching guide',to:'Kira',channel:'Employee coaching draft',body:admin,citations:['sample-schedule','sample-oc','sample-structure',...(hasConversation?['sample-chat','sample-roof','sample-elevation','sample-markup']:[])],taskTitle:'Coordinate roof follow-up and check the certificate requirements',reminder:'Confirm inspection hold points, certificates and any actual program changes with Digger.'},
  {id:'client',agent:'commercial',tier:'customer-safe',title:'Client roof progress update',to:'Demo Homeowner',channel:'WhatsApp draft',body:`Hi, here’s the current roofing plan for your home at ${p.title}.\n\n${clientDates(p,'roof')}\n\nWe’ll keep you updated on the next milestone and any confirmed changes.`,citations:['sample-progress'],taskTitle:'Explain the roof-covering plan clearly to the client',reminder:'Confirm changes before sending the next milestone or weekly update.'},
- {id:'social',agent:'content',tier:'public',title:'Brand story',to:p.publicName,channel:'Instagram draft',body:`Behind every home is a team making the details count.\n\nA look from site at our ${p.publicName} — sharing the work and care behind the build.\n\n#${p.publicName.replace(/\s/g,'')} #BehindTheBuild #Construction`,citations:['sample-public'],taskTitle:'Prepare the brand story for human review',reminder:'Get Digger’s approval before using the story externally.'}
+ {id:'social',agent:'content',tier:'public',title:'Brand story',to:p.publicName,channel:'Instagram draft',body:sampleBrandStory(p),citations:['sample-public'],taskTitle:'Prepare the brand story for human review',reminder:'Get Digger’s approval before using the story externally.'}
  ].map(d=>({...d,status:'draft'}));
  const steps=[{agent:'source',to:'router',alsoTo:'capture',detail:'The site update reaches Digger and Lyra for the one selected project.'},{agent:'router',to:'capture',detail:'Digger shares the site context with Lyra.'},{agent:'capture',to:'router',detail:'Lyra returns labelled project context to Digger.'},{agent:'capture',to:'kb',detail:'Lyra organises this site update and its available context in the session Wiki.'},{agent:'router',to:'curator',detail:'Digger asks Bower for references and next steps.'},{agent:'curator',to:'kb',detail:'Bower retrieves the projected roof dates and document requirements.'},{agent:'kb',to:'curator',detail:'The Wiki returns source rows, checklist items and drawing references.'},{agent:'curator',to:'router',detail:'Bower returns the planned dates and flags uncertainties for Digger review.'},...drafts.map(d=>({agent:'curator',to:d.agent,detail:`Bower allocates: ${d.taskTitle}.`}))].map((s,i)=>({...s,action:'prepared',itemId:p.id,t:String(i+1)}));
  return {drafts,steps,photoName,sourceNote:note,approved:false,sampleProject:p,wikiEntries,sources:[...p.sources,...(p.regulatory?.references||[]),...wikiMessageSources(wikiEntries)],findings:f};
@@ -44,6 +56,7 @@ function answerSingleQuestion({question='',audience='workspace',pack}={}){
  const p=pack.sampleProject,f=sampleFindings(p),internal=['workspace','admin'].includes(audience),q=question;
  const result=(text,citations=[])=>({text,citations});
  if(!internal&&/price|margin|markup|supplier|profit|internal|quote|cost|lender|bank|contract|drawing|height|pitch|800|FFL|millimetre|technical|mark\b|kira\b|whatsapp|private/i.test(q))return result(audience==='social'?'Digger needs to review that request before any public use.':'I can help with the project plan and milestones. Digger reviews technical, pricing and private team questions.');
+ if(audience==='social'&&/story|caption/i.test(q)&&!/source|reference|approved|finished|complete|passed|certified|inspection/i.test(q))return result(sampleBrandStory(p),['sample-public']);
  if(audience==='social')return /story|caption|source|reference|progress|roof|next|task|remind|date|finish/i.test(q)?result(`The reviewed story context supports careful drawing review and coordination at ${p.publicName}. It does not approve a completion claim or private schedule dates. The story remains a draft.`,['sample-public']):result('There is no supported public story context for that question.');
  const oc=/\b(?:OC|OCC)\b|occupan|occupation|move.?in/i.test(q),when=/when|date|time|finish|complet|receive|ready|how long|move.?in/i.test(q);
  const extraSchedule=lookupSchedule(p,q,internal);if(extraSchedule)return result(extraSchedule,['sample-progress']);

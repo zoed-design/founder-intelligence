@@ -1,13 +1,13 @@
-import {takeoffKnowledge} from './src/takeoff-knowledge.js?v=knowledge-1';
-import {queueReview,resolveReview} from './src/review-queue.js?v=knowledge-1';
-import {collectWhatsApp,wikiMessageSources} from './src/session-wiki.js?v=knowledge-1';
-import {validateSampleProject, shortSampleUpdates} from './src/sample-project.js?v=knowledge-1';
-import { buildPhotoPack, approvePack, publicIssues, SOURCES, askBower, coachEmployee } from './src/photo-workflow.js?v=knowledge-1';
-import { CONTEXT, shortUpdates } from './src/demo-config.js?v=knowledge-1';
+import {takeoffKnowledge} from './src/takeoff-knowledge.js?v=brand-story-1';
+import {queueReview,resolveReview} from './src/review-queue.js?v=brand-story-1';
+import {collectWhatsApp,wikiMessageSources} from './src/session-wiki.js?v=brand-story-1';
+import {validateSampleProject, shortSampleUpdates} from './src/sample-project.js?v=brand-story-1';
+import { buildPhotoPack, approvePack, publicIssues, SOURCES, askBower, coachEmployee } from './src/photo-workflow.js?v=brand-story-1';
+import { CONTEXT, shortUpdates } from './src/demo-config.js?v=brand-story-1';
 import { CREW, portrait, mascot } from './src/crew.js?v=brand-stories-2';
 import { createMap } from './src/map.js?v=brand-stories-2';
 
-import {validatePlanningRegistry} from './src/planning-knowledge.js?v=knowledge-1';
+import {validatePlanningRegistry} from './src/planning-knowledge.js?v=brand-story-1';
 
 
 const $=s=>document.querySelector(s);
