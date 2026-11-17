@@ -10,18 +10,10 @@ Tally’s prototype responses use source-based rules, not a newly trained model.
 4. Explain potential disruption and what the site team would review.
 5. Say that material changes need confirmation and the client will be kept informed as dates are confirmed. Do not claim that an external update was sent.
 
-## Weather boundaries
-
-The current weather feature is **a clearly labelled local demonstration**, selected by the founder. No live weather API is connected and no current weather is asserted. The example week is 7–13 December 2026, near the supplied roof-covering target. Its rainfall and 0–2 working-day roofing allowance are deliberately invented scenario inputs.
-
-Each related message and citation must say that this is simulated. The allowance is not a calculation from rainfall, a professional estimate or an approved program change. Rain-watch days are not automatically lost working days. Do not convert an allowance into a new deadline, especially without a work calendar, holidays, task dependencies, site conditions or available float.
-
-For demolition, concreting, bricklaying, framing and roofing, the app displays stage-specific review reminders to Digger and Roo. Selecting enclosed / after lock-up suppresses the pre-lock-up reminders. This does not establish that all external work is complete. The stage is reported demo context; it is not inferred from a photo.
-
 ## Project dates
 
 The supplied project schedule projects roof-covering completion for 10 December 2026. Practical Completion is projected for 1 October 2027, and OC receipt for 29 October 2027. A separate OC receipt target is not a whole-project finish or permission to move in. Tally must retain these distinctions while using helpful, considerate wording.
 
 ## Demo guide
 
-Message to Knowledge demonstrates import, review, labelling and Wiki retrieval. Opening Roo for employee guidance and drawing/certificate references belongs in the Junior Employee workflow. Weather reminders are a separate, explicitly simulated part of the demo.
+Message to Knowledge demonstrates import, review, labelling and Wiki retrieval. Opening Roo for employee guidance and drawing/certificate references belongs in the Junior Employee workflow.

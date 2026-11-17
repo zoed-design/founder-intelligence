@@ -86,8 +86,6 @@ three.js © 2010-2023 three.js authors, MIT licence.
 
 The public presentation uses fictional project aliases. Only the reviewed extract pack in sample-data/ is included; full original source files and private preprocessing artifacts are excluded from Git.
 
-## Weather demonstration and client wording
+## Future product roadmap
 
-The weather watch uses a clearly labelled, local [simulated rainy-week example](sample-data/weather-demo.json), not a live forecast. It generates in-app rain reminders for the reported demolition, concreting, bricklaying, framing and roofing stages; enclosed / after-lock-up suppresses pre-lock-up reminders. No external weather API or notification channel is connected. The illustrative 0–2 working-day roofing allowance is deliberately invented for the scenario and does not change any schedule date.
-
-Tally acknowledges the client’s need to plan, cites the projected milestone, distinguishes an example from actual weather, and explains what requires confirmation. Missing practical-completion dates stay unknown. See [client communication rules](docs/tally-client-service.md).
+A future product should connect to a live weather forecast service and use verified forecast data alongside the project programme to support timely site coordination and client communication. This capability is not implemented in the current prototype. See [the live-weather requirement](docs/live-weather-roadmap.md).

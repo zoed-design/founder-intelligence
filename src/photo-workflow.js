@@ -1,9 +1,9 @@
-import {buildSamplePack, answerSampleQuestion} from './sample-project.js?v=feedback-1';
+import {buildSamplePack, answerSampleQuestion} from './sample-project.js?v=no-weather-1';
 // Focused scenario adapter. The existing general message engine stays intact.
 // Generic fixtures remain available. An explicitly loaded reviewed sample pack uses source-backed checks.
 // No vision/LLM API calls or external dispatch are used.
-import { CONTEXT } from './demo-config.js?v=feedback-1';
-export { CONTEXT } from './demo-config.js?v=feedback-1';
+import { CONTEXT } from './demo-config.js?v=no-weather-1';
+export { CONTEXT } from './demo-config.js?v=no-weather-1';
 
 export const SOURCES = [
   { id: 'photo', title: 'Photo input', file: 'Session attachment', evidence: 'The uploaded photo is an input to this fixed framing scenario. No image recognition, measurement or compliance verification is performed.' },
@@ -32,8 +32,8 @@ export function publicIssues(text) {
   return checks.filter(([re]) => re.test(text)).map(([,label]) => label);
 }
 
-export function buildPhotoPack({ note = '', photoName = '', briefName = '', briefText = '', sampleProject = null, wikiEntries = [], weather, workStage = 'roofing' } = {}) {
-  if (sampleProject) return buildSamplePack({project:sampleProject,photoName,note,wikiEntries,weather,workStage});
+export function buildPhotoPack({ note = '', photoName = '', briefName = '', briefText = '', sampleProject = null, wikiEntries = [] } = {}) {
+  if (sampleProject) return buildSamplePack({project:sampleProject,photoName,note,wikiEntries});
   if (!photoName && !briefName) throw new Error('Add a site photo or Markdown brief first.');
   const c = CONTEXT;
   const inputSources = [photoName ? 'photo' : null, 'chat', 'cdc', 'structure', 'schedule', 'coaching', 'brief'].filter(Boolean);
