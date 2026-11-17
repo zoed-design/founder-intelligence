@@ -12,6 +12,12 @@ import {validatePlanningRegistry} from './src/planning-knowledge.js?v=brand-stor
 
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+// The header can wrap as the window or text size changes. Keep sidebar offsets in sync.
+const appHeader=document.querySelector('.bar');
+const syncHeaderHeight=()=>document.documentElement.style.setProperty('--app-header-height',Math.ceil(appHeader.getBoundingClientRect().height)+'px');
+syncHeaderHeight();
+new ResizeObserver(syncHeaderHeight).observe(appHeader);
+
 const ROLES={
   admin:{agent:'teamwork',name:'Roo',role:'Employee Coach',title:'Roo · Employee Coach',greeting:'Tell me what you’re working on. I’ll explain the steps, show the references and flag anything Digger should review.'},
   client:{agent:'commercial',name:'Tally',role:'Client',title:'Tally · Client',greeting:'Ask about your home’s milestones or what you could do with your current home. I’ll show the relevant sources and what still needs checking.'},
