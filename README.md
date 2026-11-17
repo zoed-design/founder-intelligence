@@ -1,6 +1,6 @@
 # Construction and Contractor Intelligence
 
-Empower your business to scale.
+Empower your construction and contractor business to scale.
 
 The current hackathon prototype covers **one project: 18 Maroubra Street, Maroubra, Sydney**. Its four role pages are Digger / Site Manager, Roo / Employee Coach, Tally / Client and Kooka / Brand Stories. The original architecture and warm cream, brown and blue palette are preserved.
 
@@ -10,7 +10,7 @@ Drop a site photo to allocate three source-linked drafts. The project’s review
 
 Bower also uses a reviewed Randwick / NSW planning-reference snapshot, checked 17 November 2026. Try “Can I build a duplex in Randwick Council?” before uploading a photo. Answers cite official guidance, distinguish conditional standards from approval, and identify missing site information. See [planning coverage and limits](docs/planning-references.md). No live cloud synchronisation or general legal engine is connected.
 
-The public website has five separate pages: [Mission](landing/index.html), [The Crew](landing/crew.html), [Prototype guide and downloads](landing/prototype.html), [Team](landing/team.html), and [Data & AI](landing/data-ai.html). The home page shows brief linked summaries. The [submission summary](docs/project-submission-summary.md) and [16:9 banner](landing/assets/construction-intelligence-banner.jpg) use the current project name and branding.
+The public website has five separate pages: [Mission](landing/index.html), [The Crew](landing/crew.html), [Prototype guide and downloads](landing/prototype.html), [Team](landing/team.html), and [Data & AI](landing/data-ai.html). The home page shows brief linked summaries and three demo-start steps: view the guide, understand the workflows and download the examples, then open the prototype in a new tab. The [submission summary](docs/project-submission-summary.md) and [16:9 banner](landing/assets/construction-intelligence-banner.jpg) use the current project name and branding.
 
 ## Try it
 
