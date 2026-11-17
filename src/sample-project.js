@@ -26,17 +26,19 @@ function clientDates(p,kind){
  if(kind==='oc')return `I understand how important it is to plan your move. The schedule currently projects receipt of the Occupation Certificate (OC) on ${day(milestone(p,'ocReceipt').finish)}. It plans the updated checklist for ${day(milestone(p,'ocChecklist').start)} and completion/submission of the requirements for ${day(milestone(p,'ocSubmission').finish)}. This is a planning target. The responsible certifier must issue the OC and the required approvals must be confirmed before move-in; the schedule alone does not confirm permission to occupy.`;
  const r=milestone(p,'practicalCompletion');return r.finish?`I know a reliable finish date helps you plan. The Practical Completion milestone is projected for ${day(r.finish)}. It remains a planning target, subject to confirmation by the site manager; it is separate from an issued OC and permission to move in. We’ll keep you informed as inspections and other dependencies are reviewed, and explain any confirmed change to the program.`:`I know having a reliable finish date matters to you. The schedule’s Practical Completion milestone has no projected date, so I don’t want to give you an unsupported whole-project finish date. The separate OC receipt target is ${day(milestone(p,'ocReceipt').finish)}; that is not a confirmed construction finish or move-in date. Digger needs to confirm the practical-completion milestone. We’ll keep you posted as the site team reviews inspections and other dependencies, with a revised projection once the program is confirmed.`;
 }
-export function sampleBrandStory(p){return `The care behind the roofline.
+export function sampleBrandStory(p){return `The care behind the roofline. 🏡
 
 At our ${p.publicName}, the framework is taking shape—and with it, the outline of a future home.
 
-A well-planned roof involves more than what you see from the street. Roof fall, wall heights and openings all deserve careful attention when reviewing drawings and preparing material quantities.
+Before a roof becomes shelter, there are details to work through—and people making sure those details receive the attention they deserve.
 
-Those small details connect the site team, the people preparing estimates and the next stage of the build. Sharing this journey helps our clients understand the care behind the finished home.
+This framing-stage photo captures one chapter of that process: the timber structure taking shape, with the work that will eventually sit behind the finished ceilings still visible.
+
+Building a home is a sequence of decisions, checks and conversations. Sharing that journey gives our clients a clearer picture of the care behind their future home.
 
 Progress you can see. Care in the details you might never see.
 
-#BehindTheBuild #RoofFraming #ConstructionDetails`;}
+#BehindTheBuild #RoofFraming #ConstructionDetails #SydneyBuilders #BuildingWithCare`;}
 
 export function buildSamplePack({project,photoName='',note='',wikiEntries=[]}={}){
  const p=validateSampleProject(project),f=sampleFindings(p);
