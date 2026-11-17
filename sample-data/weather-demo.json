@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "demo",
+  "title": "Simulated rainy week near the planned roof-covering finish",
+  "location": "Maroubra area, Sydney",
+  "notice": "Illustrative weather data for demonstration only. This is not a live forecast or a record of actual rain.",
+  "stageBasis": "Founder-reported demo context: approaching lock-up / roofing; not verified from the photo.",
+  "days": [
+    {"date": "2027-01-18", "rainMm": 0},
+    {"date": "2027-01-19", "rainMm": 8},
+    {"date": "2027-01-20", "rainMm": 12},
+    {"date": "2027-01-21", "rainMm": 0},
+    {"date": "2027-01-22", "rainMm": 5},
+    {"date": "2027-01-23", "rainMm": 2},
+    {"date": "2027-01-24", "rainMm": 0}
+  ],
+  "roofingAllowance": {
+    "minWorkingDays": 0,
+    "maxWorkingDays": 2,
+    "basis": "A deliberately invented planning scenario for demonstrating client communication. It is not calculated from rainfall, productivity, float or an approved site-manager assessment. It does not change the project schedule."
+  }
+}

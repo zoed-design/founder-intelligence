@@ -1,11 +1,15 @@
-import {collectWhatsApp,wikiMessageSources} from './src/session-wiki.js?v=planning-refs-1';
-import {validateSampleProject, shortSampleUpdates} from './src/sample-project.js?v=planning-refs-1';
-import { buildPhotoPack, approvePack, publicIssues, SOURCES, askBower, coachEmployee } from './src/photo-workflow.js?v=planning-refs-1';
-import { CONTEXT, shortUpdates } from './src/demo-config.js?v=planning-refs-1';
+import {collectWhatsApp,wikiMessageSources} from './src/session-wiki.js?v=weather-demo-1';
+import {validateSampleProject, shortSampleUpdates} from './src/sample-project.js?v=weather-demo-1';
+import { buildPhotoPack, approvePack, publicIssues, SOURCES, askBower, coachEmployee } from './src/photo-workflow.js?v=weather-demo-1';
+import { CONTEXT, shortUpdates } from './src/demo-config.js?v=weather-demo-1';
 import { CREW, portrait, mascot } from './src/crew.js?v=brand-stories-2';
 import { createMap } from './src/map.js?v=brand-stories-2';
 
-import {validatePlanningRegistry} from './src/planning-knowledge.js?v=planning-refs-1';
+import {validatePlanningRegistry} from './src/planning-knowledge.js?v=weather-demo-1';
+
+import {validateDemoWeather,usableWeather,rainWatch,weatherReminder,weatherSource,forecastDay,WORK_STAGES} from './src/weather-watch.js?v=weather-demo-1';
+let siteWeather={status:'loading',mode:'demo'},weatherPromise=null,workStage='roofing';
+const weatherSources=new Map();
 
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -20,8 +24,8 @@ let messages=[],roleMessages={admin:[],client:[],social:[]},inputNote='',roleInp
 const pics=Object.fromEntries(Object.keys(CREW).map(id=>[id,portrait(id,160)]));
 let map=createMap($('#agentMap'),{},pics);
 const digger=mascot($('#mascot'),$('#bubble'));
-const sourcesForPack=()=>[...wikiMessageSources(wikiEntries),...(sampleProject?.sources||[]),...(sampleProject?.regulatory?.references||[]),...(pack?.sources||[]),...SOURCES];
-const knowledgePack=()=>pack?{...pack,wikiEntries,sources:sourcesForPack()}:buildPhotoPack({sampleProject,wikiEntries});
+const sourcesForPack=()=>[...weatherSources.values(),...wikiMessageSources(wikiEntries),...(sampleProject?.sources||[]),...(sampleProject?.regulatory?.references||[]),...(pack?.sources||[]),...SOURCES];
+const knowledgePack=()=>pack?{...pack,wikiEntries,weather:siteWeather,workStage,sources:sourcesForPack()}:buildPhotoPack({sampleProject,wikiEntries,weather:siteWeather,workStage});
 const sourceById=id=>sourcesForPack().find(s=>s.id===id);
 const avatar=(id,large=false)=>pics[id]?`<img class="ava ${large?'lg':''}" src="${pics[id]}" alt="${esc(CREW[id].name)}">`:'';
 
@@ -38,7 +42,28 @@ function workspace(){return `<div class="hello"><div><h1>One site update. The cr
   <div class="founder-thread" aria-live="polite"><div class="chat-message agent-message"><b>Bower</b><p>Drop your latest site update. I’ll use the Wiki to find references and line up the team’s next steps for your review.</p></div>${chatMessages(messages)}</div>
   ${photo?`<figure class="selected-photo"><img src="${esc(photo.url)}" alt="Your uploaded site photo"><figcaption>${esc(photo.name)}</figcaption></figure>`:''}
   <form id="founder-form" class="message-composer"><label class="photo-button" title="Attach a site photo"><span aria-hidden="true">＋</span><span class="sr">Attach a site photo</span><input id="photo-upload" type="file" accept="image/jpeg,image/png,image/webp" class="sr" ${busy?'disabled':''}></label><label class="sr" for="founder-note">Message Bower or drop a photo</label><textarea id="founder-note" placeholder="Message Bower or drop a photo here…" ${busy?'disabled':''}>${esc(inputNote)}</textarea><button class="send-message" aria-label="Send message" ${busy?'disabled':''}>↑</button></form>
-  <div class="input-options"><button type="button" class="text-action" data-action="whatsapp" ${busy?'disabled':''}>Add a WhatsApp message</button><span>Manual import · no WhatsApp connection</span></div>${whatsappForm()}${busy?'<div class="working-status" role="status"><span></span>Bower is finding references and coordinating next steps…</div>':''}</section>${sampleControls()}${pack?parallelPanes():''}`;}
+  <div class="input-options"><button type="button" class="text-action" data-action="whatsapp" ${busy?'disabled':''}>Add a WhatsApp message</button><span>Manual import · no WhatsApp connection</span></div>${whatsappForm()}${busy?'<div class="working-status" role="status"><span></span>Bower is finding references and coordinating next steps…</div>':''}</section>${sampleControls()}${weatherPanel()}${pack?parallelPanes():''}`;}
+function weatherPanel(){
+ if(page==='social')return '';
+ const ready=usableWeather(siteWeather),a=rainWatch(siteWeather,workStage),internal=page==='workspace'||page==='admin';
+ const reminder=weatherReminder(siteWeather,workStage);
+ return `<section id="weather-watch" class="weather-watch ${reminder?'weather-alert':''}" aria-label="Site weather watch"><div class="weather-heading"><h2>Site weather watch · demo</h2><span>Simulated rainy-week example</span></div><div role="status">${siteWeather.status==='loading'?'<p>Loading the simulated weather example…</p>':ready?`<p>${reminder?esc('SIMULATED EXAMPLE — not a live forecast. '+a.rain.length+' example rain-watch days during '+a.window+'. Reported stage: '+WORK_STAGES[workStage]+'. Digger and Roo have an in-app reminder to review exposed work and the sequence.'):a.sensitive?'The simulated example does not currently trigger a pre-lock-up rain reminder. The example does not predict actual site conditions.':'Reported stage: enclosed / after lock-up. No automatic pre-lock-up reminder is raised; review any remaining external work separately.'}</p>`:'<p>The weather example is unavailable. No live weather service is connected; the project schedule remains available.</p>'}</div>${internal?`<label class="weather-stage">Reported site stage <select id="weather-stage" ${busy?'disabled':''}>${Object.entries(WORK_STAGES).map(([key,label])=>`<option value="${key}" ${key===workStage?'selected':''}>${label}</option>`).join('')}</select></label><p class="weather-small">Demo context: approaching lock-up, as reported by the founder. Change the stage to match the work being reviewed; it is not inferred from the photo.</p>`:''}${ready?`<details><summary>Example dates and source</summary><p class="weather-small">Invented scenario data for ${esc(a.window)}. These dates are illustrative, not a forecast for the current week.</p><table><thead><tr><th scope="col">Date</th><th scope="col">Example rainfall</th></tr></thead><tbody>${siteWeather.days.map(d=>`<tr><td>${esc(forecastDay(d.date))}</td><td>${d.complete?esc(d.rainMm.toFixed(1))+' mm':'Incomplete'}</td></tr>`).join('')}</tbody></table><p class="weather-small">The demo flags example rainfall ≥1 mm/day for review, not as a stop-work rule. The illustrative 0–2 working-day roofing allowance is a scenario assumption, not a weather calculation or an approved program change.</p><p class="weather-small"><a href="${esc(siteWeather.url)}" target="_blank" rel="noopener">Open the simulated weather source</a>. No external weather service is connected; no location, photo or message is sent to a weather provider.</p></details>`:''}<div class="weather-footer"><button type="button" class="text-action" data-action="weather" ${weatherPromise?'disabled':''}>Review weather example</button><span>Simulated weather · in-app reminders only · no external message sent</span></div></section>`;
+}
+function updateWeatherPanel(){const current=$('#weather-watch');if(current)current.outerHTML=weatherPanel();}
+function announceWeather(){
+ const text=weatherReminder(siteWeather,workStage),key=siteWeather.id+'-'+workStage;
+ const existing=messages.find(m=>m.weatherReminder);if(text&&existing?.weatherKey===key&&roleMessages.admin.some(m=>m.weatherKey===key))return false;
+ messages=messages.filter(m=>!m.weatherReminder);roleMessages.admin=roleMessages.admin.filter(m=>!m.weatherReminder);
+ if(!text)return !!existing;
+ messages.push({who:'agent',name:'Bower',text,citations:[siteWeather.id],weatherReminder:true,weatherKey:key});roleMessages.admin.push({who:'agent',name:'Roo',text,citations:[siteWeather.id],weatherReminder:true,weatherKey:key});return true;
+}
+async function ensureWeather(){
+ if(usableWeather(siteWeather))return siteWeather;
+ if(weatherPromise)return weatherPromise;
+ siteWeather={status:'loading',mode:'demo'};updateWeatherPanel();
+ weatherPromise=fetch(new URL('./sample-data/weather-demo.json',import.meta.url),{credentials:'omit'}).then(response=>{if(!response.ok)throw new Error('Weather example unavailable.');return response.json();}).then(validateDemoWeather).then(data=>{siteWeather=data;const source=weatherSource(data);if(source)weatherSources.set(source.id,source);announceWeather();if(pack){pack.approved=false;pack.drafts=pack.drafts.map(d=>({...d,status:'draft'}));}return data;}).catch(()=>{siteWeather={status:'unavailable',mode:'demo'};return siteWeather;}).finally(()=>{weatherPromise=null;const typing=/^(?:TEXTAREA|INPUT|SELECT)$/.test(document.activeElement?.tagName||'');if(!typing&&!busy)render();else updateWeatherPanel();});
+ return weatherPromise;
+}
 function sampleControls(){return `<section class="sample-controls" aria-label="Project Wiki"><div class="sample-control-row"><button class="btn btn-line" data-action="wiki" aria-expanded="${wikiOpen}">Wiki · ${sampleProject?'7 source files' + (sampleProject.regulatory?' + planning references':''):'Loading project…'}${wikiEntries.length?` + ${wikiEntries.length} message${wikiEntries.length===1?'':'s'}`:''}</button><span>One demo project for this prototype.</span></div>${wikiOpen?wikiPanel():''}</section>`;}
 function wikiPanel(){return sampleProject?`<section class="wiki-panel"><h2>Project Wiki</h2><p>Reviewed references for this project, plus manually imported messages. Session only: reload or New session clears imports.</p><p class="sample-scope">131 schedule entries · 36 OC checklist items · selected drawing references. Full PDF packs are excluded from this public demo because identifiers remain in them.</p><div class="wiki-try"><button class="btn btn-line" data-action="sample-photo" ${busy?'disabled':''}>Use supplied site photo</button><button class="btn btn-line" data-action="sample-whatsapp" ${busy?'disabled':''}>Try supplied WhatsApp message</button></div><details class="sample-files"><summary>Reviewed source files and extracts</summary><ul>${sampleProject.downloads.map(d=>`<li><a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a></li>`).join('')}</ul><a href="sample-data/README.md" target="_blank" rel="noopener">Source register and limits</a></details>${planningPanel()}<div class="wiki-imports"><h3>Lyra’s collected messages · ${wikiEntries.length}</h3>${wikiEntries.length?wikiEntries.map(e=>`<article class="wiki-entry"><b>${esc(e.title)}</b><p class="wiki-tags">${e.tags.map(esc).join(' · ')}</p><span class="wiki-status">${esc(e.status)}</span><pre>${esc(e.text)}</pre></article>`).join(''):'<p>No manually imported messages yet. Add a WhatsApp message to see Lyra collect, label and index it here.</p>'}</div></section>`:'<p>Loading the project references…</p>';}
 function planningPanel(){const r=sampleProject?.regulatory;return r?`<details class="sample-files planning-references"><summary>Planning references · checked ${esc(r.checkedAt)}</summary><p class="sample-scope">Reviewed Randwick / NSW snapshot. No site approval or live cloud sync. Full current legislation was not retrieved; linked instruments need independent checking.</p>${r.references.map(s=>sourceHtml({...s,evidence:s.evidence+' Status: '+s.status+'. '+s.version})).join('')}<p><a href="docs/planning-references.md" target="_blank" rel="noopener">Coverage and review limits</a></p></details>`:'<p class="sample-scope">Planning references are unavailable; project sources remain available.</p>';}
@@ -63,7 +88,7 @@ async function ingestWhatsApp(text){
  try{await ensureProject();if(token!==sequence)return;const result=collectWhatsApp({text,entries:wikiEntries,projectId:sampleProject.id,fileName:whatsappDraft.fileName});wikiEntries=result.entries;
  for(const step of [{agent:'source',to:'router',alsoTo:'capture'},{agent:'router',to:'capture'},{agent:'capture',to:'kb'},{agent:'capture',to:'router'}]){if(token!==sequence)return;map.play({...step,itemId:result.entry.id});await new Promise(r=>setTimeout(r,window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:180));}
  if(token!==sequence)return;if(pack)pack={...pack,approved:false,wikiEntries,sources:[...sampleProject.sources,...wikiMessageSources(wikiEntries)],drafts:pack.drafts.map(d=>({...d,status:'draft'}))};
- if(!result.duplicate){const reviewed=text.trim()===sampleProject.assets.transcript.trim();const coaching=reviewed?coachEmployee({question:'Explain the roof height difference and drawing references',pack:knowledgePack()}):{text:'Treat the imported message as unverified context. Check its request against current issued project documents, record open questions and ask Digger to review any change before acting.',citations:[result.entry.id,'coaching']};roleMessages.admin.push({who:'agent',name:'Roo',...coaching});messages.push({who:'agent',name:'Roo',text:'I’ve prepared an employee coaching response from this message. Open Roo · Employee Coach to review the guidance and source references. No instruction or project record has been approved or changed.',citations:coaching.citations});}
+
  messages.push({who:'agent',name:'Lyra',text:result.duplicate?'This message is already in the project Wiki.':`Collected and organised the message for 18 Maroubra Street. Tags: ${result.entry.tags.join(', ')}. Bower can now reference it as an unverified source. It has not changed the projected schedule or approved drawings.`,citations:[result.entry.id]});busy=false;whatsappOpen=false;whatsappDraft={text:'',fileName:'Pasted WhatsApp message',note:''};wikiOpen=true;render();
  }catch(err){if(token!==sequence)return;busy=false;render();if($('#whatsapp-error'))$('#whatsapp-error').textContent=err.message;else say(err.message);}
 }
@@ -103,13 +128,13 @@ async function acceptPhoto(file){
 }
 async function prepare(note){
   const token=++sequence;busy=true;pack=null;say(note||(photo?'Shared a site photo for 18 Maroubra Street.':'Use the reviewed project records.'),'you');
-  const next=buildPhotoPack({note,photoName:photo?.name||'',sampleProject,wikiEntries});$('#trace').innerHTML='';
+  await ensureWeather();if(token!==sequence)return;const next=buildPhotoPack({note,photoName:photo?.name||'',sampleProject,wikiEntries,weather:siteWeather,workStage});$('#trace').innerHTML='';
   for(const s of next.steps){if(token!==sequence)return;map.play(s);$('#trace').insertAdjacentHTML('beforeend',`<li>${esc(s.detail)}</li>`);await new Promise(resolve=>setTimeout(resolve,window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:200));}
   if(token!==sequence)return;pack=next;busy=false;
   if(pack.sampleProject){const row=pack.findings.roofCovering;const finish=row.finish?new Date(row.finish+'T00:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}):'not recorded';say(`I’ve linked this update to the 18 Maroubra project Wiki. Roof covering is projected to finish ${finish}. Roo has the inspection and certificate follow-up; Tally has a client-friendly schedule update; Kooka has a Brand Story. The drafts and source references are ready for your review. The photo has not been analysed and the dates are planning targets.`, 'agent', ['sample-schedule','sample-oc']);digger.say('Bower has the team’s next steps and references ready for review.');return;}
   say('I’ve found the references and allocated next steps to Roo, Tally and Kooka. Their updates and reminder drafts are ready for your review.', 'agent', ['schedule']);digger.say('Bower has the team’s next steps ready for review.');
 }
-$('#view').addEventListener('change',e=>{if(e.target.id==='photo-upload'&&e.target.files?.[0])acceptPhoto(e.target.files[0]);if(e.target.id==='whatsapp-file'&&e.target.files?.[0])loadWhatsAppFile(e.target.files[0]);});
+$('#view').addEventListener('change',e=>{if(e.target.id==='weather-stage'){if(!Object.hasOwn(WORK_STAGES,e.target.value))return;workStage=e.target.value;if(pack){pack.approved=false;pack.drafts=pack.drafts.map(d=>({...d,status:'draft'}));}announceWeather();render();return;}if(e.target.id==='photo-upload'&&e.target.files?.[0])acceptPhoto(e.target.files[0]);if(e.target.id==='whatsapp-file'&&e.target.files?.[0])loadWhatsAppFile(e.target.files[0]);});
 $('#view').addEventListener('dragover',e=>{if(e.target.closest('#photo-drop-zone')){e.preventDefault();$('#photo-drop-zone').classList.add('dragging');}});
 $('#view').addEventListener('dragleave',e=>{const zone=$('#photo-drop-zone');if(zone&&!zone.contains(e.relatedTarget))zone.classList.remove('dragging');});
 $('#view').addEventListener('drop',e=>{if(!e.target.closest('#photo-drop-zone'))return;e.preventDefault();$('#photo-drop-zone').classList.remove('dragging');if(e.dataTransfer.files[0])acceptPhoto(e.dataTransfer.files[0]);});
@@ -124,13 +149,13 @@ $('#view').addEventListener('submit',e=>{
   if(/^(?:digger[,! ]*)?(?:please )?dance[!. ]*$/i.test(text)){digger.dance();say('Digger’s dancing.');return;}
   if(pack&&/\b(short(?:en|er)?|concise|brief)\b/i.test(text)){
     const id=/instagram|social|story/i.test(text)?'social':/client|tally/i.test(text)?'client':'admin';const d=pack.drafts.find(d=>d.id===id);
-    d.body=(pack.sampleProject?shortSampleUpdates(pack):shortUpdates())[id];pack.approved=false;say(`I’ve shortened ${ROLES[id].name}’s update.`);return;
+    d.body=(pack.sampleProject?shortSampleUpdates(knowledgePack()):shortUpdates())[id];pack.approved=false;say(`I’ve shortened ${ROLES[id].name}’s update.`);return;
   }
   answerQuestion(text,'workspace');
 });
 async function answerQuestion(question,audience){
   const token=++sequence;busy=true;render();
-  let answer;try{await ensureProject();if(token!==sequence)return;const context=knowledgePack();answer=audience==='admin'?coachEmployee({question,pack:context}):askBower({question,audience,pack:context});}catch(err){if(token!==sequence)return;busy=false;say(err.message);return;}
+  let answer;try{await ensureProject();await ensureWeather();if(token!==sequence)return;const context=knowledgePack();answer=audience==='admin'?coachEmployee({question,pack:context}):askBower({question,audience,pack:context});}catch(err){if(token!==sequence)return;busy=false;say(err.message);return;}
   for(const step of answer.steps){if(token!==sequence)return;map.play(step);await new Promise(resolve=>setTimeout(resolve,window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:180));}
   if(token!==sequence)return;busy=false;
   const message={who:'agent',name:audience==='admin'?'Roo':'Bower',text:answer.text,citations:answer.citations,needsReview:answer.needsReview};
@@ -156,6 +181,7 @@ $('#view').addEventListener('input',e=>{
 });
 $('#view').addEventListener('click',e=>{
   const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.action==='weather'){ensureWeather().then(updateWeatherPanel);return;}
   if(b.dataset.action==='wiki'){wikiOpen=!wikiOpen;render();return;}
   if(b.dataset.action==='whatsapp'){whatsappOpen=!whatsappOpen;render();return;}
   if(b.dataset.action==='sample-photo'){useSamplePhoto();return;}
@@ -165,8 +191,10 @@ $('#view').addEventListener('click',e=>{
   if(b.dataset.action==='export'&&pack?.approved){const text=['# Approved construction update pack','Local approval only. Nothing dispatched. Reminders are drafts, not scheduled.',...pack.drafts.map(d=>`## ${d.title}\nAudience: ${d.to}\nChannel: ${d.channel}\nTask: ${d.taskTitle}\nReminder draft: ${d.reminder}\n\n${d.body}\n\nEvidence:\n${d.citations.map(id=>{const s=sourceById(id);return s?`${s.title}: ${s.evidence}${s.locator?`\nLocation: ${s.locator}`:''}${s.url?`\nSource: ${new URL(s.url,window.location.href).href}`:''}`:id;}).join('\n\n')}`)].join('\n\n');const url=URL.createObjectURL(new Blob([text],{type:'text/markdown'}));const a=document.createElement('a');a.href=url;a.download='approved-construction-updates.md';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 });
 document.querySelector('.roles').addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b){page=b.dataset.page;render();window.scrollTo(0,0);}});
-$('#resetBtn').addEventListener('click',()=>{sequence++;busy=false;setPhoto(null);wikiEntries=[];wikiOpen=false;whatsappOpen=false;whatsappDraft={text:'',fileName:'Pasted WhatsApp message',note:''};messages=[];inputNote='';roleMessages={admin:[],client:[],social:[]};roleInputs={admin:'',client:'',social:''};$('#trace').innerHTML='';digger.reset();map=createMap($('#agentMap'),{},pics);page='workspace';render();});
+$('#resetBtn').addEventListener('click',()=>{sequence++;busy=false;setPhoto(null);wikiEntries=[];wikiOpen=false;whatsappOpen=false;whatsappDraft={text:'',fileName:'Pasted WhatsApp message',note:''};messages=[];inputNote='';roleMessages={admin:[],client:[],social:[]};roleInputs={admin:'',client:'',social:''};$('#trace').innerHTML='';digger.reset();map=createMap($('#agentMap'),{},pics);page='workspace';workStage='roofing';announceWeather();render();});
 $('#danceBtn').addEventListener('click',()=>digger.dance());
 $('#soundBtn').addEventListener('click',e=>{const on=e.target.getAttribute('aria-pressed')!=='true';e.target.setAttribute('aria-pressed',String(on));e.target.textContent=on?'Voice on':'Voice off';digger.setSound(on);});
 render();
-ensureProject().then(()=>render()).catch(err=>say(err.message));
+ensureProject().then(()=>{render();ensureWeather();}).catch(err=>say(err.message));
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)ensureWeather();});
+$('#view').addEventListener('focusout',()=>setTimeout(()=>{if(!busy&&!/^(?:TEXTAREA|INPUT|SELECT)$/.test(document.activeElement?.tagName||''))updateWeatherPanel();},0));

@@ -18,7 +18,7 @@ The public website has five separate pages: [Mission](landing/index.html), [The 
 2. Review the Roo, Tally and Kooka drafts and open their references.
 3. As Tally, ask “When will roof covering finish?”, “When will the entire project finish?” and “When will I receive my OC to move in?” Dates are projections from the supplied mock-up schedule. An undated milestone remains unknown.
 4. As Roo, ask “Do I need a certificate for roof covering?” or “When should I arrange an inspection after the roof?” References identify the relevant checklist items and the limits of the inspection information. Proposed changes are flagged for Digger.
-5. Download the illustrative WhatsApp image from the Prototype guide, or in Digger, choose Add a WhatsApp message. Paste text, upload .txt/.md or select the supplied screenshot. Review the transcript, then Collect into Wiki. Ask “What did Mark say in the WhatsApp message?” The new message is cited as an unverified local source. Roo prepares coaching for review; the recognised demo transcript links the roof drawing references.
+5. Download the illustrative WhatsApp image from the Prototype guide, or in Digger, choose Add a WhatsApp message. Paste text, upload .txt/.md or select the supplied screenshot. Review the transcript, then Collect into Wiki. Ask “What did Mark say in the WhatsApp message?” The new message is cited as an unverified local source. Employee coaching is demonstrated separately in Roo’s junior-employee workflow, where questions retrieve the checklist, certificate and drawing references.
 6. Review, edit, Approve updates and Download updates. Nothing is sent, scheduled or posted.
 
 The supplied screenshot is recognised by its hash and uses a reviewed transcript. Other screenshots need manually pasted text. Photos are attachments without image analysis. Imported messages do not override schedule dates, issued drawings or client facts. Browser-session state clears on reload or New session; the bundled one-project Wiki remains available. Full original PDF packs still contain identifying material and are not published or fully searchable. All static downloads are public; role views are not production authentication.
@@ -85,3 +85,9 @@ Business Analyst Services, with the construction vertical brief by the team. Pat
 three.js © 2010-2023 three.js authors, MIT licence.
 
 The public presentation uses fictional project aliases. Only the reviewed extract pack in sample-data/ is included; full original source files and private preprocessing artifacts are excluded from Git.
+
+## Weather demonstration and client wording
+
+The weather watch uses a clearly labelled, local [simulated rainy-week example](sample-data/weather-demo.json), not a live forecast. It generates in-app rain reminders for the reported demolition, concreting, bricklaying, framing and roofing stages; enclosed / after-lock-up suppresses pre-lock-up reminders. No external weather API or notification channel is connected. The illustrative 0–2 working-day roofing allowance is deliberately invented for the scenario and does not change any schedule date.
+
+Tally acknowledges the client’s need to plan, cites the projected milestone, distinguishes an example from actual weather, and explains what requires confirmation. Missing practical-completion dates stay unknown. See [client communication rules](docs/tally-client-service.md).
