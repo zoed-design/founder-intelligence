@@ -37,8 +37,8 @@ The planning corpus covers selected topics, not every clause or construction com
 ## Four landing-page workflows
 
 1. Framing photo → Bower allocates Roo coaching, Tally update and Kooka Brand Story drafts.
-2. Illustrative WhatsApp image → review transcript → Lyra collects into the session Wiki → Roo prepares guidance with references. Other screenshots require pasted text; no live OCR or WhatsApp integration is claimed.
+2. Illustrative WhatsApp image → preview and collect the original screenshot with its drawings into the session Wiki → Lyra indexes the supplied example using reviewed notes → Roo prepares guidance with links to the original image and drawing references. Other screenshots are retained for visual review; live OCR and WhatsApp integration are not connected.
 3. Tally → projected milestone questions and selected public planning questions, with traceable sources.
 4. Roo → supplied OC checklist and certificate preparation guidance, checked by Digger and the certifier.
 
-The downloadable WhatsApp image is a code-drawn recreation of the reviewed transcript. Original faces, group membership, drawing numbers and screenshot metadata are not included. Mark and Kira are the publication-approved demo labels. It is illustrative, not an original screenshot or an approved change.
+The downloadable WhatsApp example is the supplied de-identified screenshot, with the personal avatar replaced by a generic Build App logo. Its conversation, elevation and roof markup remain together in the image. Mark and Kira are the publication-approved demo labels. Reviewed indexing notes do not replace the screenshot or approve a work change.

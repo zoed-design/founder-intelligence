@@ -1,13 +1,13 @@
-import {takeoffKnowledge} from './src/takeoff-knowledge.js?v=final-story-1';
-import {queueReview,resolveReview} from './src/review-queue.js?v=final-story-1';
-import {collectWhatsApp,wikiMessageSources} from './src/session-wiki.js?v=final-story-1';
-import {validateSampleProject, shortSampleUpdates} from './src/sample-project.js?v=final-story-1';
-import { buildPhotoPack, approvePack, publicIssues, SOURCES, askBower, coachEmployee } from './src/photo-workflow.js?v=final-story-1';
-import { CONTEXT, shortUpdates } from './src/demo-config.js?v=final-story-1';
+import {takeoffKnowledge} from './src/takeoff-knowledge.js?v=image-wiki-1';
+import {queueReview,resolveReview} from './src/review-queue.js?v=image-wiki-1';
+import {collectWhatsApp,wikiMessageSources} from './src/session-wiki.js?v=image-wiki-1';
+import {validateSampleProject, shortSampleUpdates} from './src/sample-project.js?v=image-wiki-1';
+import { buildPhotoPack, approvePack, publicIssues, SOURCES, askBower, coachEmployee } from './src/photo-workflow.js?v=image-wiki-1';
+import { CONTEXT, shortUpdates } from './src/demo-config.js?v=image-wiki-1';
 import { CREW, portrait, mascot } from './src/crew.js?v=brand-stories-2';
 import { createMap } from './src/map.js?v=brand-stories-2';
 
-import {validatePlanningRegistry} from './src/planning-knowledge.js?v=final-story-1';
+import {validatePlanningRegistry} from './src/planning-knowledge.js?v=image-wiki-1';
 
 
 const $=s=>document.querySelector(s);
@@ -25,7 +25,9 @@ const ROLES={
 };
 let reviews=[],reviewReplies={};
 let photo=null,pack=null,sampleProject=null,page='workspace',busy=false,sequence=0;
-let projectPromise=null,wikiEntries=[],wikiOpen=false,whatsappOpen=false,whatsappDraft={text:'',fileName:'Pasted WhatsApp message',note:''};
+const emptyWhatsAppDraft=()=>({text:'',fileName:'WhatsApp screenshot',note:'',attachment:null,interpretation:''});
+const wikiImageUrls=new Set();
+let projectPromise=null,wikiEntries=[],wikiOpen=false,whatsappOpen=false,whatsappDraft=emptyWhatsAppDraft();
 let messages=[],roleMessages={admin:[],client:[],social:[]},inputNote='',roleInputs={admin:'',client:'',social:''};
 const pics=Object.fromEntries(Object.keys(CREW).map(id=>[id,portrait(id,160)]));
 let map=createMap($('#agentMap'),{},pics);
@@ -50,10 +52,13 @@ function workspace(){return `<div class="hello"><div><h1>One site update. The cr
   <form id="founder-form" class="message-composer"><label class="photo-button" title="Attach a site photo"><span aria-hidden="true">＋</span><span class="sr">Attach a site photo</span><input id="photo-upload" type="file" accept="image/jpeg,image/png,image/webp" class="sr" ${busy?'disabled':''}></label><label class="sr" for="founder-note">Message Bower or drop a photo</label><textarea id="founder-note" placeholder="Message Bower or drop a photo here…" ${busy?'disabled':''}>${esc(inputNote)}</textarea><button class="send-message" aria-label="Send message" ${busy?'disabled':''}>↑</button></form>
   <div class="input-options"><button type="button" class="text-action" data-action="whatsapp" ${busy?'disabled':''}>Add a WhatsApp message</button><span>Manual import · no WhatsApp connection</span></div>${whatsappForm()}${busy?'<div class="working-status" role="status"><span></span>Bower is finding references and coordinating next steps…</div>':''}</section>${reviewPanel()}${sampleControls()}${pack?parallelPanes():''}`;}
 function sampleControls(){return `<section class="sample-controls" aria-label="Project Wiki"><div class="sample-control-row"><button class="btn btn-line" data-action="wiki" aria-expanded="${wikiOpen}">Wiki · ${sampleProject?'7 source files' + (sampleProject.regulatory?' + planning references':''):'Loading project…'}${wikiEntries.length?` + ${wikiEntries.length} message${wikiEntries.length===1?'':'s'}`:''}</button><span>One demo project for this prototype.</span></div>${wikiOpen?wikiPanel():''}</section>`;}
-function wikiPanel(){return sampleProject?`<section class="wiki-panel"><h2>Project Wiki</h2><p>Reviewed references for this project, plus manually imported messages. Session only: reload or New session clears imports.</p><p class="sample-scope">131 schedule entries · 36 OC checklist items · selected drawing references. Full PDF packs are excluded from this public demo because identifiers remain in them.</p><div class="wiki-try"><button class="btn btn-line" data-action="sample-photo" ${busy?'disabled':''}>Use supplied site photo</button><button class="btn btn-line" data-action="sample-whatsapp" ${busy?'disabled':''}>Try supplied WhatsApp message</button></div><details class="sample-files"><summary>Reviewed source files and extracts</summary><ul>${sampleProject.downloads.map(d=>`<li><a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a></li>`).join('')}</ul><a href="sample-data/README.md" target="_blank" rel="noopener">Source register and limits</a></details>${planningPanel()}<div class="wiki-imports"><h3>Lyra’s collected messages · ${wikiEntries.length}</h3>${wikiEntries.length?wikiEntries.map(e=>`<article class="wiki-entry"><b>${esc(e.title)}</b><p class="wiki-tags">${e.tags.map(esc).join(' · ')}</p><span class="wiki-status">${esc(e.status)}</span><pre>${esc(e.text)}</pre>${knowledgeCard(e)}</article>`).join(''):'<p>No manually imported messages yet. Add a WhatsApp message to see Lyra collect, label and index it here.</p>'}</div></section>`:'<p>Loading the project references…</p>';}
+function wikiPanel(){return sampleProject?`<section class="wiki-panel"><h2>Project Wiki</h2><p>Reviewed references for this project, plus manually imported messages. Session only: reload or New session clears imports and their image attachments.</p><p class="sample-scope">131 schedule entries · 36 OC checklist items · selected drawing references. Full PDF packs are excluded from this public demo because identifiers remain in them.</p><div class="wiki-try"><button class="btn btn-line" data-action="sample-photo" ${busy?'disabled':''}>Use supplied site photo</button><button class="btn btn-line" data-action="sample-whatsapp" ${busy?'disabled':''}>Try supplied WhatsApp image</button></div><details class="sample-files"><summary>Reviewed source files and extracts</summary><ul>${sampleProject.downloads.map(d=>`<li><a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a></li>`).join('')}</ul><a href="sample-data/README.md" target="_blank" rel="noopener">Source register and limits</a></details>${planningPanel()}<div class="wiki-imports"><h3>Lyra’s collected messages · ${wikiEntries.length}</h3>${wikiEntries.length?wikiEntries.map(e=>`<article class="wiki-entry"><b>${esc(e.title)}</b><p class="wiki-tags">${e.tags.map(esc).join(' · ')}</p><span class="wiki-status">${esc(e.status)}</span>${e.attachment?`${whatsappImage(e.attachment,'wiki-original-image')}<p>${esc(e.summary)}</p>`:`<pre>${esc(e.text)}</pre>`}${knowledgeCard(e)}</article>`).join(''):'<p>No manually imported messages yet. Add a WhatsApp message to see Lyra collect, label and index it here.</p>'}</div></section>`:'<p>Loading the project references…</p>';}
 function knowledgeCard(entry){const k=takeoffKnowledge(entry,sampleProject);return k?`<details class="takeoff-knowledge" open><summary>${esc(k.title)}</summary><p class="wiki-tags">${k.tags.map(esc).join(' · ')}</p><p><strong>${esc(k.status)}</strong></p><p class="knowledge-body">${esc(k.body)}</p><details><summary>Message and drawing references</summary>${k.citations.map(sourceById).filter(Boolean).map(sourceHtml).join('')}</details></details>`:'';}
 function planningPanel(){const r=sampleProject?.regulatory;return r?`<details class="sample-files planning-references"><summary>Planning references · checked ${esc(r.checkedAt)}</summary><p class="sample-scope">Reviewed Randwick / NSW snapshot. No site approval or live cloud sync. Full current legislation was not retrieved; linked instruments need independent checking.</p>${r.references.map(s=>sourceHtml({...s,evidence:s.evidence+' Status: '+s.status+'. '+s.version})).join('')}<p><a href="docs/planning-references.md" target="_blank" rel="noopener">Coverage and review limits</a></p></details>`:'<p class="sample-scope">Planning references are unavailable; project sources remain available.</p>';}
-function whatsappForm(){return whatsappOpen?`<form id="whatsapp-form" class="whatsapp-import"><h3>Collect a WhatsApp message</h3><p>Paste a conversation or upload a text file. The supplied screenshot uses its reviewed transcript; other screenshots need you to paste and confirm their text.</p><label for="whatsapp-file">Text file or screenshot</label><input id="whatsapp-file" type="file" accept=".txt,.md,text/plain,text/markdown,image/png,image/jpeg,image/webp" ${busy?'disabled':''}><label for="whatsapp-text">Message text for Lyra to organise</label><textarea id="whatsapp-text" maxlength="32000" placeholder="Mark: …\nKira: …" ${busy?'disabled':''}>${esc(whatsappDraft.text)}</textarea><p class="sample-scope">${esc(whatsappDraft.note||'For 18 Maroubra Street only. Review the text and remove private details before importing. Nothing is sent or shared.')}</p><button class="btn btn-line" type="submit" ${busy?'disabled':''}>Collect into Wiki</button><p id="whatsapp-error" role="alert" class="error-text"></p></form>`:'';}
+function whatsappImage(attachment,className='whatsapp-preview'){return `<figure class="${className}"><a href="${esc(attachment.url)}" target="_blank" rel="noopener"><img src="${esc(attachment.url)}" alt="Original WhatsApp screenshot with its conversation and drawings"></a><figcaption>${esc(attachment.fileName)} · <a href="${esc(attachment.url)}" target="_blank" rel="noopener">Open original image and drawings ↗</a></figcaption></figure>`;}
+function releaseDraftImage(){const url=whatsappDraft.attachment?.url;if(url&&!wikiEntries.some(e=>e.attachment?.url===url)){URL.revokeObjectURL(url);wikiImageUrls.delete(url);}}
+function whatsappForm(){return whatsappOpen?`<form id="whatsapp-form" class="whatsapp-import"><h3>Collect a WhatsApp screenshot</h3><p>Upload the original screenshot so the conversation and drawings stay together in the Wiki.</p><label for="whatsapp-file">WhatsApp image</label><input id="whatsapp-file" type="file" accept="image/png,image/jpeg,image/webp" ${busy?'disabled':''}>${whatsappDraft.attachment?whatsappImage(whatsappDraft.attachment):''}<p class="sample-scope">${esc(whatsappDraft.note||'Use a de-identified demo screenshot. The image stays in this browser session; nothing is sent to WhatsApp or an external Wiki.')}</p><button class="btn btn-line" type="submit" ${busy||!whatsappDraft.attachment?'disabled':''}>Collect image into Wiki</button><p id="whatsapp-error" role="alert" class="error-text"></p></form>`:'';}
+
 async function ensureProject(){
  if(sampleProject)return sampleProject;
  if(!projectPromise)projectPromise=fetch(new URL('./sample-data/project.json',import.meta.url),{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('The project references could not be loaded. Please try again.');return r.json();}).then(validateSampleProject).then(async data=>{try{const response=await fetch(new URL('./sample-data/regulatory-references.json',import.meta.url),{cache:'no-cache'});if(!response.ok)throw new Error('Planning pack unavailable.');data.regulatory=validatePlanningRegistry(await response.json());}catch{data.regulatory=null;}return sampleProject=data;}).catch(err=>{projectPromise=null;throw err;});
@@ -62,21 +67,31 @@ async function ensureProject(){
 async function fileHash(file){return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',await file.arrayBuffer())),b=>b.toString(16).padStart(2,'0')).join('');}
 async function loadWhatsAppFile(file){
  if(busy)return;const token=++sequence;busy=true;render();
- try{await ensureProject();if(file.size>12*1024*1024)throw new Error('Please choose a file smaller than 12 MB.');let text='',note='';
- if(/\.(txt|md)$/i.test(file.name)||/^text\//.test(file.type)){text=await file.text();if(text.length>32000)throw new Error('Please use a text file shorter than 32,000 characters.');note='Text file read locally. Review the text before collecting it.';}
- else if(/^image\//.test(file.type)){if([sampleProject.assets.whatsappHash,sampleProject.assets.illustrativeWhatsappHash].includes(await fileHash(file))){text=sampleProject.assets.transcript;note='Matched the supplied demo screenshot. This is its reviewed transcript, not live OCR. Review before collecting.';}else note='Screenshot received. Live OCR is not available; paste and confirm the message text below.';}
- else throw new Error('Choose a text file or screenshot.');
- if(token!==sequence)return;whatsappDraft={text,fileName:file.name,note};whatsappOpen=true;busy=false;render();
+ try{await ensureProject();if(file.size>12*1024*1024)throw new Error('Please choose an image smaller than 12 MB.');
+ if(!['image/png','image/jpeg','image/webp'].includes(file.type))throw new Error('Please choose a PNG, JPEG or WebP WhatsApp screenshot.');
+ const bitmap=await createImageBitmap(file);bitmap.close();const hash=await fileHash(file);if(token!==sequence)return;
+ const matched=[sampleProject.assets.whatsappHash,sampleProject.assets.illustrativeWhatsappHash].includes(hash);
+ releaseDraftImage();const url=URL.createObjectURL(file);wikiImageUrls.add(url);
+ whatsappDraft={text:matched?sampleProject.assets.transcript:'',fileName:file.name,attachment:{url,mime:file.type,hash,fileName:file.name},interpretation:matched?'reviewed-sample':'pending-review',note:matched?'Original image and drawings retained. Lyra uses reviewed notes for this supplied example to organise the Wiki; Digger reviews the resulting guidance.':'Original image and drawings will be retained. Digger will review their meaning before they are used for guidance.'};
+ whatsappOpen=true;busy=false;render();
  }catch(err){if(token!==sequence)return;busy=false;say(err.message);}
 }
-async function ingestWhatsApp(text){
+async function useSampleWhatsApp(){
  if(busy)return;const token=++sequence;busy=true;render();
- try{await ensureProject();if(token!==sequence)return;const result=collectWhatsApp({text,entries:wikiEntries,projectId:sampleProject.id,fileName:whatsappDraft.fileName});wikiEntries=result.entries;
+ try{await ensureProject();const r=await fetch('sample-data/whatsapp-demo.png');if(!r.ok)throw new Error('The supplied WhatsApp image could not be loaded.');const blob=await r.blob();if(token!==sequence)return;busy=false;await loadWhatsAppFile(new File([blob],'Site-manager-to-construction-admin-WhatsApp.png',{type:'image/png'}));}
+ catch(err){if(token!==sequence)return;busy=false;say(err.message);}
+}
+
+async function ingestWhatsApp(){
+ const text=whatsappDraft.text;
+ if(busy)return;const token=++sequence;busy=true;render();
+ try{await ensureProject();if(token!==sequence)return;const result=collectWhatsApp({text,attachment:whatsappDraft.attachment,interpretation:whatsappDraft.interpretation,entries:wikiEntries,projectId:sampleProject.id,fileName:whatsappDraft.fileName});wikiEntries=result.entries;releaseDraftImage();
  for(const step of [{agent:'source',to:'router',alsoTo:'capture'},{agent:'router',to:'capture'},{agent:'capture',to:'kb'},{agent:'capture',to:'router'}]){if(token!==sequence)return;map.play({...step,itemId:result.entry.id});await new Promise(r=>setTimeout(r,window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:180));}
  if(token!==sequence)return;if(pack)pack={...pack,approved:false,wikiEntries,sources:[...sampleProject.sources,...wikiMessageSources(wikiEntries)],drafts:pack.drafts.map(d=>({...d,status:'draft'}))};
 
  const knowledge=takeoffKnowledge(result.entry,sampleProject);if(knowledge&&!result.duplicate){const q=queueReview(reviews,{question:'Review the takeoff SOP draft from the imported site manager / admin message.',audience:'admin',reason:'Confirm the drawing checks and estimating / quantity-order guidance before adopting the draft.',citations:knowledge.citations});reviews=q.entries;}
- messages.push({who:'agent',name:'Lyra',text:result.duplicate?'This message is already in the project Wiki.':`Collected and organised the message for 18 Maroubra Street. Tags: ${result.entry.tags.join(', ')}. Bower can now reference it as an unverified source. It has not changed the projected schedule or approved drawings.${knowledge?' I’ve also prepared a takeoff knowledge / SOP draft for employee estimating and quantity-order preparation, with message and drawing references. Digger can review it in the waiting-for-review panel.':''}`,citations:[result.entry.id]});busy=false;whatsappOpen=false;whatsappDraft={text:'',fileName:'Pasted WhatsApp message',note:''};wikiOpen=true;render();
+ if(result.entry.interpretation==='pending-review'&&!result.duplicate){const q=queueReview(reviews,{question:'Review the uploaded WhatsApp screenshot and its drawings.',audience:'workspace',reason:'Read the original image and confirm the context before using it as guidance.',citations:[result.entry.id]});reviews=q.entries;}
+ messages.push({who:'agent',name:'Lyra',text:result.duplicate?'This message is already in the project Wiki.':`Kept the original WhatsApp screenshot and its drawings together in the Wiki. Tags: ${result.entry.tags.join(', ')}. Bower can reference the original image alongside any indexed notes. The image remains unverified. It has not changed the projected schedule or approved drawings.${knowledge?' I’ve also prepared a takeoff knowledge / SOP draft for employee estimating and quantity-order preparation, with message and drawing references. Digger can review it in the waiting-for-review panel.':''}`,citations:[result.entry.id]});busy=false;whatsappOpen=false;whatsappDraft=emptyWhatsAppDraft();wikiOpen=true;render();
  }catch(err){if(token!==sequence)return;busy=false;render();if($('#whatsapp-error'))$('#whatsapp-error').textContent=err.message;else say(err.message);}
 }
 async function useSamplePhoto(){
@@ -101,7 +116,7 @@ async function downloadPhotoPost(){
 }
 
 function editor(d){const issues=d.id==='social'?publicIssues(d.body):[];const heading={admin:'Employee coaching guide',client:'Client update',social:'Brand story draft'}[d.id];return `<section class="card draft-editor"><div class="editor-heading"><h2>${heading}</h2><span>${pack.approved?'Approved':'Draft'}</span></div><label class="sr" for="draft-body">Edit ${heading}</label><textarea id="draft-body" data-draft="${d.id}">${esc(d.body)}</textarea>${d.id==='social'?`<p id="privacy-result" class="privacy-result ${issues.length?'has-error':''}" aria-live="polite">${issues.length?`Remove private information: ${issues.join(', ')}`:`Public name: ${esc(CONTEXT.publicName)}`}</p>`:''}<details class="evidence"><summary>Sources</summary>${d.citations.map(id=>sourceHtml(sourceById(id))).join('')}</details></section>`;}
-function sourceHtml(s){if(!s)return '';return `<div class="source-detail"><b>${esc(s.title)}</b><p>${esc(s.evidence)}</p><small>${esc(s.file)}${s.locator?` · ${esc(s.locator)}`:''}</small>${s.url?`<a class="source-link" href="${esc(s.url)}" target="_blank" rel="noopener">Open source</a>`:''}</div>`;}
+function sourceHtml(s){if(!s)return '';return `<div class="source-detail"><b>${esc(s.title)}</b><p>${esc(s.evidence)}</p><small>${esc(s.file)}${s.locator?` · ${esc(s.locator)}`:''}</small>${s.imageUrl?`<a class="source-image" href="${esc(s.imageUrl)}" target="_blank" rel="noopener"><img src="${esc(s.imageUrl)}" alt="${esc(s.imageAlt)}" loading="lazy"></a>`:''}${s.url?`<a class="source-link" href="${esc(s.url)}" target="_blank" rel="noopener">${s.imageUrl?'Open original image and drawings':'Open source'}</a>`:''}</div>`;}
 function say(text,who='agent',citations=[]){messages.push({who,text,citations});render();}
 function setPhoto(next){if(photo?.url?.startsWith('blob:'))URL.revokeObjectURL(photo.url);photo=next;pack=null;}
 
@@ -129,13 +144,13 @@ async function prepare(note){
 $('#view').addEventListener('change',e=>{if(e.target.id==='photo-upload'&&e.target.files?.[0])acceptPhoto(e.target.files[0]);if(e.target.id==='whatsapp-file'&&e.target.files?.[0])loadWhatsAppFile(e.target.files[0]);});
 $('#view').addEventListener('dragover',e=>{if(e.target.closest('#photo-drop-zone')){e.preventDefault();$('#photo-drop-zone').classList.add('dragging');}});
 $('#view').addEventListener('dragleave',e=>{const zone=$('#photo-drop-zone');if(zone&&!zone.contains(e.relatedTarget))zone.classList.remove('dragging');});
-$('#view').addEventListener('drop',e=>{if(!e.target.closest('#photo-drop-zone'))return;e.preventDefault();$('#photo-drop-zone').classList.remove('dragging');if(e.dataTransfer.files[0])acceptPhoto(e.dataTransfer.files[0]);});
-$('#view').addEventListener('paste',e=>{if(page!=='workspace')return;const f=[...(e.clipboardData?.files||[])].find(f=>f.type.startsWith('image/'));if(f){e.preventDefault();acceptPhoto(f);}});
+$('#view').addEventListener('drop',e=>{if(!e.target.closest('#photo-drop-zone'))return;e.preventDefault();$('#photo-drop-zone').classList.remove('dragging');if(e.dataTransfer.files[0]){if(e.target.closest('#whatsapp-form'))loadWhatsAppFile(e.dataTransfer.files[0]);else acceptPhoto(e.dataTransfer.files[0]);}});
+$('#view').addEventListener('paste',e=>{if(page!=='workspace')return;const f=[...(e.clipboardData?.files||[])].find(f=>f.type.startsWith('image/'));if(f){e.preventDefault();if(whatsappOpen)loadWhatsAppFile(f);else acceptPhoto(f);}});
 
 $('#view').addEventListener('submit',e=>{
   e.preventDefault();if(busy)return;
   if(e.target.classList.contains('review-reply')){const id=e.target.dataset.reviewId;try{const item=reviews.find(r=>r.id===id);const reply=reviewReplies[id]||'';if(item?.audience==='social'&&publicIssues(reply).length)throw new Error('Remove private identifiers before returning public copy.');const done=resolveReview(reviews,id,reply);reviews=done.entries;const m={who:'agent',name:'Digger · reviewed reply',text:done.entry.reply,citations:done.entry.citations,reviewId:id};if(done.entry.audience==='workspace')messages.push(m);else roleMessages[done.entry.audience].push(m);delete reviewReplies[id];render();}catch(err){$('#error-'+id).textContent=err.message;}return;}
-  if(e.target.id==='whatsapp-form'){ingestWhatsApp($('#whatsapp-text').value);return;}
+  if(e.target.id==='whatsapp-form'){ingestWhatsApp();return;}
   if(e.target.id==='role-form'){const id=e.target.dataset.role,text=$('#role-note').value.trim();if(!text)return;roleInputs[id]='';roleMessages[id].push({who:'you',name:id==='admin'?'Employee':ROLES[id].name,text});answerQuestion(text,id);return;}
   if(e.target.id!=='founder-form')return;
   const text=$('#founder-note').value.trim();if(!text)return;inputNote='';say(text,'you');
@@ -158,7 +173,6 @@ async function answerQuestion(question,audience){
 }
 $('#view').addEventListener('input',e=>{
   if(e.target.dataset.replyId)reviewReplies[e.target.dataset.replyId]=e.target.value;
-  if(e.target.id==='whatsapp-text')whatsappDraft.text=e.target.value;
   if(e.target.id==='founder-note')inputNote=e.target.value;
   if(e.target.id==='role-note')roleInputs[page]=e.target.value;
   if(e.target.dataset.review&&pack){
@@ -179,14 +193,15 @@ $('#view').addEventListener('click',e=>{
   if(b.dataset.action==='wiki'){wikiOpen=!wikiOpen;render();return;}
   if(b.dataset.action==='whatsapp'){whatsappOpen=!whatsappOpen;render();return;}
   if(b.dataset.action==='sample-photo'){useSamplePhoto();return;}
-  if(b.dataset.action==='sample-whatsapp'){whatsappDraft={text:sampleProject.assets.transcript,fileName:'Reviewed WhatsApp demo transcript',note:'Reviewed transcript of the supplied screenshot. Confirm the text before collecting it.'};whatsappOpen=true;render();$('#whatsapp-text')?.focus();return;}
+  if(b.dataset.action==='sample-whatsapp'){useSampleWhatsApp();return;}
   if(b.dataset.open){page=b.dataset.open;render();window.scrollTo(0,0);return;}
   if(b.dataset.action==='approve'){try{pack=approvePack(pack);render();}catch(err){$('#pack-error').textContent=err.message;}}
   if(b.dataset.action==='export'&&pack?.approved){const text=['# Approved construction update pack','Local approval only. Nothing dispatched. Reminders are drafts, not scheduled.',...pack.drafts.map(d=>`## ${d.title}\nAudience: ${d.to}\nChannel: ${d.channel}\nTask: ${d.taskTitle}\nReminder draft: ${d.reminder}\n\n${d.body}\n\nEvidence:\n${d.citations.map(id=>{const s=sourceById(id);return s?`${s.title}: ${s.evidence}${s.locator?`\nLocation: ${s.locator}`:''}${s.url?`\nSource: ${new URL(s.url,window.location.href).href}`:''}`:id;}).join('\n\n')}`)].join('\n\n');const url=URL.createObjectURL(new Blob([text],{type:'text/markdown'}));const a=document.createElement('a');a.href=url;a.download='approved-construction-updates.md';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 });
 document.querySelector('.roles').addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b){page=b.dataset.page;render();window.scrollTo(0,0);}});
-$('#resetBtn').addEventListener('click',()=>{sequence++;busy=false;setPhoto(null);reviews=[];reviewReplies={};wikiEntries=[];wikiOpen=false;whatsappOpen=false;whatsappDraft={text:'',fileName:'Pasted WhatsApp message',note:''};messages=[];inputNote='';roleMessages={admin:[],client:[],social:[]};roleInputs={admin:'',client:'',social:''};$('#trace').innerHTML='';digger.reset();map=createMap($('#agentMap'),{},pics);page='workspace';render();});
+$('#resetBtn').addEventListener('click',()=>{sequence++;busy=false;for(const url of wikiImageUrls)URL.revokeObjectURL(url);wikiImageUrls.clear();setPhoto(null);reviews=[];reviewReplies={};wikiEntries=[];wikiOpen=false;whatsappOpen=false;whatsappDraft=emptyWhatsAppDraft();messages=[];inputNote='';roleMessages={admin:[],client:[],social:[]};roleInputs={admin:'',client:'',social:''};$('#trace').innerHTML='';digger.reset();map=createMap($('#agentMap'),{},pics);page='workspace';render();});
 $('#danceBtn').addEventListener('click',()=>digger.dance());
 $('#soundBtn').addEventListener('click',e=>{const on=e.target.getAttribute('aria-pressed')!=='true';e.target.setAttribute('aria-pressed',String(on));e.target.textContent=on?'Voice on':'Voice off';digger.setSound(on);});
+window.addEventListener('pagehide',e=>{if(!e.persisted){for(const url of wikiImageUrls)URL.revokeObjectURL(url);wikiImageUrls.clear();}});
 render();
 ensureProject().then(render).catch(err=>say(err.message));

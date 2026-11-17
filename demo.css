@@ -201,3 +201,10 @@ html { scroll-padding-top:calc(var(--app-header-height,100px) + 16px); }
 .bar .roles { max-width:100%; }
 .bar .role { min-width:0; }
 .mapcol { top:calc(var(--app-header-height,100px) + 20px); }
+
+/* Preserve the whole screenshot: drawings must remain readable and open at original resolution. */
+.whatsapp-preview,.wiki-original-image{margin:16px 0;max-width:560px}
+.whatsapp-preview img,.wiki-original-image img{display:block;width:100%;height:auto;object-fit:contain;border:1px solid #c4ad96;border-radius:10px;background:#fff}
+.whatsapp-preview figcaption,.wiki-original-image figcaption{font-size:12px;line-height:1.6;margin-top:9px;overflow-wrap:anywhere}
+.source-image{display:block;max-width:360px;margin:12px 0}
+.source-image img{display:block;width:100%;height:auto;border:1px solid #c4ad96;border-radius:8px}

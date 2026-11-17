@@ -18,9 +18,9 @@ Screen: as Digger, upload the framing photo. Show the three drafts, briefly open
 
 ## 0:55–1:30 — Message to useful knowledge
 
-Screen: return to Digger. Choose Add a WhatsApp message, select the downloaded WhatsApp example, briefly show its transcript, then Collect into Wiki. Show Takeoff knowledge · SOP draft and its references.
+Screen: return to Digger. Choose Add a WhatsApp message, select the downloaded WhatsApp example, show the original screenshot with its embedded drawings, then Collect image into Wiki. Show Takeoff knowledge · SOP draft and its references.
 
-“Next, I upload a site-manager-to-admin WhatsApp example containing a roof discussion and markup. For this supplied example, we use a reviewed transcript. Lyra organises it into a takeoff knowledge draft, linked to the message and drawing references. The value is preserving useful estimating and quantity-ordering guidance for employees. This remains a draft for Digger’s review.”
+“Next, I upload a site-manager-to-admin WhatsApp example containing a roof discussion and markup. Lyra retains the original image and its embedded drawings in the Wiki, with reviewed indexing notes behind the scenes. The takeoff knowledge draft links back to that image and the drawing references. The value is preserving useful estimating and quantity-ordering guidance for employees. This remains a draft for Digger’s review.”
 
 ## 1:30–2:00 — Coach an employee
 
