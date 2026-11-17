@@ -27,8 +27,8 @@
         "stage": "DEPOSIT STAGE",
         "process": "",
         "task": "DEPOSIT STAGE",
-        "start": null,
-        "finish": null,
+        "start": "2025-10-27",
+        "finish": "2026-07-01",
         "note": ""
       },
       {
@@ -36,8 +36,8 @@
         "stage": "Planning",
         "process": "Architect Engagement",
         "task": "Site visit & engineer consulting",
-        "start": null,
-        "finish": null,
+        "start": "2025-10-27",
+        "finish": "2025-11-14",
         "note": ""
       },
       {
@@ -45,8 +45,8 @@
         "stage": "Planning",
         "process": "Site cleaning",
         "task": "Tree lopping",
-        "start": null,
-        "finish": null,
+        "start": "2025-11-17",
+        "finish": "2025-11-18",
         "note": ""
       },
       {
@@ -54,8 +54,8 @@
         "stage": "Planning",
         "process": "Surveyor planning",
         "task": "Surveyor visit and to produce the plan",
-        "start": null,
-        "finish": null,
+        "start": "2025-11-10",
+        "finish": "2025-11-21",
         "note": ""
       },
       {
@@ -72,7 +72,7 @@
         "stage": "CDC",
         "process": "CDC Concepts",
         "task": "first draft review",
-        "start": null,
+        "start": "2025-12-06",
         "finish": "2025-12-16",
         "note": ""
       },
@@ -81,7 +81,7 @@
         "stage": "CDC",
         "process": "CDC Concepts",
         "task": "almost finalized",
-        "start": null,
+        "start": "2025-12-11",
         "finish": "2025-12-16",
         "note": ""
       },
@@ -90,7 +90,7 @@
         "stage": "CDC",
         "process": "CDC Design",
         "task": "consultants engagement",
-        "start": null,
+        "start": "2025-12-03",
         "finish": "2025-12-17",
         "note": ""
       },
@@ -99,7 +99,7 @@
         "stage": "CDC",
         "process": "CDC Design",
         "task": "Geo-tech report",
-        "start": null,
+        "start": "2025-12-22",
         "finish": "2026-01-12",
         "note": ""
       },
@@ -108,7 +108,7 @@
         "stage": "CDC",
         "process": "CDC Approval",
         "task": "CDC Approval",
-        "start": null,
+        "start": "2025-12-29",
         "finish": "2026-01-12",
         "note": ""
       },
@@ -117,8 +117,8 @@
         "stage": "CDC",
         "process": "CDC Approval",
         "task": "Hrydolic engineer",
-        "start": null,
-        "finish": null,
+        "start": "2026-01-12",
+        "finish": "2026-02-06",
         "note": ""
       },
       {
@@ -126,7 +126,7 @@
         "stage": "CDC",
         "process": "CDC Approval",
         "task": "Driveway Design Approval",
-        "start": null,
+        "start": "2026-02-04",
         "finish": "2026-03-06",
         "note": ""
       },
@@ -135,7 +135,7 @@
         "stage": "CDC",
         "process": "CDC Approval",
         "task": "strucuture engineer",
-        "start": null,
+        "start": "2026-02-28",
         "finish": "2026-03-30",
         "note": ""
       },
@@ -144,7 +144,7 @@
         "stage": "CDC",
         "process": "CDC Approval",
         "task": "BASIX Report",
-        "start": null,
+        "start": "2026-04-27",
         "finish": "2026-05-18",
         "note": ""
       },
@@ -153,7 +153,7 @@
         "stage": "CDC",
         "process": "CDC Approval",
         "task": "BASIX Certificate",
-        "start": null,
+        "start": "2026-05-25",
         "finish": "2026-06-08",
         "note": ""
       },
@@ -162,7 +162,7 @@
         "stage": "CDC",
         "process": "CDC Approval",
         "task": "Waste management plan -check",
-        "start": null,
+        "start": "2026-06-03",
         "finish": "2026-06-10",
         "note": ""
       },
@@ -180,8 +180,8 @@
         "stage": "CDC",
         "process": "CDC Approval",
         "task": "Subdivision lodged into portale",
-        "start": null,
-        "finish": null,
+        "start": "2026-06-15",
+        "finish": "2026-06-15",
         "note": ""
       },
       {
@@ -189,7 +189,7 @@
         "stage": "CDC",
         "process": "CDC Approval",
         "task": "HWIC",
-        "start": null,
+        "start": "2026-06-02",
         "finish": "2026-06-16",
         "note": ""
       },
@@ -198,7 +198,7 @@
         "stage": "CDC",
         "process": "CDC Approval",
         "task": "Geo-tech report",
-        "start": null,
+        "start": "2025-12-22",
         "finish": "2026-01-12",
         "note": ""
       },
@@ -234,8 +234,8 @@
         "stage": "Demolition & Disconnection",
         "process": "Service disconnection (Gas/Electricity/Water)",
         "task": "Gas-need request by ourselves request metre abolishement",
-        "start": null,
-        "finish": null,
+        "start": "2026-05-07",
+        "finish": "2026-06-11",
         "note": ""
       },
       {
@@ -261,8 +261,8 @@
         "stage": "Demolition & Disconnection",
         "process": "Service disconnection (Gas/Electricity/Water)",
         "task": "NBN Asset relocation request",
-        "start": null,
-        "finish": null,
+        "start": "2026-05-07",
+        "finish": "2026-06-12",
         "note": ""
       },
       {
@@ -288,8 +288,8 @@
         "stage": "SLAB STAGE",
         "process": "Construction",
         "task": "SLAB STAGE",
-        "start": null,
-        "finish": null,
+        "start": "2026-07-08",
+        "finish": "2026-10-21",
         "note": ""
       },
       {
@@ -315,8 +315,8 @@
         "stage": "SLAB STAGE",
         "process": "Inspections to book",
         "task": "Structual & Geo Engineer",
-        "start": null,
-        "finish": null,
+        "start": "2026-07-10",
+        "finish": "2026-07-10",
         "note": ""
       },
       {
@@ -324,8 +324,8 @@
         "stage": "SLAB STAGE",
         "process": "Inspections to book",
         "task": "PCA",
-        "start": null,
-        "finish": null,
+        "start": "2026-07-10",
+        "finish": "2026-07-10",
         "note": ""
       },
       {
@@ -333,7 +333,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "OSD excavation and steel bars",
-        "start": null,
+        "start": "2026-07-16",
         "finish": "2026-07-30",
         "note": ""
       },
@@ -342,7 +342,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "Excavation",
-        "start": null,
+        "start": "2026-07-20",
         "finish": "2026-08-03",
         "note": ""
       },
@@ -360,7 +360,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "Stormwater engineer inspection",
-        "start": null,
+        "start": "2026-08-04",
         "finish": "2026-08-04",
         "note": ""
       },
@@ -369,7 +369,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "Water Connection/Tap In",
-        "start": null,
+        "start": "2026-08-04",
         "finish": "2026-08-04",
         "note": ""
       },
@@ -378,7 +378,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "Syd water inspection",
-        "start": null,
+        "start": "2026-08-10",
         "finish": "2026-08-10",
         "note": ""
       },
@@ -387,7 +387,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "Inspection Fair Trading Plumbing/Drainage",
-        "start": null,
+        "start": "2026-08-14",
         "finish": "2026-08-14",
         "note": ""
       },
@@ -396,7 +396,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "Plumbing -Pipes",
-        "start": null,
+        "start": "2026-08-07",
         "finish": "2026-08-14",
         "note": ""
       },
@@ -405,7 +405,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "OSD Plumbing",
-        "start": null,
+        "start": "2026-08-07",
         "finish": "2026-08-14",
         "note": ""
       },
@@ -414,7 +414,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "Steel placement for ground slab",
-        "start": null,
+        "start": "2026-08-14",
         "finish": "2026-08-19",
         "note": ""
       },
@@ -423,7 +423,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "Slab and Concreting",
-        "start": null,
+        "start": "2026-08-22",
         "finish": "2026-08-29",
         "note": ""
       },
@@ -432,7 +432,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "ISA-set out for bricks",
-        "start": null,
+        "start": "2026-09-07",
         "finish": "2026-09-07",
         "note": ""
       },
@@ -441,8 +441,8 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "Geo engineer inspection of footing",
-        "start": null,
-        "finish": null,
+        "start": "2026-07-10",
+        "finish": "2026-07-10",
         "note": ""
       },
       {
@@ -450,8 +450,8 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "Geo-engineer inspection",
-        "start": null,
-        "finish": null,
+        "start": "2026-08-18",
+        "finish": "2026-08-18",
         "note": ""
       },
       {
@@ -459,7 +459,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "PCA inspection-prior to the placement of any footings groundfloor",
-        "start": null,
+        "start": "2026-09-19",
         "finish": "2026-09-19",
         "note": ""
       },
@@ -468,7 +468,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "Engineer inpsection",
-        "start": null,
+        "start": "2026-09-19",
         "finish": "2026-09-19",
         "note": ""
       },
@@ -477,7 +477,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Slab",
         "task": "PCA inspection",
-        "start": null,
+        "start": "2026-09-19",
         "finish": "2026-09-19",
         "note": ""
       },
@@ -486,7 +486,7 @@
         "stage": "SLAB STAGE",
         "process": "Ground Bricks",
         "task": "Ground level Brick Laying",
-        "start": null,
+        "start": "2026-09-07",
         "finish": "2026-09-08",
         "note": ""
       },
@@ -495,7 +495,7 @@
         "stage": "SLAB STAGE",
         "process": "Suspended Slab",
         "task": "Suspended Concrete Slab & Stairs",
-        "start": null,
+        "start": "2026-09-23",
         "finish": "2026-10-21",
         "note": ""
       },
@@ -504,8 +504,8 @@
         "stage": "FRAME STAGE",
         "process": "Suspended Slab",
         "task": "FRAME STAGE",
-        "start": null,
-        "finish": null,
+        "start": "2026-09-07",
+        "finish": "2027-01-22",
         "note": ""
       },
       {
@@ -513,7 +513,7 @@
         "stage": "FRAME STAGE",
         "process": "Scaffolding",
         "task": "Scaffolding arrangement",
-        "start": null,
+        "start": "2026-10-19",
         "finish": "2026-10-21",
         "note": ""
       },
@@ -533,7 +533,7 @@
         "task": "Framework – First floor (brick veneer construction)",
         "start": "2026-11-09",
         "finish": "2026-11-27",
-        "note": "Started Mon 9 Nov 2026"
+        "note": ""
       },
       {
         "sourceRow": 64,
@@ -548,7 +548,7 @@
         "sourceRow": 65,
         "stage": "FRAME STAGE",
         "process": "Roof",
-        "task": "Brick veneer – First floor (external brick skin)",
+        "task": "Roof covering (roof enclosing)",
         "start": "2026-12-03",
         "finish": "2026-12-10",
         "note": "Roof on by 10 Dec 2026"
@@ -557,7 +557,7 @@
         "sourceRow": 66,
         "stage": "FRAME STAGE",
         "process": "Roof",
-        "task": "Roof covering (roof enclosing)",
+        "task": "Brick veneer – First floor (external brick skin)",
         "start": "2026-12-11",
         "finish": "2027-01-22",
         "note": "Includes Christmas shutdown (approx. 19 Dec – 10 Jan)"
@@ -576,7 +576,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Enclose Windows",
         "task": "Windows",
-        "start": null,
+        "start": "2027-01-17",
         "finish": "2027-01-20",
         "note": ""
       },
@@ -585,7 +585,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Enclose Electricity/Wiring",
         "task": "Electricity Cutting Walls",
-        "start": null,
+        "start": "2027-01-20",
         "finish": "2027-01-23",
         "note": ""
       },
@@ -594,7 +594,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Enclose Electricity/Wiring",
         "task": "Wiring",
-        "start": null,
+        "start": "2027-01-25",
         "finish": "2027-02-04",
         "note": ""
       },
@@ -603,7 +603,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Enclose Electricity/Wiring",
         "task": "Insulation Installation",
-        "start": null,
+        "start": "2027-02-15",
         "finish": "2027-02-20",
         "note": ""
       },
@@ -612,7 +612,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Enclose Electricity/Wiring",
         "task": "Gyprock cutting for downlights",
-        "start": null,
+        "start": "2027-02-27",
         "finish": "2027-03-02",
         "note": ""
       },
@@ -621,7 +621,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Joinery Planning",
         "task": "Confirm Joinery Company and start detailed drawing",
-        "start": null,
+        "start": "2027-02-17",
         "finish": "2027-03-03",
         "note": ""
       },
@@ -630,7 +630,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Joinery Planning",
         "task": "Aircon  installation",
-        "start": null,
+        "start": "2027-03-06",
         "finish": "2027-03-13",
         "note": ""
       },
@@ -648,7 +648,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Fixing",
         "task": "Waterproofing",
-        "start": null,
+        "start": "2027-03-17",
         "finish": "2027-03-22",
         "note": ""
       },
@@ -666,7 +666,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Planning",
         "task": "Tiles picking and ordering",
-        "start": null,
+        "start": "2027-03-10",
         "finish": "2027-03-24",
         "note": ""
       },
@@ -675,7 +675,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Planning",
         "task": "Garage measurement & Installation",
-        "start": null,
+        "start": "2027-03-21",
         "finish": "2027-03-24",
         "note": ""
       },
@@ -684,7 +684,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Planning",
         "task": "Garage Doors Ordering/Quoting",
-        "start": null,
+        "start": "2027-03-17",
         "finish": "2027-03-24",
         "note": ""
       },
@@ -693,7 +693,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Enclose Brick",
         "task": "External Brick Cleaning",
-        "start": null,
+        "start": "2027-03-22",
         "finish": "2027-03-24",
         "note": ""
       },
@@ -702,7 +702,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Enclose Brick",
         "task": "Waterproofing inspection by PCA",
-        "start": null,
+        "start": "2027-03-26",
         "finish": "2027-03-26",
         "note": ""
       },
@@ -711,7 +711,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Enclose Brick",
         "task": "Plumbing Down Pipes",
-        "start": null,
+        "start": "2027-03-26",
         "finish": "2027-03-29",
         "note": ""
       },
@@ -720,7 +720,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Planning",
         "task": "Tiling -Bathroom & Kitchen",
-        "start": null,
+        "start": "2027-03-29",
         "finish": "2027-04-11",
         "note": ""
       },
@@ -729,7 +729,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Planning",
         "task": "Joinery Production",
-        "start": null,
+        "start": "2027-03-03",
         "finish": "2027-03-31",
         "note": ""
       },
@@ -738,7 +738,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Planning",
         "task": "Joinery Installation",
-        "start": null,
+        "start": "2027-04-13",
         "finish": "2027-04-20",
         "note": ""
       },
@@ -747,7 +747,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Site/Pavement Preparation",
         "task": "Flooring",
-        "start": null,
+        "start": "2027-04-27",
         "finish": "2027-05-11",
         "note": ""
       },
@@ -756,7 +756,7 @@
         "stage": "ENCLOSED & FIXING STAGE",
         "process": "Site/Pavement Preparation",
         "task": "Front Door & Lock Installation",
-        "start": null,
+        "start": "2027-05-22",
         "finish": "2027-05-24",
         "note": ""
       },
@@ -765,7 +765,7 @@
         "stage": "Planning",
         "process": "Picking and Ordering",
         "task": "Shower Screen & Baluster ordering",
-        "start": null,
+        "start": "2027-05-18",
         "finish": "2027-05-25",
         "note": ""
       },
@@ -774,7 +774,7 @@
         "stage": "Planning",
         "process": "Picking and Ordering",
         "task": "Garage Doors",
-        "start": null,
+        "start": "2027-03-17",
         "finish": "2027-03-24",
         "note": ""
       },
@@ -783,7 +783,7 @@
         "stage": "Planning",
         "process": "Picking and Ordering",
         "task": "Tiles",
-        "start": null,
+        "start": "2027-03-10",
         "finish": "2027-03-24",
         "note": ""
       },
@@ -792,7 +792,7 @@
         "stage": "Planning",
         "process": "Picking and Ordering",
         "task": "Letter Box",
-        "start": null,
+        "start": "2027-05-27",
         "finish": "2027-06-03",
         "note": ""
       },
@@ -801,7 +801,7 @@
         "stage": "Planning",
         "process": "Picking and Ordering",
         "task": "Landscape Plants ordering",
-        "start": null,
+        "start": "2027-07-05",
         "finish": "2027-07-12",
         "note": ""
       },
@@ -810,8 +810,8 @@
         "stage": "Planning",
         "process": "Picking and Ordering",
         "task": "Watertanks ordering",
-        "start": null,
-        "finish": null,
+        "start": "2027-01-04",
+        "finish": "2027-01-09",
         "note": ""
       },
       {
@@ -819,7 +819,7 @@
         "stage": "Driveway",
         "process": "Picking and Ordering",
         "task": "Concrete of driveway (need apply road occupancy Permit)",
-        "start": null,
+        "start": "2027-05-22",
         "finish": "2027-05-24",
         "note": ""
       },
@@ -828,7 +828,7 @@
         "stage": "Driveway",
         "process": "Picking and Ordering",
         "task": "Excavation for landscaping and Driveway",
-        "start": null,
+        "start": "2027-05-21",
         "finish": "2027-05-24",
         "note": ""
       },
@@ -837,7 +837,7 @@
         "stage": "Driveway",
         "process": "Planning",
         "task": "Shower Screen & Baluster ordering",
-        "start": null,
+        "start": "2027-05-18",
         "finish": "2027-05-25",
         "note": ""
       },
@@ -855,7 +855,7 @@
         "stage": "Driveway",
         "process": "Construction",
         "task": "Formwork of driveway",
-        "start": null,
+        "start": "2027-05-24",
         "finish": "2027-05-26",
         "note": ""
       },
@@ -864,7 +864,7 @@
         "stage": "Driveway",
         "process": "Driveway Inspection",
         "task": "Council driveway formwork inspection",
-        "start": null,
+        "start": "2027-05-28",
         "finish": "2027-05-28",
         "note": ""
       },
@@ -882,7 +882,7 @@
         "stage": "Driveway",
         "process": "Driveway Inspection",
         "task": "Letter box ordering",
-        "start": null,
+        "start": "2027-05-27",
         "finish": "2027-06-03",
         "note": ""
       },
@@ -891,7 +891,7 @@
         "stage": "Driveway",
         "process": "Service Connection",
         "task": "NBN Applicaiton",
-        "start": null,
+        "start": "2027-05-28",
         "finish": "2027-06-11",
         "note": ""
       },
@@ -909,7 +909,7 @@
         "stage": "Driveway",
         "process": "Service Connection",
         "task": "Landscape Plants Ordering",
-        "start": null,
+        "start": "2027-07-05",
         "finish": "2027-07-12",
         "note": ""
       },
@@ -927,7 +927,7 @@
         "stage": "Driveway",
         "process": "Landscape",
         "task": "Installation of bathroom accessories",
-        "start": null,
+        "start": "2027-07-26",
         "finish": "2027-07-31",
         "note": ""
       },
@@ -936,7 +936,7 @@
         "stage": "Driveway",
         "process": "Landscape",
         "task": "Plumbing final wrap up",
-        "start": null,
+        "start": "2027-07-28",
         "finish": "2027-07-31",
         "note": ""
       },
@@ -945,7 +945,7 @@
         "stage": "Driveway",
         "process": "Enclose Finishing",
         "task": "Sealing & Chaulking",
-        "start": null,
+        "start": "2027-08-19",
         "finish": "2027-08-24",
         "note": ""
       },
@@ -954,7 +954,7 @@
         "stage": "Driveway",
         "process": "Enclose Finishing",
         "task": "Electrician weap up -Final check all lights",
-        "start": null,
+        "start": "2027-08-26",
         "finish": "2027-08-28",
         "note": ""
       },
@@ -963,7 +963,7 @@
         "stage": "Driveway",
         "process": "Finishing",
         "task": "Driveway sealing",
-        "start": null,
+        "start": "2027-08-30",
         "finish": "2027-08-30",
         "note": ""
       },
@@ -972,7 +972,7 @@
         "stage": "Driveway",
         "process": "Finishing",
         "task": "Shower Screen & Baluster Installation",
-        "start": null,
+        "start": "2027-06-08",
         "finish": "2027-06-11",
         "note": ""
       },
@@ -981,7 +981,7 @@
         "stage": "Driveway",
         "process": "Finishing",
         "task": "Electrician-Switch & downlights",
-        "start": null,
+        "start": "2027-06-08",
         "finish": "2027-06-11",
         "note": ""
       },
@@ -990,7 +990,7 @@
         "stage": "Driveway",
         "process": "Finishing",
         "task": "Installation of appliances by electrician",
-        "start": null,
+        "start": "2027-06-08",
         "finish": "2027-06-11",
         "note": ""
       },
@@ -999,7 +999,7 @@
         "stage": "Driveway",
         "process": "Appliance Planning",
         "task": "Bathroom, joinery, Doors & Kitchen Electrical appliances  (including BBQ) ordering",
-        "start": null,
+        "start": "2027-06-03",
         "finish": "2027-06-17",
         "note": ""
       },
@@ -1008,7 +1008,7 @@
         "stage": "Driveway",
         "process": "Appliance Planning",
         "task": "BBQ Delivery",
-        "start": null,
+        "start": "2027-06-17",
         "finish": "2027-06-17",
         "note": ""
       },
@@ -1016,8 +1016,8 @@
         "sourceRow": 117,
         "stage": "Driveway",
         "process": "Stone Selection & Measurement",
-        "task": "Stone supplier Ordering",
-        "start": null,
+        "task": "Stone World Ordering",
+        "start": "2027-03-29",
         "finish": "2027-06-15",
         "note": ""
       },
@@ -1026,7 +1026,7 @@
         "stage": "Driveway",
         "process": "Stone Selection & Measurement",
         "task": "Electricity Connection",
-        "start": null,
+        "start": "2027-06-29",
         "finish": "2027-07-06",
         "note": ""
       },
@@ -1035,7 +1035,7 @@
         "stage": "Driveway",
         "process": "Stone Selection & Measurement",
         "task": "Tiles Ordering",
-        "start": null,
+        "start": "2027-07-27",
         "finish": "2027-08-10",
         "note": ""
       },
@@ -1044,7 +1044,7 @@
         "stage": "Driveway",
         "process": "Swimming Pool",
         "task": "Pool Tiling & Mosaic",
-        "start": null,
+        "start": "2027-07-27",
         "finish": "2027-08-10",
         "note": ""
       },
@@ -1054,7 +1054,7 @@
         "process": "Swimming Pool",
         "task": "Pest Control for frame",
         "start": "2026-11-23",
-        "finish": null,
+        "finish": "2026-11-23",
         "note": ""
       },
       {
@@ -1062,7 +1062,7 @@
         "stage": "Driveway",
         "process": "Swimming Pool",
         "task": "Installation of toilet by plumbing",
-        "start": null,
+        "start": "2027-01-09",
         "finish": "2027-01-09",
         "note": ""
       },
@@ -1071,7 +1071,7 @@
         "stage": "Driveway",
         "process": "Swimming Pool",
         "task": "Watertanks Ordering",
-        "start": null,
+        "start": "2027-01-04",
         "finish": "2027-01-09",
         "note": ""
       },
@@ -1080,7 +1080,7 @@
         "stage": "Driveway",
         "process": "Enclose Painting",
         "task": "Internal painting",
-        "start": null,
+        "start": "2027-07-22",
         "finish": "2027-08-12",
         "note": ""
       },
@@ -1089,7 +1089,7 @@
         "stage": "Driveway",
         "process": "Enclose Painting",
         "task": "Commercial cleanninhg Caulking",
-        "start": null,
+        "start": "2027-09-22",
         "finish": "2027-09-25",
         "note": ""
       },
@@ -1098,7 +1098,7 @@
         "stage": "Driveway",
         "process": "Enclose Painting",
         "task": "Gas Connection",
-        "start": null,
+        "start": "2027-09-27",
         "finish": "2027-09-27",
         "note": ""
       },
@@ -1107,9 +1107,9 @@
         "stage": "PRACTICAL COMPLETION",
         "process": "Enclose Painting",
         "task": "PRACTICAL COMPLETION",
-        "start": null,
-        "finish": null,
-        "note": ""
+        "start": "2027-10-01",
+        "finish": "2027-10-01",
+        "note": "Milestone: all building works complete (after gas connection & final clean)"
       },
       {
         "sourceRow": 128,
@@ -1125,18 +1125,18 @@
         "stage": "Occupany Certificate",
         "process": "PCA Checklist",
         "task": "Completion & Submission of Requirements",
-        "start": "2028-01-13",
-        "finish": "2028-01-13",
-        "note": ""
+        "start": "2027-10-04",
+        "finish": "2027-10-15",
+        "note": "Submit OC requirements incl. 88E after PC"
       },
       {
         "sourceRow": 130,
         "stage": "Occupany Certificate",
         "process": "PCA Checklist",
         "task": "Received Certificate",
-        "start": "2028-01-18",
-        "finish": "2028-01-18",
-        "note": ""
+        "start": "2027-10-29",
+        "finish": "2027-10-29",
+        "note": "OC received 4 weeks after Practical Completion"
       },
       {
         "sourceRow": 132,
@@ -1161,8 +1161,8 @@
         "stage": "Subdivision",
         "process": "PCA Checklist",
         "task": "Received Subdivision Certificate",
-        "start": "2028-01-20",
-        "finish": "2028-01-20",
+        "start": "2027-11-01",
+        "finish": "2027-11-12",
         "note": ""
       },
       {
@@ -1170,8 +1170,8 @@
         "stage": "Interview Agents",
         "process": "PCA Checklist",
         "task": "Interview Agents",
-        "start": null,
-        "finish": null,
+        "start": "2027-07-19",
+        "finish": "2027-11-06",
         "note": ""
       },
       {
@@ -1179,7 +1179,7 @@
         "stage": "Interview Agents",
         "process": "Interview Agents",
         "task": "Interview Agents",
-        "start": null,
+        "start": "2027-07-19",
         "finish": "2027-08-02",
         "note": ""
       },
@@ -1188,8 +1188,8 @@
         "stage": "Interview Agents",
         "process": "Photoshoot",
         "task": "Photoshoot",
-        "start": null,
-        "finish": null,
+        "start": "2027-10-04",
+        "finish": "2027-10-05",
         "note": ""
       },
       {
@@ -1197,20 +1197,23 @@
         "stage": "Interview Agents",
         "process": "Sale",
         "task": "Sale",
-        "start": null,
-        "finish": null,
+        "start": "2027-10-11",
+        "finish": "2027-11-06",
         "note": ""
       }
     ],
     "milestones": {
-      "roofCovering": 66,
+      "roofCovering": 65,
       "roofFrame": 64,
       "practicalCompletion": 127,
       "ocChecklist": 128,
       "ocSubmission": 129,
       "ocReceipt": 130
     },
-    "dateBasis": "Projected dates in columns E and F; not actual completion, appointments or certification."
+    "dateBasis": "Projected dates from the supplied revised workbook, sheet Maroubra, columns E/F. Source row IDs preserved.",
+    "updatedAt": "2026-11-17",
+    "version": "Founder-supplied revised schedule · 17 November 2026",
+    "revisionNote": "17 November 2026; roof-covering task reidentified by label at row 65, not by the previous row number."
   },
   "checklist": [
     {
@@ -1400,9 +1403,10 @@
       "title": "Project schedule",
       "file": "Public schedule extract",
       "url": "sample-data/project-schedule-extract.xlsx",
-      "locator": "Maroubra!E66:F66; A127:F130. Public extract preserves source row IDs.",
+      "locator": "Maroubra!E65:F65; E127:F130. Source row IDs retained in public extract.",
       "tier": "internal",
-      "evidence": "Projected roof-covering dates: 11 December 2026 to 22 January 2027 (E66:F66). OC receipt is projected for 18 January 2028 (E130:F130). Practical Completion row 127 is undated."
+      "evidence": "Revised schedule: roof covering 3–10 December 2026 (row 65); Practical Completion 1 October 2027 (row 127); OC submission 4–15 October 2027 (row 129); OC receipt 29 October 2027 (row 130). All dates are projected.",
+      "version": "Revised 17 November 2026"
     },
     {
       "id": "sample-oc",
@@ -1418,18 +1422,19 @@
       "title": "Client schedule reference",
       "file": "Reviewed client schedule extract",
       "url": "sample-data/client-schedule.html",
-      "locator": "Roof covering row 66; Practical Completion row 127; OC rows 128-130",
+      "locator": "Maroubra source rows 64–66, 125–130; revised 17 November 2026",
       "tier": "customer-safe",
-      "evidence": "Projected roof-covering finish: 22 January 2027. Projected OC receipt: 18 January 2028. Practical Completion has no date. Projections do not confirm completed work or OC issue."
+      "evidence": "Roof-covering finish: 10 December 2026. Practical Completion: 1 October 2027. OC receipt: 29 October 2027. Planned dates are not actual completion, sign-off or permission to occupy.",
+      "version": "Revised 17 November 2026"
     },
     {
       "id": "sample-public",
-      "title": "Client story context",
+      "title": "Reviewed brand context",
       "file": "Reviewed sample summary",
       "url": "sample-data/README.md",
       "locator": "Public story context",
       "tier": "public",
-      "evidence": "A public story can explain careful drawing review and coordination. The sample does not establish a new completion milestone."
+      "evidence": "A site photo can accompany a brand draft about the work behind a home. The photo alone does not establish measurements, compliance or completion. Public copy excludes project identifiers and private messages."
     },
     {
       "id": "sample-photo",

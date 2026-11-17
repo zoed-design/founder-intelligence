@@ -12,7 +12,7 @@ Tally’s prototype responses use source-based rules, not a newly trained model.
 
 ## Weather boundaries
 
-The current weather feature is **a clearly labelled local demonstration**, selected by the founder. No live weather API is connected and no current weather is asserted. The example week is 18–24 January 2027, near the supplied roof-covering target. Its rainfall and 0–2 working-day roofing allowance are deliberately invented scenario inputs.
+The current weather feature is **a clearly labelled local demonstration**, selected by the founder. No live weather API is connected and no current weather is asserted. The example week is 7–13 December 2026, near the supplied roof-covering target. Its rainfall and 0–2 working-day roofing allowance are deliberately invented scenario inputs.
 
 Each related message and citation must say that this is simulated. The allowance is not a calculation from rainfall, a professional estimate or an approved program change. Rain-watch days are not automatically lost working days. Do not convert an allowance into a new deadline, especially without a work calendar, holidays, task dependencies, site conditions or available float.
 
@@ -20,7 +20,7 @@ For demolition, concreting, bricklaying, framing and roofing, the app displays s
 
 ## Project dates
 
-The supplied project schedule projects roof-covering completion for 22 January 2027. Practical Completion is undated. A separate OC receipt target is not a whole-project finish or permission to move in. Tally must retain these distinctions while using helpful, considerate wording.
+The supplied project schedule projects roof-covering completion for 10 December 2026. Practical Completion is projected for 1 October 2027, and OC receipt for 29 October 2027. A separate OC receipt target is not a whole-project finish or permission to move in. Tally must retain these distinctions while using helpful, considerate wording.
 
 ## Demo guide
 

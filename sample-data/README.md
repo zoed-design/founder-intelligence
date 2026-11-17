@@ -12,15 +12,15 @@ Project alias: **18 Maroubra Street, Maroubra, Sydney**. Seven selected founder-
 | Site manager to admin WhatsApp screenshot | Reviewed transcript using Mark and Kira. The original image still has a face and a legacy drawing number; it is not published. Uploading that exact supplied screenshot recognises its hash and offers the reviewed transcript, not live OCR. |
 | Roof takeoff markup | roof-markup.png; supplied annotation “3.5m height too but minus windows” retained. It is a reported note, not an approved quantity or change. |
 
-## Key schedule locators
+## Key schedule locators · revised 17 November 2026
 
 - Maroubra!E64:F64: roof trusses, 30 November–4 December 2026.
-- Maroubra!E66:F66: roof covering, 11 December 2026–22 January 2027; H66 notes a Christmas shutdown approximately 19 December–10 January.
-- H65 says “Roof on by 10 Dec 2026”. This differs from the following roof-covering window and must be reconciled by Digger before making a commitment.
-- Row 127: Practical Completion has no date. Do not invent a whole-project finish date.
-- E128:F128: obtain updated OC checklist, 25 August 2027.
-- E129:F129: complete and submit OC requirements, 13 January 2028.
-- E130:F130: receipt of certificate under the OC stage, 18 January 2028. This is projected; it does not establish issue of an OC or permission to occupy.
+- E65:F65: roof covering, 3–10 December 2026. The task moved from row 66 in the previous version; references now follow its label.
+- E66:F66: first-floor external brick skin, 11 December 2026–22 January 2027. Its Christmas shutdown note belongs to this task.
+- E127:F127: Practical Completion, 1 October 2027.
+- E128:F128: updated OC checklist, 25 August 2027.
+- E129:F129: complete/submit OC requirements, 4–15 October 2027.
+- E130:F130: projected OC receipt, 29 October 2027. This does not establish an issued OC or permission to occupy.
 
 ## How the Wiki works
 
@@ -28,14 +28,20 @@ The bundled reviewed facts are available on opening the app. Lyra can collect pa
 
 A separate [planning snapshot](regulatory-references.json) contains 12 official reference entries, with review dates and linked-only status where legislation retrieval was blocked. See [planning coverage](../docs/planning-references.md). This supports selected Randwick / NSW questions and does not establish parcel eligibility.
 
-The downloadable whatsapp-demo.png is a de-identified recreation of the reviewed transcript, without the original faces, drawing numbers or group-membership details. Uploading it offers the reviewed transcript for confirmation and prepares Roo coaching. Arbitrary screenshots still need confirmed text.
+The downloadable whatsapp-demo.png is a de-identified recreation of the reviewed transcript, without the original faces, drawing numbers or group-membership details. Uploading it offers the reviewed transcript for confirmation into the session Wiki. Employee coaching is available through Roo. Arbitrary screenshots still need confirmed text.
 
 No external Wiki, WhatsApp, Google Drive or Notion is connected. No live LLM, arbitrary screenshot OCR, legal/compliance verification, booking, sending or posting occurs. Reload or New session clears imported messages, attachments and edits. Full PDF ingestion and general semantic search are not implemented.
 
 ## Client communication facts
 
-Projected roof-covering completion is 22 January 2027. The practical-completion date is absent. OC receipt is projected for 18 January 2028, subject to actual certification and required approvals. Use the client schedule extract for these planning facts; do not promise completion or move-in.
+The revised schedule projects roof covering for 10 December 2026, Practical Completion for 1 October 2027, and OC receipt for 29 October 2027. These are planning targets. The client schedule reference and XLSX share the revised row IDs and dates.
 
 ## Public story context
 
 A story may describe careful drawing review and coordination at Coastal Duplex. The site manager reviews it before external use. Do not assert a new completed milestone or include dates, names, measurements, exact site identifiers or claim details.
+
+## Review and retrieval behaviour
+
+Bower splits supported compound questions, looks up named schedule activities and can rank relevant reviewed excerpts. This remains local rule-based retrieval, not a live language model. Questions without a confirmed answer create a session review item for Digger. A reviewed response returns to the originating role in the same browser; no external notification is sent. Reload or New session clears the queue. Role views are a demonstration, not authentication.
+
+Kooka uses the uploaded photo in a 3:4 post preview and can download a 1080 × 1440 PNG. The caption is separate. No Instagram posting occurs. The BuildCo consultation page is fictional and collects no personal information.

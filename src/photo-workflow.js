@@ -1,9 +1,9 @@
-import {buildSamplePack, answerSampleQuestion} from './sample-project.js?v=weather-demo-1';
+import {buildSamplePack, answerSampleQuestion} from './sample-project.js?v=feedback-1';
 // Focused scenario adapter. The existing general message engine stays intact.
 // Generic fixtures remain available. An explicitly loaded reviewed sample pack uses source-backed checks.
 // No vision/LLM API calls or external dispatch are used.
-import { CONTEXT } from './demo-config.js?v=weather-demo-1';
-export { CONTEXT } from './demo-config.js?v=weather-demo-1';
+import { CONTEXT } from './demo-config.js?v=feedback-1';
+export { CONTEXT } from './demo-config.js?v=feedback-1';
 
 export const SOURCES = [
   { id: 'photo', title: 'Photo input', file: 'Session attachment', evidence: 'The uploaded photo is an input to this fixed framing scenario. No image recognition, measurement or compliance verification is performed.' },
@@ -60,23 +60,24 @@ export function buildPhotoPack({ note = '', photoName = '', briefName = '', brie
   return { drafts, steps, photoName, briefName, sourceNote: note, approved: false };
 }
 
-export function coachEmployee({question = '', pack} = {}) {
-  const answer = askBower({question, audience:'admin', pack});
+export function coachEmployee({question = '', pack, history=[]} = {}) {
+  const answer = askBower({question, audience:'admin', pack,history});
   const needsReview = /\b(?:unsafe|danger\w*|change\w*|remove|cut|crack\w*|bypass|conflict\w*|unsure)\b|安全|修改|裂|批准|不确定/i.test(question) || /(?:Digger.*review|review.*Digger)|\b(?:can|may|could|should)\s+(?:i|we)\s+(?:approve|proceed|go ahead)\b/i.test(question);
   if (needsReview) return {
     ...answer,
-    text:'This needs Digger’s review. I’ve flagged your question in the Site Manager conversation. Check the current issued instructions and wait for the appropriate confirmation before acting on the proposed change. No work or change has been approved.',
+    text:answer.text+'\n\nThis needs Digger’s review before acting on the proposed change. No work or change has been approved.',
     citations:[...new Set([...answer.citations,'coaching'])],
     needsReview:true,
     steps:[...answer.steps,{agent:'curator',to:'router',itemId:answer.steps[0].itemId}],
   };
   if (!pack) return {...answer,text:'I’m Roo, your Employee Coach. Share the latest site update so I can explain the next steps using the available references. If a question needs a decision, I’ll flag it for Digger.',needsReview:false};
+  if(answer.needsReview)return {...answer,needsReview:true};
   if (!answer.citations.length) return {...answer,text:'I don’t have a supported procedure for that question in this demo. Try asking me how to prepare for an inspection, check drawing references or work through the next actions.',needsReview:false};
   return {...answer,needsReview:false,citations:[...new Set([...answer.citations,'coaching'])],text:`Here’s how to work through it:\n\n1. Check the current issued instructions and the references below.\n2. ${answer.text}\n3. Record your checks and open questions. If instructions conflict or a decision is needed, ask Digger to review before proceeding.`};
 }
 
 // Small, audience-scoped Wiki lookup for the demo, not a live model or connector.
-export function askBower({ question = '', audience = 'workspace', pack } = {}) {
+export function askBower({ question = '', audience = 'workspace', pack, history=[] } = {}) {
   if (!['workspace', 'admin', 'client', 'social'].includes(audience)) throw new Error('Unknown Bower audience.');
   const actor = {workspace:'router',admin:'teamwork',client:'commercial',social:'content'}[audience];
   const itemId = `QUESTION-${audience}-${question}`;
@@ -86,7 +87,7 @@ export function askBower({ question = '', audience = 'workspace', pack } = {}) {
   ].map(s=>({...s,itemId}));
   const result = (text, citations=[]) => ({text,citations,steps});
   if (!pack) return result('Share the latest site photo first. I’ll use the demo Wiki to find references and prepare the team’s tasks and reminder drafts for your review.');
-  if (pack.sampleProject) return {...answerSampleQuestion({question,audience,pack}),steps};
+  if (pack.sampleProject) return {...answerSampleQuestion({question,audience,pack,history}),steps};
   const internal = audience === 'workspace' || audience === 'admin';
   if (!internal && /price|margin|markup|supplier|profit|internal|quote|cost|lender|bank|contract/i.test(question)) {
     return result(audience === 'client' ? 'I can help with your progress and next steps. For pricing or contract questions, I’ll refer you to your project contact.' : 'I don’t have a public-approved reference for that request. Please ask the site manager to review it.');

@@ -16,10 +16,10 @@ The public website has five separate pages: [Mission](landing/index.html), [The 
 
 1. Choose New session. Drop the supplied site photo, or open Wiki and choose Use supplied site photo.
 2. Review the Roo, Tally and Kooka drafts and open their references.
-3. As Tally, ask “When will roof covering finish?”, “When will the entire project finish?” and “When will I receive my OC to move in?” Dates are projections from the supplied mock-up schedule. An undated milestone remains unknown.
+3. As Tally, ask “When will roof covering finish?”, “When will the entire project finish?” and “When will I receive my OC to move in?” Dates are projections from the supplied mock-up schedule. The revised workbook supplied on 17 November 2026 includes Practical Completion on 1 October 2027 and projected OC receipt on 29 October 2027; roof covering is 10 December 2026 (source row 65).
 4. As Roo, ask “Do I need a certificate for roof covering?” or “When should I arrange an inspection after the roof?” References identify the relevant checklist items and the limits of the inspection information. Proposed changes are flagged for Digger.
 5. Download the illustrative WhatsApp image from the Prototype guide, or in Digger, choose Add a WhatsApp message. Paste text, upload .txt/.md or select the supplied screenshot. Review the transcript, then Collect into Wiki. Ask “What did Mark say in the WhatsApp message?” The new message is cited as an unverified local source. Employee coaching is demonstrated separately in Roo’s junior-employee workflow, where questions retrieve the checklist, certificate and drawing references.
-6. Review, edit, Approve updates and Download updates. Nothing is sent, scheduled or posted.
+6. Review, edit, Approve updates and Download updates. Nothing is sent, scheduled or posted. Kooka’s 3:4 photo post can be downloaded as a 1080 × 1440 PNG. Questions needing confirmation enter Digger’s review queue, and a reviewed reply returns to the originating conversation in the same session.
 
 The supplied screenshot is recognised by its hash and uses a reviewed transcript. Other screenshots need manually pasted text. Photos are attachments without image analysis. Imported messages do not override schedule dates, issued drawings or client facts. Browser-session state clears on reload or New session; the bundled one-project Wiki remains available. Full original PDF packs still contain identifying material and are not published or fully searchable. All static downloads are public; role views are not production authentication.
 
