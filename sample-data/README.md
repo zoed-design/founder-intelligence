@@ -9,7 +9,7 @@ Project alias: **18 Maroubra Street, Maroubra, Sydney**. Seven selected founder-
 | Modified structural plan, 10 pages | S01 timber notes T1–T7 and general notes G1–G3, original page 1, in the structural extract PDF. Raster title blocks still contain contacts; the full pack is not published or fully searchable. |
 | OC document checklist | Supplied one-page checklist and all 36 numbered entries. Item 21 requests a Metal sheet (Colorbond) roofing certificate; item 2 requests structural engineer’s inspection reports. Applicability, currency and sufficiency are not verified. |
 | Framing upper floor and roof photo | site-photo.jpg; JPEG metadata removed without changing compressed image pixels. No measurements, readiness or completed milestone inferred from the image. |
-| Site manager to admin WhatsApp screenshot | Reviewed transcript using Mark and Kira. The original image still has a face and a legacy drawing number; it is not published. Uploading that exact supplied screenshot recognises its hash and offers the reviewed transcript, not live OCR. |
+| Site manager to admin WhatsApp screenshot | Reviewed transcript using Mark and Kira. The published WhatsApp example replaces the personal avatar with a generic Build App logo; its message text and drawing/markup pixels are otherwise preserved. Uploading that exact supplied screenshot recognises its hash and offers the reviewed transcript, not live OCR. |
 | Roof takeoff markup | roof-markup.png; supplied annotation “3.5m height too but minus windows” retained. It is a reported note, not an approved quantity or change. |
 
 ## Key schedule locators · revised 17 November 2026
@@ -28,7 +28,7 @@ The bundled reviewed facts are available on opening the app. Lyra can collect pa
 
 A separate [planning snapshot](regulatory-references.json) contains 12 official reference entries, with review dates and linked-only status where legislation retrieval was blocked. See [planning coverage](../docs/planning-references.md). This supports selected Randwick / NSW questions and does not establish parcel eligibility.
 
-The downloadable whatsapp-demo.png is a de-identified recreation of the reviewed transcript, without the original faces, drawing numbers or group-membership details. Uploading it offers the reviewed transcript for confirmation into the session Wiki. Employee coaching is available through Roo. Arbitrary screenshots still need confirmed text.
+The downloadable whatsapp-demo.png is the supplied chat-and-markup screenshot with the personal avatar replaced. Matching that exact image offers the reviewed transcript, not OCR. A takeoff knowledge / SOP draft links the message to the supplied drawing references for employee training, estimating and quantity-order preparation; Digger reviews it before use. Uploading it offers the reviewed transcript for confirmation into the session Wiki. Employee coaching is available through Roo. Arbitrary screenshots still need confirmed text.
 
 No external Wiki, WhatsApp, Google Drive or Notion is connected. No live LLM, arbitrary screenshot OCR, legal/compliance verification, booking, sending or posting occurs. Reload or New session clears imported messages, attachments and edits. Full PDF ingestion and general semantic search are not implemented.
 

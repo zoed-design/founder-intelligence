@@ -88,4 +88,6 @@ The public presentation uses fictional project aliases. Only the reviewed extrac
 
 ## Future product roadmap
 
+The [product roadmap](landing/prototype.html#product-roadmap) restores the four original capability areas from the 16 November 2026 landing page, with current-state descriptions updated and the requested future live-weather capability added.
+
 A future product should connect to a live weather forecast service and use verified forecast data alongside the project programme to support timely site coordination and client communication. This capability is not implemented in the current prototype. See [the live-weather requirement](docs/live-weather-roadmap.md).

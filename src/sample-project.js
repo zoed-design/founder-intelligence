@@ -1,5 +1,6 @@
-import {findWikiMessage,wikiMessageSources} from './session-wiki.js?v=no-weather-1';
-import {answerPlanningQuestion} from './planning-knowledge.js?v=no-weather-1';
+import {takeoffKnowledge} from './takeoff-knowledge.js?v=knowledge-1';
+import {findWikiMessage,wikiMessageSources} from './session-wiki.js?v=knowledge-1';
+import {answerPlanningQuestion} from './planning-knowledge.js?v=knowledge-1';
 const FILE=/^sample-data\/[a-z0-9._-]+(?:#page=\d+)?$/i;
 const day=s=>s?new Date(s+'T00:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}):'not recorded';
 const round=n=>Math.round(n*1000)/1000;
@@ -55,6 +56,7 @@ function answerSingleQuestion({question='',audience='workspace',pack}={}){
   if(when)return retrieveRelevant(question,audience,pack);
   return retrieveRelevant(question,audience,pack);
  }
+ const knowledge=pack.wikiEntries?.map(e=>takeoffKnowledge(e,p)).filter(Boolean).at(-1);if(knowledge&&/takeoff|SOP|estimat|quantit|ordering|useful knowledge/i.test(q))return {text:knowledge.body,citations:knowledge.citations,needsReview:true,reviewReason:'Takeoff SOP draft needs Digger review before estimating or ordering use.'};
  if(/whatsapp|message|chat|what did (?:mark|kira)|latest (?:note|update)/i.test(q)){
   const entry=/latest|most recent|last message/i.test(q)?pack.wikiEntries?.at(-1):(findWikiMessage(q,pack.wikiEntries)||pack.wikiEntries?.at(-1));
   if(entry)return result(`Lyra collected this message into the ${p.title} Wiki, tagged ${entry.tags.join(', ')}:\n\n${entry.text}\n\nUser-supplied and unverified. It does not replace the issued drawings, projected schedule or certifier’s decision.`,[entry.id]);
